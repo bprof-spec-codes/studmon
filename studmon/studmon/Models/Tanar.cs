@@ -6,7 +6,7 @@
 
         public string nev { get; set; }
 
-        public virtual ICollection<Ora> orakColl { get; set; }
+        public virtual ICollection<Ora> orakColl { get; set; } //hozzá tartozó órák
 
         public Tanar(string neptunKod, string nev)
         {

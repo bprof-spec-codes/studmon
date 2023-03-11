@@ -19,7 +19,7 @@
 
         public virtual ICollection<Hallgato> hallgatokColl { get; set; }
 
-        public string[,] ulesRend  { get; set; }
+        public string[,] ulesRend  { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva
 
         public Ora(string nev, string leiras, Terem terem, Tanar tanar, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string[,] ulesRend)
         {

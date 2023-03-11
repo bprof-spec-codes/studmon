@@ -2,9 +2,9 @@
 {
     public class Teljesitmeny
     {
-        public Ora ora { get; set; }
+        public Ora ora { get; set; } //melyik órához tartozó értékelések
 
-        public int[] ertekelesek { get; set; }
+        public int[] ertekelesek { get; set; } //1 diákhoz tartozó értékelések
 
         public Teljesitmeny(Ora ora)
         {

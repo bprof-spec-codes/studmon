@@ -10,7 +10,7 @@
 
         public string kepzesNev { get; set; } //pl.: Bprof, Bsc
 
-        public List<Teljesitmeny> teljesitmeny { get; set; }
+        public List<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
 
         public Hallgato(string neptunKod, string nev, string kar, string kepzesNev)
         {
