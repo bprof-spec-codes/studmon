@@ -1,8 +1,11 @@
-﻿namespace studmon.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace studmon.Models
 {
     public class Ora
     {
-
+        [Key]
         public string Id { get; set; }
         public string nev { get; set; }
         public string leiras { get; set; }
@@ -17,11 +20,20 @@
 
         public DateTime oraVeg { get; set; }
 
+        [NotMapped]
         public virtual ICollection<Hallgato> hallgatokColl { get; set; }
 
-        public string[,] ulesRend  { get; set; }
+        //[NotMapped]
+        //public string[,] ulesRend  { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva
 
-        public Ora(string nev, string leiras, Terem terem, Tanar tanar, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string[,] ulesRend)
+        public string ulesRend { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva szóközzel elválasztva, új sor ","
+
+        public Ora()
+        {
+            
+        }
+
+        public Ora(string nev, string leiras, Terem terem, Tanar tanar, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string ulesRend)
         {
             this.Id = Guid.NewGuid().ToString();
             this.nev = nev;
