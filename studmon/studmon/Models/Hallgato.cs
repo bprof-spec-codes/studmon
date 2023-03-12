@@ -1,7 +1,11 @@
-﻿namespace studmon.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace studmon.Models
 {
     public class Hallgato
     {
+        [Key]
         public string neptunKod { get; set; }
 
         public string nev { get; set; }
@@ -10,6 +14,7 @@
 
         public string kepzesNev { get; set; } //pl.: Bprof, Bsc
 
+        [NotMapped]
         public List<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
 
         public Hallgato(string neptunKod, string nev, string kar, string kepzesNev)

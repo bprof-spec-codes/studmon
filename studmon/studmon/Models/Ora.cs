@@ -1,4 +1,6 @@
-﻿namespace studmon.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace studmon.Models
 {
     public class Ora
     {
@@ -17,9 +19,16 @@
 
         public DateTime oraVeg { get; set; }
 
+        [NotMapped]
         public virtual ICollection<Hallgato> hallgatokColl { get; set; }
 
+        [NotMapped]
         public string[,] ulesRend  { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva
+
+        public Ora()
+        {
+            
+        }
 
         public Ora(string nev, string leiras, Terem terem, Tanar tanar, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string[,] ulesRend)
         {
