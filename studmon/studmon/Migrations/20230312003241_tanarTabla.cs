@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace studmon.Data.Migrations
+namespace studmon.Migrations
 {
     public partial class tanarTabla : Migration
     {
@@ -175,9 +175,9 @@ namespace studmon.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "neptunKod", "nev" },
                 values: new object[,]
                 {
-                    { "03df641c-5558-4ed7-872b-7322accd264b", 0, "71e0d7c1-cba9-467b-a2c7-7c03fccb8341", null, false, false, null, null, null, null, null, false, "49ed27e8-53da-491a-a8b5-63dc70c7d0ed", false, null, "X5KCQ8", "Horváth Károly" },
-                    { "0869917b-9b05-4db0-9bb2-fbaa2c6381ca", 0, "66c383d1-f61c-49d8-b4df-d5bf96d86781", null, false, false, null, null, null, null, null, false, "358eb54a-6d44-4f48-81cc-5687eab396ea", false, null, "31WG6F", "Balogh Attila" },
-                    { "2950649f-088b-44d2-8487-b4858c97b2ca", 0, "a6f2cf1c-9afa-4815-be0b-ec1809b52986", null, false, false, null, null, null, null, null, false, "f3748faf-d564-4166-ae6a-ad13e8090391", false, null, "11E5FL", "Tóth Angéla" }
+                    { "35559f94-6753-4b3d-8bc2-f6aeda3bf601", 0, "44ba62c1-7e95-41c6-be6c-69490a7d1209", null, false, false, null, null, null, null, null, false, "8c1e8eb9-da23-445b-969b-610b1aad70be", false, null, "U6GOTR", "Tóth Angéla" },
+                    { "63926e14-6221-4c6c-b350-04e03b7b845c", 0, "759f5751-ead7-4735-8103-0c1ced6fc093", null, false, false, null, null, null, null, null, false, "3496c21e-6806-47da-ad7b-683d10012f63", false, null, "4FW428", "Balogh Attila" },
+                    { "6af31c0f-ab18-4975-9359-d304998e42b4", 0, "116362af-8cf1-4584-acd3-91923d170bea", null, false, false, null, null, null, null, null, false, "3f1188fb-759c-4c13-8b00-3e5a3447e467", false, null, "2SPY2G", "Horváth Károly" }
                 });
 
             migrationBuilder.InsertData(
@@ -185,9 +185,9 @@ namespace studmon.Data.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "6R784Y", "NIK", "Bsc", "Nyári Dalma" },
-                    { "AOXY7Q", "NIK", "Bprof", "Huba Árpád" },
-                    { "O5T3I1", "NIK", "Bsc", "Török Levente" }
+                    { "83WNV4", "NIK", "Bsc", "Török Levente" },
+                    { "A5ERO5", "NIK", "Bsc", "Nyári Dalma" },
+                    { "SD0LBD", "NIK", "Bprof", "Huba Árpád" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -8,7 +8,7 @@ using studmon.Data;
 
 #nullable disable
 
-namespace studmon.Data.Migrations
+namespace studmon.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -183,21 +183,21 @@ namespace studmon.Data.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "AOXY7Q",
+                            neptunKod = "SD0LBD",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "O5T3I1",
+                            neptunKod = "83WNV4",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "6R784Y",
+                            neptunKod = "A5ERO5",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -278,41 +278,41 @@ namespace studmon.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2950649f-088b-44d2-8487-b4858c97b2ca",
+                            Id = "35559f94-6753-4b3d-8bc2-f6aeda3bf601",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a6f2cf1c-9afa-4815-be0b-ec1809b52986",
+                            ConcurrencyStamp = "44ba62c1-7e95-41c6-be6c-69490a7d1209",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f3748faf-d564-4166-ae6a-ad13e8090391",
+                            SecurityStamp = "8c1e8eb9-da23-445b-969b-610b1aad70be",
                             TwoFactorEnabled = false,
-                            neptunKod = "11E5FL",
+                            neptunKod = "U6GOTR",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "0869917b-9b05-4db0-9bb2-fbaa2c6381ca",
+                            Id = "63926e14-6221-4c6c-b350-04e03b7b845c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "66c383d1-f61c-49d8-b4df-d5bf96d86781",
+                            ConcurrencyStamp = "759f5751-ead7-4735-8103-0c1ced6fc093",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "358eb54a-6d44-4f48-81cc-5687eab396ea",
+                            SecurityStamp = "3496c21e-6806-47da-ad7b-683d10012f63",
                             TwoFactorEnabled = false,
-                            neptunKod = "31WG6F",
+                            neptunKod = "4FW428",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "03df641c-5558-4ed7-872b-7322accd264b",
+                            Id = "6af31c0f-ab18-4975-9359-d304998e42b4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "71e0d7c1-cba9-467b-a2c7-7c03fccb8341",
+                            ConcurrencyStamp = "116362af-8cf1-4584-acd3-91923d170bea",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49ed27e8-53da-491a-a8b5-63dc70c7d0ed",
+                            SecurityStamp = "3f1188fb-759c-4c13-8b00-3e5a3447e467",
                             TwoFactorEnabled = false,
-                            neptunKod = "X5KCQ8",
+                            neptunKod = "2SPY2G",
                             nev = "Horváth Károly"
                         });
                 });

@@ -43,7 +43,6 @@ namespace studmon.Data
         private string NeptunKodGenerator()
         {
             string neptunkod = "";
-            //|| (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod))
             while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
             {
                 neptunkod = "";
