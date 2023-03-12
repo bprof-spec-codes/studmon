@@ -22,11 +22,6 @@ namespace studmon.Models
 
         }
 
-        //public Tanar(ApplicationDbContext dbContext)
-        //{
-        //    //this.neptunKod = dbContext.NeptunKodGenerator(dbContext.tanarTabla.ToList(), dbContext.hallgatoTabla.ToList());
-        //}
-
         public Tanar(string neptunKod, string nev)
         {
             this.neptunKod = neptunKod;
@@ -40,7 +35,9 @@ namespace studmon.Models
             this.NormalizedUserName = NormalizedEmail;
         }
 
-        private string EkezetEltavolitas(string szoveg)
+
+
+        private string EkezetEltavolitas(string szoveg) // Ékezet eltávolítása a megadott szövegből
         {
             string stFormD = szoveg.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
