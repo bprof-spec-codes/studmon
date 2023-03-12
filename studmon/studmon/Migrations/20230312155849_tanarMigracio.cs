@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmon.Migrations
 {
-    public partial class tanarTabla : Migration
+    public partial class tanarMigracio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,6 +62,18 @@ namespace studmon.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_hallgatoTabla", x => x.neptunKod);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "teremTabla",
+                columns: table => new
+                {
+                    nev = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    elrendezes = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_teremTabla", x => x.nev);
                 });
 
             migrationBuilder.CreateTable(
@@ -170,14 +182,44 @@ namespace studmon.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "oraTabla",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nev = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    leiras = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    teremnev = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    tanarId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    alkalmakSzama = table.Column<int>(type: "int", nullable: false),
+                    oraKezdet = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    oraVeg = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ulesRend = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_oraTabla", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_oraTabla_AspNetUsers_tanarId",
+                        column: x => x.tanarId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_oraTabla_teremTabla_teremnev",
+                        column: x => x.teremnev,
+                        principalTable: "teremTabla",
+                        principalColumn: "nev",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "neptunKod", "nev" },
                 values: new object[,]
                 {
-                    { "35559f94-6753-4b3d-8bc2-f6aeda3bf601", 0, "44ba62c1-7e95-41c6-be6c-69490a7d1209", null, false, false, null, null, null, null, null, false, "8c1e8eb9-da23-445b-969b-610b1aad70be", false, null, "U6GOTR", "Tóth Angéla" },
-                    { "63926e14-6221-4c6c-b350-04e03b7b845c", 0, "759f5751-ead7-4735-8103-0c1ced6fc093", null, false, false, null, null, null, null, null, false, "3496c21e-6806-47da-ad7b-683d10012f63", false, null, "4FW428", "Balogh Attila" },
-                    { "6af31c0f-ab18-4975-9359-d304998e42b4", 0, "116362af-8cf1-4584-acd3-91923d170bea", null, false, false, null, null, null, null, null, false, "3f1188fb-759c-4c13-8b00-3e5a3447e467", false, null, "2SPY2G", "Horváth Károly" }
+                    { "aac71cdc-cad5-44fb-a89e-1b0270c16875", 0, "9971789d-9cda-4939-80c0-cb6262bbfb37", "Horváth.Károly@gmail.com", false, false, null, "HORVÁTH.KÁROLY@GMAIL.COM", "HORVÁTH.KÁROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEIMjDPM4kHC2liaqOByCikYEPZGIY6qEvREfnSMVoh5t+VAFsCLFfVZYOZmsX393Mg==", null, false, "1d7a2e4e-eda8-4bec-883b-f93b07ca8a07", false, "Horváth.Károly@gmail.com", "FG5242", "Horváth Károly" },
+                    { "b7afc1ff-f81b-4d6e-a3f4-656bf36327ce", 0, "3fb77c02-865a-42cd-bbb6-a1db6925eb42", "Balogh.Attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEAiBMWGQU1Z5P4xFAbP+8uxaMeWgg5ixh+cbhZgiPBKy/0KgKOk0J8RTWWtR0L95Jw==", null, false, "5e443912-5ecc-4f34-9a67-f63b927e0cac", false, "Balogh.Attila@gmail.com", "01SH3Q", "Balogh Attila" },
+                    { "e20dfd3f-ca24-49de-a869-d17be44eb822", 0, "c5c9f0ab-eb83-40b8-ae77-94963f34b0a2", "Tóth.Angéla@gmail.com", false, false, null, "TÓTH.ANGÉLA@GMAIL.COM", "TÓTH.ANGÉLA@GMAIL.COM", "AQAAAAEAACcQAAAAENFbCukCAb85nk4fBpHVMBarZkhlGBZuxcnGihMNWdey0ZpGXvw9GIJxHaYeLCK+bQ==", null, false, "a2798455-ad53-46c4-ae6e-d369cb087b00", false, "Tóth.Angéla@gmail.com", "FH58B0", "Tóth Angéla" }
                 });
 
             migrationBuilder.InsertData(
@@ -185,9 +227,9 @@ namespace studmon.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "83WNV4", "NIK", "Bsc", "Török Levente" },
-                    { "A5ERO5", "NIK", "Bsc", "Nyári Dalma" },
-                    { "SD0LBD", "NIK", "Bprof", "Huba Árpád" }
+                    { "135XX5", "NIK", "Bprof", "Huba Árpád" },
+                    { "D7A6JH", "NIK", "Bsc", "Nyári Dalma" },
+                    { "L01P56", "NIK", "Bsc", "Török Levente" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -228,6 +270,16 @@ namespace studmon.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_oraTabla_tanarId",
+                table: "oraTabla",
+                column: "tanarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_oraTabla_teremnev",
+                table: "oraTabla",
+                column: "teremnev");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -251,10 +303,16 @@ namespace studmon.Migrations
                 name: "hallgatoTabla");
 
             migrationBuilder.DropTable(
+                name: "oraTabla");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "teremTabla");
         }
     }
 }

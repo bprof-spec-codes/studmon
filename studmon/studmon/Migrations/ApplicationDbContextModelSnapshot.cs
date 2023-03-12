@@ -183,25 +183,67 @@ namespace studmon.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "SD0LBD",
+                            neptunKod = "135XX5",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "83WNV4",
+                            neptunKod = "L01P56",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "A5ERO5",
+                            neptunKod = "D7A6JH",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
                         });
+                });
+
+            modelBuilder.Entity("studmon.Models.Ora", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("alkalmakSzama")
+                        .HasColumnType("int");
+
+                    b.Property<string>("leiras")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nev")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("oraKezdet")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("oraVeg")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("tanarId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("teremnev")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ulesRend")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("tanarId");
+
+                    b.HasIndex("teremnev");
+
+                    b.ToTable("oraTabla");
                 });
 
             modelBuilder.Entity("studmon.Models.Tanar", b =>
@@ -278,43 +320,72 @@ namespace studmon.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "35559f94-6753-4b3d-8bc2-f6aeda3bf601",
+                            Id = "e20dfd3f-ca24-49de-a869-d17be44eb822",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "44ba62c1-7e95-41c6-be6c-69490a7d1209",
+                            ConcurrencyStamp = "c5c9f0ab-eb83-40b8-ae77-94963f34b0a2",
+                            Email = "Tóth.Angéla@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "TÓTH.ANGÉLA@GMAIL.COM",
+                            NormalizedUserName = "TÓTH.ANGÉLA@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAENFbCukCAb85nk4fBpHVMBarZkhlGBZuxcnGihMNWdey0ZpGXvw9GIJxHaYeLCK+bQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8c1e8eb9-da23-445b-969b-610b1aad70be",
+                            SecurityStamp = "a2798455-ad53-46c4-ae6e-d369cb087b00",
                             TwoFactorEnabled = false,
-                            neptunKod = "U6GOTR",
+                            UserName = "Tóth.Angéla@gmail.com",
+                            neptunKod = "FH58B0",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "63926e14-6221-4c6c-b350-04e03b7b845c",
+                            Id = "b7afc1ff-f81b-4d6e-a3f4-656bf36327ce",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "759f5751-ead7-4735-8103-0c1ced6fc093",
+                            ConcurrencyStamp = "3fb77c02-865a-42cd-bbb6-a1db6925eb42",
+                            Email = "Balogh.Attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
+                            NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAiBMWGQU1Z5P4xFAbP+8uxaMeWgg5ixh+cbhZgiPBKy/0KgKOk0J8RTWWtR0L95Jw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3496c21e-6806-47da-ad7b-683d10012f63",
+                            SecurityStamp = "5e443912-5ecc-4f34-9a67-f63b927e0cac",
                             TwoFactorEnabled = false,
-                            neptunKod = "4FW428",
+                            UserName = "Balogh.Attila@gmail.com",
+                            neptunKod = "01SH3Q",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "6af31c0f-ab18-4975-9359-d304998e42b4",
+                            Id = "aac71cdc-cad5-44fb-a89e-1b0270c16875",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "116362af-8cf1-4584-acd3-91923d170bea",
+                            ConcurrencyStamp = "9971789d-9cda-4939-80c0-cb6262bbfb37",
+                            Email = "Horváth.Károly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "HORVÁTH.KÁROLY@GMAIL.COM",
+                            NormalizedUserName = "HORVÁTH.KÁROLY@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIMjDPM4kHC2liaqOByCikYEPZGIY6qEvREfnSMVoh5t+VAFsCLFfVZYOZmsX393Mg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3f1188fb-759c-4c13-8b00-3e5a3447e467",
+                            SecurityStamp = "1d7a2e4e-eda8-4bec-883b-f93b07ca8a07",
                             TwoFactorEnabled = false,
-                            neptunKod = "2SPY2G",
+                            UserName = "Horváth.Károly@gmail.com",
+                            neptunKod = "FG5242",
                             nev = "Horváth Károly"
                         });
+                });
+
+            modelBuilder.Entity("studmon.Models.Terem", b =>
+                {
+                    b.Property<string>("nev")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("elrendezes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("nev");
+
+                    b.ToTable("teremTabla");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -366,6 +437,23 @@ namespace studmon.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("studmon.Models.Ora", b =>
+                {
+                    b.HasOne("studmon.Models.Tanar", "tanar")
+                        .WithMany()
+                        .HasForeignKey("tanarId");
+
+                    b.HasOne("studmon.Models.Terem", "terem")
+                        .WithMany()
+                        .HasForeignKey("teremnev")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("tanar");
+
+                    b.Navigation("terem");
                 });
 #pragma warning restore 612, 618
         }

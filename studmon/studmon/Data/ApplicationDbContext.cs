@@ -9,6 +9,8 @@ namespace studmon.Data
         private static Random rnd = new Random(); //Random neptunkód generáló
         public DbSet<Tanar> tanarTabla { get; set; }
         public DbSet<Hallgato> hallgatoTabla { get; set; }
+        public DbSet<Terem> teremTabla { get; set; }
+        public DbSet<Ora> oraTabla { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
@@ -39,8 +41,7 @@ namespace studmon.Data
 
             base.OnModelCreating(builder);
         }
-
-        private string NeptunKodGenerator()
+        public string NeptunKodGenerator()
         {
             string neptunkod = "";
             while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
@@ -61,5 +62,28 @@ namespace studmon.Data
 
             return neptunkod.ToUpper();
         }
+
+        public string NeptunKodGenerator(List<Tanar> tanarLista, List<Hallgato> hallgatoLista)
+        {
+            string neptunkod = "";
+            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
+            {
+                neptunkod = "";
+                for (int i = 0; i < 6; i++)
+                {
+                    if (rnd.NextDouble() < 0.5)
+                    {
+                        neptunkod += (char)rnd.Next('0', '9');
+                    }
+                    else
+                    {
+                        neptunkod += (char)rnd.Next('A', 'Z');
+                    }
+                }
+            }
+
+            return neptunkod.ToUpper();
+        }
+
     }
 }

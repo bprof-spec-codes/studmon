@@ -71,6 +71,12 @@ namespace studmon.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         {
+
+            [Required]
+            [StringLength(100)]
+            [Display(Name = "Nev")]
+            public string Nev { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -114,6 +120,7 @@ namespace studmon.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.nev = Input.Nev;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
