@@ -14,6 +14,11 @@ namespace studmonBackend.Data
 
         }
 
+        public DbSet<Hallgato> Hallgatok { get; set; }
+        public DbSet<Ora> Orak { get; set; }
+        public DbSet<Terem> Termek { get; set; }
+        public DbSet<Tanar> Tanarok { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

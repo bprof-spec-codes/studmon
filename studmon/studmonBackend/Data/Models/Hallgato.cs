@@ -14,6 +14,8 @@ namespace studmon.Models
 
         public string kepzesNev { get; set; } //pl.: Bprof, Bsc
 
+        public virtual ICollection<Ora> orak { get; set; }
+
         [NotMapped]
         public List<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
 
@@ -24,6 +26,7 @@ namespace studmon.Models
             this.kar = kar;
             this.kepzesNev = kepzesNev;
             this.teljesitmeny = new List<Teljesitmeny>();
+            this.orak = new HashSet<Ora>();
         }
     }
 }

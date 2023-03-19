@@ -10,9 +10,17 @@ namespace studmon.Models
         public string nev { get; set; }
         public string leiras { get; set; }
 
+
+        
         public Terem terem { get; set; }
 
-        public Tanar tanar { get; set; }
+        [ForeignKey(nameof(Terem.nev))]
+        public string teremID { get; set; }
+
+        public virtual Tanar tanar { get; set; }
+
+        [ForeignKey(nameof(Tanar.nev))]
+        public string tanarID { get; set; }
 
         public int alkalmakSzama { get; set; }
 
@@ -21,7 +29,7 @@ namespace studmon.Models
         public DateTime oraVeg { get; set; }
 
         
-        public List<Hallgato> hallgatokColl { get; set; }
+        public virtual ICollection<Hallgato> hallgatokColl { get; set; }
 
         //[NotMapped]
         //public string[,] ulesRend  { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva
@@ -39,11 +47,13 @@ namespace studmon.Models
             this.nev = nev;
             this.leiras = leiras;
             this.terem = terem;
+            this.teremID = terem.nev;
             this.tanar = tanar;
+            this.tanarID = tanar.nev;
             this.alkalmakSzama = alkalmakSzama;
             this.oraKezdet = oraKezdet;
             this.oraVeg = oraVeg;
-            this.hallgatokColl = new List<Hallgato>();
+            this.hallgatokColl = new HashSet<Hallgato>();
             this.ulesRend = ulesRend;
         }
     }
