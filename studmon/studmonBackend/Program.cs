@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using studmon.Models;
-using studmonBackend.Data;
+using studmonBackend.Data.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

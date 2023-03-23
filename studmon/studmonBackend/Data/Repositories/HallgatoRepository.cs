@@ -1,4 +1,5 @@
 ﻿using studmon.Models;
+using studmonBackend.Data.DBContext;
 
 namespace studmonBackend.Data.Repositories
 {

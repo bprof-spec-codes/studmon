@@ -13,6 +13,8 @@ namespace studmon.Models
 
         public string elrendezes { get; set; } //1 ahol ülnek, 0 a folyosó és "," az új sor
 
+        public virtual ICollection<Ora> Orak { get; set; }
+
         public Terem()
         {
 
@@ -21,6 +23,7 @@ namespace studmon.Models
         public Terem(string nev, int szel, int hossz)
         {
             this.nev = nev;
+            this.Orak = new HashSet<Ora>();
             //this.elrendezes = new bool[szel,hossz];
             this.elrendezes = "";
         }

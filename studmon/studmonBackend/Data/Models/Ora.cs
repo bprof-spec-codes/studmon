@@ -12,10 +12,12 @@ namespace studmon.Models
 
 
         
-        public Terem terem { get; set; }
+        public virtual Terem terem { get; set; }
 
         [ForeignKey(nameof(Terem.nev))]
         public string teremID { get; set; }
+
+
 
         public virtual Tanar tanar { get; set; }
 
@@ -30,6 +32,9 @@ namespace studmon.Models
 
         
         public virtual ICollection<Hallgato> hallgatokColl { get; set; }
+        public virtual ICollection<Teljesitmeny> teljesitmenyColl { get; set; }
+
+
 
         //[NotMapped]
         //public string[,] ulesRend  { get; set; } //ugyan akkora mátrix mint a terem, NEPTUN kódok a megfelelő helyre beírva
@@ -41,19 +46,18 @@ namespace studmon.Models
             
         }
 
-        public Ora(string nev, string leiras, Terem terem, Tanar tanar, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string ulesRend)
+        public Ora(string nev, string leiras,string teremID, string tanarID, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string ulesRend)
         {
             this.Id = Guid.NewGuid().ToString();
             this.nev = nev;
             this.leiras = leiras;
-            this.terem = terem;
-            this.teremID = terem.nev;
-            this.tanar = tanar;
-            this.tanarID = tanar.nev;
+            this.teremID = teremID;
+            this.tanarID = tanarID;
             this.alkalmakSzama = alkalmakSzama;
             this.oraKezdet = oraKezdet;
             this.oraVeg = oraVeg;
             this.hallgatokColl = new HashSet<Hallgato>();
+            this.teljesitmenyColl = new HashSet<Teljesitmeny>();
             this.ulesRend = ulesRend;
         }
     }

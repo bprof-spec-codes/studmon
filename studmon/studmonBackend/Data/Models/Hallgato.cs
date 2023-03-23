@@ -16,8 +16,8 @@ namespace studmon.Models
 
         public virtual ICollection<Ora> orak { get; set; }
 
-        [NotMapped]
-        public List<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
+        
+        public virtual ICollection<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
 
         public Hallgato(string neptunKod, string nev, string kar, string kepzesNev)
         {
@@ -25,7 +25,7 @@ namespace studmon.Models
             this.nev = nev;
             this.kar = kar;
             this.kepzesNev = kepzesNev;
-            this.teljesitmeny = new List<Teljesitmeny>();
+            this.teljesitmeny = new HashSet<Teljesitmeny>();
             this.orak = new HashSet<Ora>();
         }
     }
