@@ -45,6 +45,8 @@ namespace studmonBackend.Data.DBContext
                 .WithOne(teljesitmeny => teljesitmeny.hallgato)
                 );
 
+
+
             builder.Entity<IdentityRole>().HasData(
             new { Id = "1", Name = "Admin", NormalizedName = "ADMIN" },
             new { Id = "2", Name = "Customer", NormalizedName = "CUSTOMER" }

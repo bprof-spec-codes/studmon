@@ -14,10 +14,10 @@ namespace studmon.Models
 
         public string kepzesNev { get; set; } //pl.: Bprof, Bsc
 
-        public virtual ICollection<Ora> orak { get; set; }
+        public virtual ICollection<Ora>? orak { get; set; }
 
         
-        public virtual ICollection<Teljesitmeny> teljesitmeny { get; set; } //Órai teljesítmények
+        public virtual ICollection<Teljesitmeny>? teljesitmeny { get; set; } //Órai teljesítmények
 
         public Hallgato(string neptunKod, string nev, string kar, string kepzesNev)
         {

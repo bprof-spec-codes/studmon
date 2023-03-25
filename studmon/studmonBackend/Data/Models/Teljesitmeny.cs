@@ -15,13 +15,13 @@ namespace studmon.Models
         [ForeignKey(nameof(Hallgato.neptunKod))]
         public string hallgatoNeptunKod { get; set; }
 
-        public virtual Hallgato hallgato { get; set; }
+        public virtual Hallgato? hallgato { get; set; }
 
         [Required]
         [ForeignKey(nameof(Ora.Id))]
         public string oraId { get; set; }
 
-        public virtual Ora ora { get; set; } //melyik órához tartozó értékelések
+        public virtual Ora? ora { get; set; } //melyik órához tartozó értékelések
 
         [NotMapped]
         public int[] ertekelesek { get; set; } //1 diákhoz tartozó értékelések

@@ -15,7 +15,7 @@ namespace studmon.Models
         public string nev { get; set; }
 
         [NotMapped]
-        public virtual ICollection<Ora> orakColl { get; set; } //hozzá tartozó órák
+        public virtual ICollection<Ora>? orakColl { get; set; } //hozzá tartozó órák
 
         public Tanar()
         {

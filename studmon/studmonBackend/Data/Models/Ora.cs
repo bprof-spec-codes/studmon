@@ -12,14 +12,14 @@ namespace studmon.Models
 
 
         
-        public virtual Terem terem { get; set; }
+        public virtual Terem? terem { get; set; }
 
         [ForeignKey(nameof(Terem.nev))]
         public string teremID { get; set; }
 
 
 
-        public virtual Tanar tanar { get; set; }
+        public virtual Tanar? tanar { get; set; }
 
         [ForeignKey(nameof(Tanar.nev))]
         public string tanarID { get; set; }
@@ -31,8 +31,8 @@ namespace studmon.Models
         public DateTime oraVeg { get; set; }
 
         
-        public virtual ICollection<Hallgato> hallgatokColl { get; set; }
-        public virtual ICollection<Teljesitmeny> teljesitmenyColl { get; set; }
+        public virtual ICollection<Hallgato>? hallgatokColl { get; set; }
+        public virtual ICollection<Teljesitmeny>? teljesitmenyColl { get; set; }
 
 
 
