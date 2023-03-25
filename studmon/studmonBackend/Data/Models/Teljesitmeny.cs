@@ -15,12 +15,14 @@ namespace studmonBackend.Data.Models
         [ForeignKey(nameof(Hallgato.neptunKod))]
         public string hallgatoNeptunKod { get; set; }
 
+        [NotMapped]
         public virtual Hallgato? hallgato { get; set; }
 
         [Required]
         [ForeignKey(nameof(Ora.Id))]
         public string oraId { get; set; }
 
+        [NotMapped]
         public virtual Ora? ora { get; set; } //melyik órához tartozó értékelések
 
         [NotMapped]

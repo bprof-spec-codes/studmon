@@ -13,6 +13,7 @@ namespace studmonBackend.Data.Models
 
         public string elrendezes { get; set; } //1 ahol ülnek, 0 a folyosó és "," az új sor
 
+        [NotMapped]
         public virtual ICollection<Ora>? Orak { get; set; }
 
         public Terem()

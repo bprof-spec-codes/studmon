@@ -12,14 +12,14 @@ namespace studmonBackend.Data.Models
         public string leiras { get; set; }
 
 
-        
+        [NotMapped]
         public virtual Terem? terem { get; set; }
 
         [ForeignKey(nameof(Terem.nev))]
         public string teremID { get; set; }
 
 
-
+        [NotMapped]
         public virtual Tanar? tanar { get; set; }
 
         [ForeignKey(nameof(Tanar.nev))]
@@ -31,8 +31,10 @@ namespace studmonBackend.Data.Models
 
         public DateTime oraVeg { get; set; }
 
-        
+        [NotMapped]
         public virtual ICollection<OraManyToHallgatoMany>? hallgatokColl { get; set; }
+
+        [NotMapped]
         public virtual ICollection<Teljesitmeny>? teljesitmenyColl { get; set; }
 
 

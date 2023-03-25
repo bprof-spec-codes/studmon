@@ -62,15 +62,15 @@ namespace studmonBackend.Data.DBContext
                 );
 
             builder.Entity<OraManyToHallgatoMany>()
-            .HasOne(oh => oh.Ora)
-            .WithMany(o => o.hallgatokColl)
-            .HasForeignKey(oh => oh.OraId);
+                .HasOne(oh => oh.Ora)
+                .WithMany(o => o.hallgatokColl)
+                .HasForeignKey(oh => oh.OraId);
 
             builder.Entity<OraManyToHallgatoMany>()
                 .HasOne(oh => oh.Hallgato)
                 .WithMany(h => h.orak)
                 .HasForeignKey(oh => oh.HallgatoId);
-
+            
 
 
 

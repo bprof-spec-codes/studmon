@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class firstTest : Migration
+    public partial class firstTest3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -276,9 +276,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "neptunKod", "nev" },
                 values: new object[,]
                 {
-                    { "031f489b-5fe3-470c-be55-6ee9fc97b982", 0, "e342bbf2-df4b-449f-aa62-c67811c0b34f", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEHv8lRtnVRpkMD7T1nBAg09dMNLu2V8/sAau07VUF/69PM6vHoc7YOLGnrDrklJ/+g==", null, false, "b4e242d5-16c4-4fed-a691-5419dbf7b184", false, "balogh.attila@gmail.com", "FDBRR1", "Balogh Attila" },
-                    { "186dc23b-56b5-41a1-b305-71eafa51d8d5", 0, "99aa3c86-0032-4fab-87c3-2ddbf454fee2", "horvath.karoly@gmail.com", false, false, null, "HORVATH.KAROLY@GMAIL.COM", "HORVATH.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEMOgOGIu9fHjtjXecUHgaKmfLqOPVmSMw0ZViP7K5xOH2cp+abWl8SLt7ot2M60cEQ==", null, false, "0dd71bae-3466-45aa-8655-143c67fa14fd", false, "horvath.karoly@gmail.com", "JPAC02", "Horváth Károly" },
-                    { "e8cd74a1-5720-436f-b385-6acd14a4480a", 0, "64bd82e0-e77e-4d5c-bd3c-7aae3aeb477d", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEPWQz2aDMv0SuH7Lq26zy5HoZ5G6tqKvS/jaJbDS25zJiWxXNljjwJZHaQUFlV+Wwg==", null, false, "4b11d8ac-9acf-4515-b47a-1204cfd2ea72", false, "toth.angela@gmail.com", "858256", "Tóth Angéla" }
+                    { "2702dce2-dc2d-46a2-9d29-100e69c9141d", 0, "078f84e9-5018-4059-8908-10a24f288bcb", "horvath.karoly@gmail.com", false, false, null, "HORVATH.KAROLY@GMAIL.COM", "HORVATH.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEEuBxby/N5c+mvfSVTAcjcGeSl/i7939496Ia/RVlp14qu2+IYPG81jIf/+RnsqwzA==", null, false, "16f0c58e-0449-4649-9727-ebf676313f2f", false, "horvath.karoly@gmail.com", "2MSXP5", "Horváth Károly" },
+                    { "8f53c7e9-276d-442b-a4af-a216c74ce3f8", 0, "6a8ffb8b-6a8b-45e3-9235-db0bb17b93b1", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEOJ2qzuQVTfu4ms8S5ayz43XvycwV9EIzZLhRDLayHO2AO1/GzttWfuyX2M5ZygEYg==", null, false, "6a72b511-5559-4b5c-a9ca-22b868925be8", false, "balogh.attila@gmail.com", "3EB0O0", "Balogh Attila" },
+                    { "95f91d4a-c7b7-4884-abaf-897d6bc5ac29", 0, "1ca04784-3906-4e2c-b692-f23e11571b6f", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAELB8YOsv/HHWDZGPjau1/v0w8fhpSdPOU0suly3mcWbhZWuGjSpYntypUs1Mip/4og==", null, false, "d253223f-6b1d-4831-9c7e-dcc28340cbf5", false, "toth.angela@gmail.com", "E7UMWJ", "Tóth Angéla" }
                 });
 
             migrationBuilder.InsertData(
@@ -286,9 +286,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "7JJ52W", "NIK", "Bsc", "Török Levente" },
-                    { "EKVPY0", "NIK", "Bprof", "Huba Árpád" },
-                    { "KA7626", "NIK", "Bsc", "Nyári Dalma" }
+                    { "34PHVT", "NIK", "Bsc", "Török Levente" },
+                    { "3R3E1U", "NIK", "Bprof", "Huba Árpád" },
+                    { "KPX0S3", "NIK", "Bsc", "Nyári Dalma" }
                 });
 
             migrationBuilder.CreateIndex(
