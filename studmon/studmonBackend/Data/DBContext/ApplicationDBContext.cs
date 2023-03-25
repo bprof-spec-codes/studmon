@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using studmon.Models;
+using studmonBackend.Data.Models.ManyToManyModels;
 using System.Reflection.Emit;
 
 namespace studmonBackend.Data.DBContext
@@ -19,6 +20,8 @@ namespace studmonBackend.Data.DBContext
         public DbSet<Terem> Termek { get; set; }
         public DbSet<Tanar> Tanarok { get; set; }
         public DbSet<Teljesitmeny> Teljesitmenyek { get; set; }
+
+        public DbSet<OraManyToHallgatoMany> OraHallgatoTabla { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -43,7 +46,34 @@ namespace studmonBackend.Data.DBContext
             builder.Entity<Hallgato>(hallgato => hallgato
                 .HasMany(hallgato => hallgato.teljesitmeny)
                 .WithOne(teljesitmeny => teljesitmeny.hallgato)
+                .OnDelete(DeleteBehavior.Cascade)
                 );
+
+
+            //Many to Many
+
+            builder.Entity<OraManyToHallgatoMany>(oh => oh
+                .HasKey(oh => new { oh.OraId, oh.HallgatoId })
+                );
+
+            builder.Entity<OraManyToHallgatoMany>()
+            .HasOne(oh => oh.Ora)
+            .WithMany(o => o.hallgatokColl)
+            .HasForeignKey(oh => oh.OraId);
+
+            builder.Entity<OraManyToHallgatoMany>()
+                .HasOne(oh => oh.Hallgato)
+                .WithMany(h => h.orak)
+                .HasForeignKey(oh => oh.HallgatoId);
+
+
+
+
+
+
+
+
+
 
 
 

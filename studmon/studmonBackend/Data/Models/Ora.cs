@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using studmonBackend.Data.Models.ManyToManyModels;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace studmon.Models
@@ -31,7 +32,7 @@ namespace studmon.Models
         public DateTime oraVeg { get; set; }
 
         
-        public virtual ICollection<Hallgato>? hallgatokColl { get; set; }
+        public virtual ICollection<OraManyToHallgatoMany>? hallgatokColl { get; set; }
         public virtual ICollection<Teljesitmeny>? teljesitmenyColl { get; set; }
 
 
@@ -56,7 +57,7 @@ namespace studmon.Models
             this.alkalmakSzama = alkalmakSzama;
             this.oraKezdet = oraKezdet;
             this.oraVeg = oraVeg;
-            this.hallgatokColl = new HashSet<Hallgato>();
+            this.hallgatokColl = new HashSet<OraManyToHallgatoMany>();
             this.teljesitmenyColl = new HashSet<Teljesitmeny>();
             this.ulesRend = ulesRend;
         }

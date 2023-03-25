@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using studmonBackend.Data.Models.ManyToManyModels;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace studmon.Models
@@ -14,7 +15,7 @@ namespace studmon.Models
 
         public string kepzesNev { get; set; } //pl.: Bprof, Bsc
 
-        public virtual ICollection<Ora>? orak { get; set; }
+        public virtual ICollection<OraManyToHallgatoMany>? orak { get; set; }
 
         
         public virtual ICollection<Teljesitmeny>? teljesitmeny { get; set; } //Órai teljesítmények
@@ -26,7 +27,7 @@ namespace studmon.Models
             this.kar = kar;
             this.kepzesNev = kepzesNev;
             this.teljesitmeny = new HashSet<Teljesitmeny>();
-            this.orak = new HashSet<Ora>();
+            this.orak = new HashSet<OraManyToHallgatoMany>();
         }
     }
 }
