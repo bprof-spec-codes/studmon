@@ -1,4 +1,4 @@
-﻿using Castle.Components.DictionaryAdapter;
+﻿
 using studmonBackend.Data.DBContext;
 
 namespace studmonBackend.Data.Repositories

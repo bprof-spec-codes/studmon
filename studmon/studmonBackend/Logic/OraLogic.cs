@@ -1,4 +1,4 @@
-﻿using studmon.Models;
+﻿using studmonBackend.Data.Models;
 using studmonBackend.Data.Repositories;
 using studmonBackend.Logic.Interfaces;
 

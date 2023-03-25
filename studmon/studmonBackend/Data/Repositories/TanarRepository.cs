@@ -1,5 +1,6 @@
-﻿using studmon.Models;
+﻿
 using studmonBackend.Data.DBContext;
+using studmonBackend.Data.Models;
 
 namespace studmonBackend.Data.Repositories
 {
@@ -18,7 +19,7 @@ namespace studmonBackend.Data.Repositories
         {
             var old = ReadOne(item.neptunKod);
             old.nev = item.nev;
-            old.orakColl = item.orakColl;
+            db.SaveChanges();
         }
     }
 }

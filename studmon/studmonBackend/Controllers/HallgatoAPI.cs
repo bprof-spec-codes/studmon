@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using studmon.Models;
+using studmonBackend.Data.Models;
 using studmonBackend.Logic.Interfaces;
 using System;
 

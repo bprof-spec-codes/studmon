@@ -1,5 +1,6 @@
-﻿using studmon.Models;
+﻿
 using studmonBackend.Data.DBContext;
+using studmonBackend.Data.Models;
 
 namespace studmonBackend.Data.Repositories
 {
@@ -24,7 +25,7 @@ namespace studmonBackend.Data.Repositories
             old.oraKezdet = item.oraKezdet;
             old.oraVeg = item.oraVeg;
             old.alkalmakSzama = item.alkalmakSzama;
-            old.hallgatokColl = item.hallgatokColl;
+            
             db.SaveChanges();
         }
     }

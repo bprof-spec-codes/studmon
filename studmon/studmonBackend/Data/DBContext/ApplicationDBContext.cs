@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using studmon.Models;
+using studmonBackend.Data.Models;
 using studmonBackend.Data.Models.ManyToManyModels;
 using System.Reflection.Emit;
 
@@ -14,6 +14,11 @@ namespace studmonBackend.Data.DBContext
         {
 
         }
+        private static Random rnd = new Random(); //Random neptunkód generáló
+
+        private List<Tanar> tanarLista = new List<Tanar>();
+        private List<Hallgato> hallgatoLista = new List<Hallgato>();
+
 
         public DbSet<Hallgato> Hallgatok { get; set; }
         public DbSet<Ora> Orak { get; set; }
@@ -21,7 +26,7 @@ namespace studmonBackend.Data.DBContext
         public DbSet<Tanar> Tanarok { get; set; }
         public DbSet<Teljesitmeny> Teljesitmenyek { get; set; }
 
-        public DbSet<OraManyToHallgatoMany> OraHallgatoTabla { get; set; }
+        //public DbSet<OraManyToHallgatoMany> OraHallgatoTabla { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -83,8 +88,70 @@ namespace studmonBackend.Data.DBContext
             );
 
 
+            hallgatoLista = new List<Hallgato>()
+            {
+                new Hallgato(NeptunKodGenerator(), "Huba Árpád", "NIK", "Bprof"),
+                new Hallgato(NeptunKodGenerator(), "Török Levente", "NIK", "Bsc"),
+                new Hallgato(NeptunKodGenerator(), "Nyári Dalma", "NIK", "Bsc")
+            };
+
+            tanarLista = new List<Tanar>()
+            {
+                new Tanar(NeptunKodGenerator(), "Tóth Angéla"),
+                new Tanar(NeptunKodGenerator(), "Balogh Attila"),
+                new Tanar(NeptunKodGenerator(), "Horváth Károly")
+            };
+
+            builder.Entity<Hallgato>().HasData(hallgatoLista);
+            builder.Entity<Tanar>().HasData(tanarLista);
 
             base.OnModelCreating(builder);
         }
+        public string NeptunKodGenerator()
+        {
+            string neptunkod = "";
+            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
+            {
+                neptunkod = "";
+                for (int i = 0; i < 6; i++)
+                {
+                    if (rnd.NextDouble() < 0.5)
+                    {
+                        neptunkod += (char)rnd.Next('0', '9');
+                    }
+                    else
+                    {
+                        neptunkod += (char)rnd.Next('A', 'Z');
+                    }
+                }
+            }
+
+            return neptunkod.ToUpper();
+        }
+
+        public string NeptunKodGenerator(List<Tanar> tanarLista, List<Hallgato> hallgatoLista)
+        {
+            string neptunkod = "";
+            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
+            {
+                neptunkod = "";
+                for (int i = 0; i < 6; i++)
+                {
+                    if (rnd.NextDouble() < 0.5)
+                    {
+                        neptunkod += (char)rnd.Next('0', '9');
+                    }
+                    else
+                    {
+                        neptunkod += (char)rnd.Next('A', 'Z');
+                    }
+                }
+            }
+
+            return neptunkod.ToUpper();
+        }
+
+
     }
 }
+

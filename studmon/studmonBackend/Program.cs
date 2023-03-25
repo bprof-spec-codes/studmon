@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using studmon.Models;
+using Microsoft.Extensions.Options;
+using studmonBackend.Data.Models;
 using studmonBackend.Data.DBContext;
 using studmonBackend.Data.Repositories;
 using studmonBackend.Logic;
@@ -13,17 +14,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+
+;
 builder.Services.AddDbContext<ApplicationDBContext>(option =>
 {
     option
-    .UseSqlServer("Server=(localdb)\\\\mssqllocaldb;Database=StudmonJWT;Trusted_Connection=True;MultipleActiveResultSets=true")
+    .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=StudmonJWT;Trusted_Connection=True;MultipleActiveResultSets=true")
     .UseLazyLoadingProxies();
 });
 
 builder.Services.AddIdentity<Tanar, IdentityRole>(option =>
 {
-    option.Password.RequiredLength = 8;
+    option.SignIn.RequireConfirmedAccount = false;
+    option.Password.RequireDigit = false;
+    option.Password.RequiredLength = 1;
     option.Password.RequireNonAlphanumeric = false;
+    option.Password.RequireUppercase = false;
 })
 .AddEntityFrameworkStores<ApplicationDBContext>()
 .AddDefaultTokenProviders();

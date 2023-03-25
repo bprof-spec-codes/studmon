@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace studmon.Models
+namespace studmonBackend.Data.Models
 {
     public class Hallgato
     {

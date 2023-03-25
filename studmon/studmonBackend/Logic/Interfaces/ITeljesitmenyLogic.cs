@@ -1,4 +1,6 @@
-﻿using studmon.Models;
+﻿
+
+using studmonBackend.Data.Models;
 
 namespace studmonBackend.Logic.Interfaces
 {

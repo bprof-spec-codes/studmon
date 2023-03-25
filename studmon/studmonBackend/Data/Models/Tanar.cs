@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
 using System.Text;
 
-namespace studmon.Models
+namespace studmonBackend.Data.Models
 {
     public class Tanar : IdentityUser
     {

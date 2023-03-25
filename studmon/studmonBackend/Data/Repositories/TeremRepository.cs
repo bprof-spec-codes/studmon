@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
-using studmon.Models;
+
 using studmonBackend.Data.DBContext;
+using studmonBackend.Data.Models;
 
 namespace studmonBackend.Data.Repositories
 {
