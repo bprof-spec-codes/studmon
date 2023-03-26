@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 //using studmonBackend.Data;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,18 +16,16 @@ namespace studmonBackend.Data.Models
         public string nev { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Ora>? orakColl { get; set; } //hozzá tartozó órák
 
-        public Tanar()
-        {
-
-        }
 
         public Tanar(string neptunKod, string nev)
         {
             this.neptunKod = neptunKod;
             this.nev = nev;
             this.orakColl = new HashSet<Ora>();
+            this.Id = neptunKod;
             PasswordHasher<Tanar> ph = new PasswordHasher<Tanar>();
             this.PasswordHash = ph.HashPassword(this, "asdasd");
             this.Email = EkezetEltavolitas($"{nev.Split(' ')[0]}.{nev.Split(' ')[1]}@gmail.com".ToLower());
