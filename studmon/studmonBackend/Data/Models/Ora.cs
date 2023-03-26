@@ -1,4 +1,5 @@
-﻿using studmonBackend.Data.Models.ManyToManyModels;
+﻿using Newtonsoft.Json;
+using studmonBackend.Data.Models.ManyToManyModels;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,6 +14,7 @@ namespace studmonBackend.Data.Models
 
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Terem? terem { get; set; }
 
         [ForeignKey(nameof(Terem.nev))]
@@ -20,6 +22,7 @@ namespace studmonBackend.Data.Models
 
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Tanar? tanar { get; set; }
 
         [ForeignKey(nameof(Tanar.nev))]

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace studmonBackend.Data.Models
@@ -14,6 +15,7 @@ namespace studmonBackend.Data.Models
         public string elrendezes { get; set; } //1 ahol ülnek, 0 a folyosó és "," az új sor
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Ora>? Orak { get; set; }
 
         public Terem()
