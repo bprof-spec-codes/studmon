@@ -28,15 +28,11 @@ namespace studmonBackend.Data.Models
         [NotMapped]
         public int[] ertekelesek { get; set; } //1 diákhoz tartozó értékelések
 
-        public Teljesitmeny()
+        public Teljesitmeny(string hallgatoNeptunKod, string oraId)
         {
-
-        }
-
-        public Teljesitmeny(Ora ora)
-        {
-            this.ora = ora;
             this.ertekelesek = new int [14];
+            this.hallgatoNeptunKod = hallgatoNeptunKod;
+            this.oraId = oraId;
         }
     }
 }

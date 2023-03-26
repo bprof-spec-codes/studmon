@@ -21,7 +21,7 @@ namespace studmonBackend.Data.Models
 
         }
 
-        public Terem(string nev, int szel, int hossz)
+        public Terem(string nev)
         {
             this.nev = nev;
             this.Orak = new HashSet<Ora>();
