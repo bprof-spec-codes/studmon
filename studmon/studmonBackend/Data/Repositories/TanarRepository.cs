@@ -19,6 +19,7 @@ namespace studmonBackend.Data.Repositories
         {
             var old = ReadOne(item.neptunKod);
             old.nev = item.nev;
+            old.Email = item.Email;
             db.SaveChanges();
         }
     }

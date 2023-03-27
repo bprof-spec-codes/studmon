@@ -129,27 +129,6 @@ namespace studmonBackend.Data.DBContext
             return neptunkod.ToUpper();
         }
 
-        public string NeptunKodGenerator(List<Tanar> tanarLista, List<Hallgato> hallgatoLista)
-        {
-            string neptunkod = "";
-            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
-            {
-                neptunkod = "";
-                for (int i = 0; i < 6; i++)
-                {
-                    if (rnd.NextDouble() < 0.5)
-                    {
-                        neptunkod += (char)rnd.Next('0', '9');
-                    }
-                    else
-                    {
-                        neptunkod += (char)rnd.Next('A', 'Z');
-                    }
-                }
-            }
-
-            return neptunkod.ToUpper();
-        }
 
 
     }
