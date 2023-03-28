@@ -70,7 +70,7 @@ namespace studmonBackend.Data.DBContext
                 .HasOne(oh => oh.Hallgato)
                 .WithMany(h => h.orak)
                 .HasForeignKey(oh => oh.HallgatoId);
-            
+
 
 
 
@@ -97,9 +97,27 @@ namespace studmonBackend.Data.DBContext
 
             tanarLista = new List<Tanar>()
             {
-                new Tanar(NeptunKodGenerator(), "Tóth Angéla"),
-                new Tanar(NeptunKodGenerator(), "Balogh Attila"),
-                new Tanar(NeptunKodGenerator(), "Horváth Károly")
+                new Tanar()
+                {
+                    Id = NeptunKodGenerator(),
+                    nev="Tóth Angéla",
+                    PasswordHash= "asdasd",
+                    Email="toth.angela@gmail.com"
+
+                },
+                new Tanar(){
+                    Id = NeptunKodGenerator(),
+                    nev="Balogh Attila",
+                    PasswordHash= "asdasd",
+                    Email="balogh.attila@gmail.com"
+
+                },
+                new Tanar(){
+                    Id = NeptunKodGenerator(),
+                    nev="Horváth Károly",
+                    PasswordHash= "asdasd",
+                    Email="horvat.karoly@gmail.com"
+                },
             };
 
             builder.Entity<Hallgato>().HasData(hallgatoLista);
@@ -110,7 +128,7 @@ namespace studmonBackend.Data.DBContext
         public string NeptunKodGenerator()
         {
             string neptunkod = "";
-            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.neptunKod == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
+            while (neptunkod == "" || (0 <= tanarLista.FindIndex(index => index.Id == neptunkod) && 0 <= hallgatoLista.FindIndex(index => index.neptunKod == neptunkod)))
             {
                 neptunkod = "";
                 for (int i = 0; i < 6; i++)

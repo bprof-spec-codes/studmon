@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class APITesztek : Migration
+    public partial class studmon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,14 +28,13 @@ namespace studmonBackend.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    neptunKod = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     nev = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -273,12 +272,12 @@ namespace studmonBackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "neptunKod", "nev" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "1d0aec10-b6a7-4974-817f-c0115aa2f6bd", 0, "f8b2c79a-a7fe-4ea1-93cc-0232462745fc", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEFQwOY5/2DuhpfUDd6uhOqtyn18JpsK/09vjBDvbC0v7wB7FxwBllUFSw65ZhK3NFg==", null, false, "ca683eec-1c1c-4ff2-9fb8-f3ab0ce9820e", false, "balogh.attila@gmail.com", "EMTVN0", "Balogh Attila" },
-                    { "1d4e6f0a-0ab8-40da-87d8-50bccf1a3466", 0, "abbac1cd-7c65-4430-b5ee-15fd58b006fc", "horvath.karoly@gmail.com", false, false, null, "HORVATH.KAROLY@GMAIL.COM", "HORVATH.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEPOVNodEclJLryXLCXicxId8fWGHakiPIGkKKNVXpK659IUXXyQ2tDkxEU4cWGOFkA==", null, false, "f14519d3-18e0-4125-973e-906e3bc4eea9", false, "horvath.karoly@gmail.com", "PB4E02", "Horváth Károly" },
-                    { "93fbae3d-06b8-43cd-92a2-47ac74eeff0c", 0, "86e2b833-851a-47cc-a343-6ebbfd7cfcb8", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEOU6nBvucejR5gsnnrHx0umDBdJUSJnC+4PJwButj1nUs8nmpvA04QIphQ+IGA0VLA==", null, false, "6a8b3a67-bec1-4297-95ec-7470b467ade2", false, "toth.angela@gmail.com", "DQ117C", "Tóth Angéla" }
+                    { "6CEMPT", 0, "dab06039-334e-4274-b312-30ca6f7db773", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAENiQactwc1dU+QLpD8nGvldD5NWNP+MuAnXag9jUHe02evzoO3HCLzTbcdaZ/O8zBw==", null, false, "c7961fcb-2973-4d63-9133-4e8d60f055b9", false, "balogh.attila@gmail.com", "Balogh Attila" },
+                    { "7M1OLF", 0, "b4171af6-3463-4952-aa7e-7c06f54d3787", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAECoQapSlUxuy1UWRjOae7Y5VHxT8GrwdTegevz5xaxWL9dwpL+3KkYCSRI48eKGcfg==", null, false, "2c3028fd-41fd-4414-9163-9faaff887570", false, "horvat.karoly@gmail.com", "Horváth Károly" },
+                    { "N12L77", 0, "fe5d743d-9cb9-40a4-b609-2fb94cee54a0", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAENQyW1j1kY8Wl626+406JnQpU8sRJt2m4DAz/t43YsHpeESpU6Ejo0jhQkmTuc7I9A==", null, false, "228edec5-0689-4923-9078-e8fe9cf74fd1", false, "toth.angela@gmail.com", "Tóth Angéla" }
                 });
 
             migrationBuilder.InsertData(
@@ -286,9 +285,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "38XN6D", "NIK", "Bsc", "Török Levente" },
-                    { "560Y78", "NIK", "Bprof", "Huba Árpád" },
-                    { "YYSRGQ", "NIK", "Bsc", "Nyári Dalma" }
+                    { "50TPLE", "NIK", "Bsc", "Nyári Dalma" },
+                    { "BP3S2X", "NIK", "Bsc", "Török Levente" },
+                    { "GX23R6", "NIK", "Bprof", "Huba Árpád" }
                 });
 
             migrationBuilder.CreateIndex(
