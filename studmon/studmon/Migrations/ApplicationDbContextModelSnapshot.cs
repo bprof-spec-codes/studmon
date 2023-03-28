@@ -183,21 +183,21 @@ namespace studmon.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "6F5036",
+                            neptunKod = "61M2N8",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "572OA2",
+                            neptunKod = "KXK4FI",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "FT6DQB",
+                            neptunKod = "7N564N",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -320,56 +320,56 @@ namespace studmon.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6bf6c4d3-8794-4cec-a707-6772c5d27b4e",
+                            Id = "3c0d193f-e46b-40c5-945a-9b487e8b9171",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "60b7a7e9-ebea-4d9d-a92b-32cb839baba3",
+                            ConcurrencyStamp = "69ae8cfd-78a0-40ad-9b1b-71457ad33e65",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPHuibsJ0wwBtW8OzRUlzSuKyDaz3H1XVrNelcgSeB3Z6LKefpXxFVLLUoLE+vW/WA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE5KfyNcH2Of2TUZvVpsFlAL8jMWxN19NF63zZDTgTS5d0vTAkImpt623YSovDgJsw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c735400-c3e4-442b-a9e4-b603ca5de48e",
+                            SecurityStamp = "a3eb07dd-bb6a-4bd0-b90f-9d265aaadefe",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
-                            neptunKod = "6RL3QX",
+                            neptunKod = "058238",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "091f3fab-05a2-48da-9d00-ac34909014fc",
+                            Id = "c7322225-b2cb-4069-a16e-6e15e4c58ed5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8ae90619-2759-4eed-a41c-719a3aae58f4",
+                            ConcurrencyStamp = "effddbb4-107a-451a-b41d-ec5d10fbc80d",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPhZrxubUF5uVqw6WjMeh91eY9ElHLlQARoSIbomc2pUK+dVXabLp8bmDf5HDw0BXQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPLE4rJPfYcnaFJWW21CCZX39qnwOzjfWMKXzoRmQo2SvjFZRdzV7mp2AVm9dkbGVQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "da3d5bbf-b16e-40b7-8cbe-b9acdf9f3426",
+                            SecurityStamp = "35d3fd79-e710-4adb-9c82-bd69d7b1990f",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
-                            neptunKod = "3RD84P",
+                            neptunKod = "80K41S",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "17c429f4-a6f3-4328-b66a-5bdf2d8514ed",
+                            Id = "19e0c359-f7e9-403a-9fde-5a086e84993e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c6a8090-61b5-4999-8d0a-9ae2ef4e8f27",
+                            ConcurrencyStamp = "9e52b7cf-cf45-4ca6-b9fc-19b585196a3a",
                             Email = "horvath.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVATH.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVATH.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOGIPhhumsdSXrYt4PtxSgnJLMa3+VH+/igUYjvYxV2WCBEytx1rF7ijd9orl8TkIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK0VPhJjQGt2pjIjE3GJx0q7/EeYrIk+FJ1hl8HLlkLNuNCHkc14Myq7Nyz+gkwVWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4ef33169-21da-443b-b542-1007b56abb46",
+                            SecurityStamp = "6215a916-4519-4c8a-9404-6fc4ff135fbb",
                             TwoFactorEnabled = false,
                             UserName = "horvath.karoly@gmail.com",
-                            neptunKod = "3AL1C1",
+                            neptunKod = "2ARR68",
                             nev = "Horváth Károly"
                         });
                 });

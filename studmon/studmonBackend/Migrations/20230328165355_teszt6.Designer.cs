@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using studmonBackend.Data.DBContext;
 
@@ -11,9 +12,10 @@ using studmonBackend.Data.DBContext;
 namespace studmonBackend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230328165355_teszt6")]
+    partial class teszt6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,21 +195,21 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "CW5584",
+                            neptunKod = "Y26O47",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "N2CA1I",
+                            neptunKod = "817264",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "8YWS4H",
+                            neptunKod = "7I2A28",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -345,51 +347,51 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "E7J08X",
+                            Id = "08EVV2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "94d12c2d-5c4f-4ddc-91de-5302af773bc2",
+                            ConcurrencyStamp = "15331de9-4dec-44be-8e72-e0f4f5a322b3",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK24QzXAv8YTlsec0XJuO4vkrp+VTLiAyKz3EI84XNQi+gbRLNsQemYV8DOuHXrp4g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPq74wZa+EV4KDwj43ixzpqKA61cxvEgOJONuPf0kb0SkYwrO5Vx7+gvriU77/SrnA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f433fda7-3858-42d0-bdd5-b5002c3be259",
+                            SecurityStamp = "eee9f979-f131-497d-9e4d-68cfedf72086",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "72GSM5",
+                            Id = "3X843D",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c131794a-8a37-4697-b0d2-1014e6c1b66b",
+                            ConcurrencyStamp = "7d0257b5-ed9f-4f20-8e50-9e668f65cf66",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBhFnyE9ZdOUymeQXUVp5aQY77ej7bD7LbQUp7/F4gc5MUvqZSwhCySfCDDrttmArQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHuWcvrNX0e8EcTLjOFb8yqdsNrJpnzpWdhGW+gehHQR7Zqq7BzEKajvfS8gwqW1wg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1613508d-50f1-453a-80b3-a598ec6bc636",
+                            SecurityStamp = "f7211c11-80b2-4809-bad7-9b8483567333",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "P6KJIF",
+                            Id = "633VJ6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bbafe294-1a81-48d3-893a-a97498d5c939",
+                            ConcurrencyStamp = "8b70b78e-6253-47d0-a881-2bd651a02e27",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO3H60tes1yhLVcAYytQLZxiwE7A/wiBIB+2fRmRhTIPaLF32obVjSAMmjOwPFJMVw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFnjHhyfl3V22UWhPLcBNMJGEla7pjBnNLXrgvsCm8x6AZC4tVgSOvUsX5XIPVVfVA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8bc49bb7-4f50-416a-b2cc-0dc48b617e51",
+                            SecurityStamp = "987a64de-628a-4630-b8c7-81cb1fb5d838",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -399,7 +401,6 @@ namespace studmonBackend.Migrations
             modelBuilder.Entity("studmonBackend.Data.Models.Teljesitmeny", b =>
                 {
                     b.Property<string>("teljesitmenyID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("hallgatoNeptunKod")

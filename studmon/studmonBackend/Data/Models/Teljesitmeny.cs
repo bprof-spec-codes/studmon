@@ -6,9 +6,27 @@ namespace studmonBackend.Data.Models
 {
     public class Teljesitmeny
     {
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int ID { get; set; }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string Id { get; set; }
+        public string teljesitmenyID { get; set; }
+
+        //------------------------------------------
+        //[NotMapped]
+        //public string TeljesitmenyIDGen
+        //{
+
+
+        //    set
+        //    {
+        //       this.teljesitmenyID = Guid.NewGuid().ToString();
+        //    }
+        //}
+        //------------------------------------------
+
 
 
         [Required]
@@ -26,13 +44,33 @@ namespace studmonBackend.Data.Models
         public virtual Ora? ora { get; set; } //melyik órához tartozó értékelések
 
         [NotMapped]
-        public int[] ertekelesek { get; set; } //1 diákhoz tartozó értékelések
+        public int[] ertekelesek = new int[14]; //1 diákhoz tartozó értékelések
 
-        public Teljesitmeny(string hallgatoNeptunKod, string oraId)
+        //------------------------------------------
+        [NotMapped]
+        public int[] Ertekeles
         {
-            this.ertekelesek = new int [14];
-            this.hallgatoNeptunKod = hallgatoNeptunKod;
-            this.oraId = oraId;
+            get{
+                return ertekelesek;
+            }
+
+            set
+            {
+                this.ertekelesek = value;
+            }
         }
+        //------------------------------------------
+
+        public Teljesitmeny()
+        {
+            this.teljesitmenyID = Guid.NewGuid().ToString();
+        }
+
+        //public Teljesitmeny(string hallgatoNeptunKod, string oraId)
+        //{
+        //    this.ertekelesek = new int [14];
+        //    this.hallgatoNeptunKod = hallgatoNeptunKod;
+        //    this.oraId = oraId;
+        //}
     }
 }

@@ -12,8 +12,8 @@ using studmonBackend.Data.DBContext;
 namespace studmonBackend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230328112127_studmon")]
-    partial class studmon
+    [Migration("20230328165104_teszt5")]
+    partial class teszt5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -195,21 +195,21 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "GX23R6",
+                            neptunKod = "8KXG55",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "BP3S2X",
+                            neptunKod = "WK212T",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "50TPLE",
+                            neptunKod = "2T5E16",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -347,51 +347,51 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "N12L77",
+                            Id = "4GSNWM",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fe5d743d-9cb9-40a4-b609-2fb94cee54a0",
+                            ConcurrencyStamp = "26e15f25-d21a-4776-8428-df680046e38a",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENQyW1j1kY8Wl626+406JnQpU8sRJt2m4DAz/t43YsHpeESpU6Ejo0jhQkmTuc7I9A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEENNmyO3glCumAIDNAaxB0JMkUSASp4Hn/r7+G5uViT9ekhzzXgLfZ+2oKsJoakc8A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "228edec5-0689-4923-9078-e8fe9cf74fd1",
+                            SecurityStamp = "26ad3660-6d27-44f7-bb32-aefa8fa7f247",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "6CEMPT",
+                            Id = "68MF3I",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dab06039-334e-4274-b312-30ca6f7db773",
+                            ConcurrencyStamp = "2c004c64-bfe9-47e4-92d9-1876568c6156",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENiQactwc1dU+QLpD8nGvldD5NWNP+MuAnXag9jUHe02evzoO3HCLzTbcdaZ/O8zBw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGM/MJ6KemKkidwmABq/dfamYILCya2YNK6VfOhF8PBgGfK8POgtHYxryaB49yX20Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c7961fcb-2973-4d63-9133-4e8d60f055b9",
+                            SecurityStamp = "ffda9963-8992-417a-8f97-ca9c1b93bce3",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "7M1OLF",
+                            Id = "KY4O36",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b4171af6-3463-4952-aa7e-7c06f54d3787",
+                            ConcurrencyStamp = "96164713-922c-434f-b650-0e0d9f677b22",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECoQapSlUxuy1UWRjOae7Y5VHxT8GrwdTegevz5xaxWL9dwpL+3KkYCSRI48eKGcfg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENvEdyqBV42GBoBggyv2BNItDY9aFqOLH9vgF5i4j6aC0ND65/RtxDMgEBIpm1RYyA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2c3028fd-41fd-4414-9163-9faaff887570",
+                            SecurityStamp = "f76da61c-2ad9-4b5b-a1b6-291baeec1b86",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -400,8 +400,7 @@ namespace studmonBackend.Migrations
 
             modelBuilder.Entity("studmonBackend.Data.Models.Teljesitmeny", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("teljesitmenyID")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("hallgatoNeptunKod")
@@ -412,7 +411,7 @@ namespace studmonBackend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("teljesitmenyID");
 
                     b.HasIndex("hallgatoNeptunKod");
 

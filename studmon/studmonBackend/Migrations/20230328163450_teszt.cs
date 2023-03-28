@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class studmon : Migration
+    public partial class teszt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -240,13 +240,14 @@ namespace studmonBackend.Migrations
                 name: "Teljesitmenyek",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     hallgatoNeptunKod = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     oraId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Teljesitmenyek", x => x.Id);
+                    table.PrimaryKey("PK_Teljesitmenyek", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Teljesitmenyek_Hallgatok_hallgatoNeptunKod",
                         column: x => x.hallgatoNeptunKod,
@@ -275,9 +276,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "6CEMPT", 0, "dab06039-334e-4274-b312-30ca6f7db773", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAENiQactwc1dU+QLpD8nGvldD5NWNP+MuAnXag9jUHe02evzoO3HCLzTbcdaZ/O8zBw==", null, false, "c7961fcb-2973-4d63-9133-4e8d60f055b9", false, "balogh.attila@gmail.com", "Balogh Attila" },
-                    { "7M1OLF", 0, "b4171af6-3463-4952-aa7e-7c06f54d3787", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAECoQapSlUxuy1UWRjOae7Y5VHxT8GrwdTegevz5xaxWL9dwpL+3KkYCSRI48eKGcfg==", null, false, "2c3028fd-41fd-4414-9163-9faaff887570", false, "horvat.karoly@gmail.com", "Horváth Károly" },
-                    { "N12L77", 0, "fe5d743d-9cb9-40a4-b609-2fb94cee54a0", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAENQyW1j1kY8Wl626+406JnQpU8sRJt2m4DAz/t43YsHpeESpU6Ejo0jhQkmTuc7I9A==", null, false, "228edec5-0689-4923-9078-e8fe9cf74fd1", false, "toth.angela@gmail.com", "Tóth Angéla" }
+                    { "40BB54", 0, "2b3adb59-f129-4551-86b7-a66e8ff0177c", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEO0XVEemBZY0jVIrg0iLnbUSIW0CSfeCde3J7iXWILHZrBvzHI9yIcCWFAIjZ4SopA==", null, false, "0b2b8cc4-a5c8-4dd0-b60b-b1c786ea23f3", false, "toth.angela@gmail.com", "Tóth Angéla" },
+                    { "BU5IWQ", 0, "4e18f756-d7d5-4e0e-b200-7ae78cfe7218", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAECBQyOTxtPFtX5BafiIxaK0N1sCNA/fifawOxTcytni6Llcey6abu1+nWPc9Ev8tow==", null, false, "7ee52b83-ae35-4e18-9ab0-fc8a69b7b0d0", false, "balogh.attila@gmail.com", "Balogh Attila" },
+                    { "JNG763", 0, "6b45c020-fb72-44f3-a522-f3af179bbfcf", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEE1E6drI3ZQyt6ANLrSXtPwT6KmoJZoOri8K+h4VzODvR3OF1D9f2J0xgyY4qNG8XA==", null, false, "b5a6d2af-f904-40e4-8f5f-b8706cca951b", false, "horvat.karoly@gmail.com", "Horváth Károly" }
                 });
 
             migrationBuilder.InsertData(
@@ -285,9 +286,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "50TPLE", "NIK", "Bsc", "Nyári Dalma" },
-                    { "BP3S2X", "NIK", "Bsc", "Török Levente" },
-                    { "GX23R6", "NIK", "Bprof", "Huba Árpád" }
+                    { "14HG88", "NIK", "Bsc", "Nyári Dalma" },
+                    { "65Y420", "NIK", "Bsc", "Török Levente" },
+                    { "W5F04I", "NIK", "Bprof", "Huba Árpád" }
                 });
 
             migrationBuilder.CreateIndex(
