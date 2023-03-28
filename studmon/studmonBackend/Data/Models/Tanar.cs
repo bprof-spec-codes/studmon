@@ -16,7 +16,8 @@ namespace studmonBackend.Data.Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Ora>? orakColl { get; set; } //hozzá tartozó órák
-        [Required]
+
+        
         public override string PasswordHash
         {
             get => base.PasswordHash; set

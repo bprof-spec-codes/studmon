@@ -25,7 +25,7 @@ namespace studmonBackend.Data.Models
         [JsonIgnore]
         public virtual Tanar? tanar { get; set; }
 
-        [ForeignKey(nameof(Tanar.nev))]
+        [ForeignKey(nameof(Tanar.Id))]
         public string tanarID { get; set; }
 
         public int alkalmakSzama { get; set; }
