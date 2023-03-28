@@ -10,28 +10,46 @@ namespace studmonBackend.Data.Models
 {
     public class Tanar : IdentityUser
     {
-        [Key]
-        public string neptunKod { get; set; }
 
         public string nev { get; set; }
 
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Ora>? orakColl { get; set; } //hozzá tartozó órák
-
-
-        public Tanar(string neptunKod, string nev)
+        [Required]
+        public override string PasswordHash
         {
-            this.neptunKod = neptunKod;
-            this.nev = nev;
-            this.orakColl = new HashSet<Ora>();
-            this.Id = neptunKod;
-            PasswordHasher<Tanar> ph = new PasswordHasher<Tanar>();
-            this.PasswordHash = ph.HashPassword(this, "asdasd");
-            this.Email = EkezetEltavolitas($"{nev.Split(' ')[0]}.{nev.Split(' ')[1]}@gmail.com".ToLower());
-            this.NormalizedEmail = EkezetEltavolitas(($"{nev.Split(' ')[0]}.{nev.Split(' ')[1]}@gmail.com").ToUpper());
-            this.UserName = Email;
-            this.NormalizedUserName = NormalizedEmail;
+            get => base.PasswordHash; set
+            {
+
+                PasswordHasher<Tanar> ph = new PasswordHasher<Tanar>();
+                base.PasswordHash = ph.HashPassword(this, value);
+            }
+        }
+
+        
+
+        [Required]
+        public override string Email
+        {
+            get => base.Email; 
+            set
+            {
+                base.Email = EkezetEltavolitas(value);
+                base.UserName = base.Email;
+                base.NormalizedEmail = base.Email.ToUpper();
+                base.NormalizedUserName = base.NormalizedEmail;
+                    
+            }
+        }
+
+        
+
+        public Tanar()
+        {
+            
+            orakColl = new HashSet<Ora>();
+            
         }
 
 

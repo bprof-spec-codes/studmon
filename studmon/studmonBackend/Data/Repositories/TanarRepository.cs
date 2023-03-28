@@ -12,12 +12,12 @@ namespace studmonBackend.Data.Repositories
 
         public override Tanar ReadOne(string id)
         {
-           return db.Set<Tanar>().FirstOrDefault(t => t.neptunKod == id); 
+           return db.Set<Tanar>().FirstOrDefault(t => t.Id == id); 
         }
 
         public override void Update(Tanar item)
         {
-            var old = ReadOne(item.neptunKod);
+            var old = ReadOne(item.Id);
             old.nev = item.nev;
             old.Email = item.Email;
             db.SaveChanges();

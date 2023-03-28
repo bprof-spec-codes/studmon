@@ -5,7 +5,7 @@ namespace studmonBackend.Data.Repositories
 {
     public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
-        public ApplicationDBContext db { get; set; }
+        public ApplicationDBContext db;
 
         public BaseRepository(ApplicationDBContext db)
         {
