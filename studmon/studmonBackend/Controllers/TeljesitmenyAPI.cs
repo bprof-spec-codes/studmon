@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using studmonBackend.Data.Models;
 using studmonBackend.Logic.Interfaces;
 
@@ -9,10 +10,11 @@ namespace studmonBackend.Controllers
     public class TeljesitmenyAPI : ControllerBase
     {
         ITeljesitmenyLogic logic { get; set; }
-
-        public TeljesitmenyAPI(ITeljesitmenyLogic logic)
+        IHubContext<EventHub> hub;
+        public TeljesitmenyAPI(ITeljesitmenyLogic logic, IHubContext<EventHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
 
@@ -29,21 +31,27 @@ namespace studmonBackend.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Teljesitmeny h)
+        public async void Post([FromBody] Teljesitmeny h)
         {
             logic.Create(h);
+            await hub.Clients.All.SendAsync("teljesitmenyCreated", h);
+
         }
 
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public async void Delete(string id)
         {
             logic.Delete(id);
+            await hub.Clients.All.SendAsync("teljesitmenyDeleted", id);
+
         }
 
         [HttpPut]
-        public void Put([FromBody] Teljesitmeny h)
+        public async void Put([FromBody] Teljesitmeny h)
         {
             logic.Update(h);
+            await hub.Clients.All.SendAsync("teljesitmenyEdited", h);
+
         }
     }
 }

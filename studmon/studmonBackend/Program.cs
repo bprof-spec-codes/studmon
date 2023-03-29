@@ -39,6 +39,8 @@ builder.Services.AddIdentity<Tanar, IdentityRole>(option =>
 .AddEntityFrameworkStores<ApplicationDBContext>()
 .AddDefaultTokenProviders();
 
+builder.Services.AddSignalR();
+
 ///////////////////
 builder.Services.AddTransient<ApplicationDBContext>();
 ///////////////////
@@ -68,6 +70,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapHub<EventHub>("/events");
+
 
 app.UseAuthorization();
 
