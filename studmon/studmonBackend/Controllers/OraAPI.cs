@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using studmonBackend.Data.Models;
 using studmonBackend.Logic.Interfaces;
 
@@ -9,10 +10,12 @@ namespace studmonBackend.Controllers
     public class OraAPI : ControllerBase
     {
         IOraLogic logic { get; set; }
+        IHubContext<EventHub> hub;
 
-        public OraAPI(IOraLogic logic)
+        public OraAPI(IOraLogic logic, IHubContext<EventHub> hub)
         {
             this.logic = logic;
+            this.hub = hub;
         }
 
 
@@ -29,21 +32,27 @@ namespace studmonBackend.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Ora h)
+        public async void Post([FromBody] Ora h)
         {
             logic.Create(h);
+            await hub.Clients.All.SendAsync("oraCreated", h);
+
         }
 
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public async void Delete(string id)
         {
             logic.Delete(id);
+            await hub.Clients.All.SendAsync("oraDeleted", id);
+
         }
 
         [HttpPut]
-        public void Put([FromBody] Ora h)
+        public async void Put([FromBody] Ora h)
         {
             logic.Update(h);
+            await hub.Clients.All.SendAsync("oraEdited", h);
+
         }
     }
 }
