@@ -8,6 +8,9 @@ using studmonBackend.Logic;
 using studmonBackend.Logic.Interfaces;
 using System.Diagnostics;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +41,25 @@ builder.Services.AddIdentity<Tanar, IdentityRole>(option =>
 })
 .AddEntityFrameworkStores<ApplicationDBContext>()
 .AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(option =>
+    {
+    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = true;
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidAudience = "http://www.security.org",
+            ValidIssuer = "http://www.security.org",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("nagyonhosszutitkoskodhelye"))
+        };
+    });
 
 builder.Services.AddSignalR();
 
@@ -73,7 +95,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapHub<EventHub>("/events");
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using studmonBackend.Data.Models;
 using studmonBackend.Logic.Interfaces;
@@ -23,6 +24,7 @@ namespace studmonBackend.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<Hallgato> GetAll()
         {
             return logic.ReadAll();
