@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using studmonBackend.Data.Models;
@@ -26,7 +27,12 @@ namespace studmonBackend.Controllers
             var user = await _userManager.FindByNameAsync(model.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var claim = new List<Claim> { new Claim(JwtRegisteredClaimNames.Sub, user.UserName) };
+                var claim = new List<Claim> 
+                { 
+                    new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                    new Claim(JwtRegisteredClaimNames.Name, user.UserName),
+                    new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
+                };
                 foreach (var role in await _userManager.GetRolesAsync(user))
                 {
                     claim.Add(new Claim(ClaimTypes.Role, role));
@@ -61,5 +67,22 @@ namespace studmonBackend.Controllers
             await _userManager.AddToRoleAsync(user, "Tanar");
             return Ok();
         }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> GetUserInfos()
+        {
+            var user = _userManager.Users.FirstOrDefault(t => t.UserName == this.User.Identity.Name);
+            return Ok(new
+            {
+                neptunKod = user.Id,
+                UserName = user.UserName,
+                Email = user.Email,
+                nev = user.nev,
+                orakColl = user.orakColl,
+                Roles = await _userManager.GetRolesAsync(user)
+            });
+        }
+
     }
 }

@@ -193,21 +193,21 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "5VDK00",
+                            neptunKod = "WA6XST",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "84167Q",
+                            neptunKod = "8MC285",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "RY15SY",
+                            neptunKod = "5SDJ5O",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -345,53 +345,53 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "71P25C",
+                            Id = "CUTH6G",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d87c951a-3b36-41f1-aa19-dc1acec78052",
+                            ConcurrencyStamp = "fa5cf722-f814-480c-839b-854354ac6212",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMR6oXpGQZT9jGussRYnJamdpxZuPnXLaqwAZlKC7aaGcATWIfEXwTbqoNVLl0rs4w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELp2hjQf7AsBoIJ+WzzBCUbGCh9m4l+ECvl1p2IeQ2UyevvsDbQ6YrmFIFiIC5h6tg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f5c3460e-7b92-4e05-86c4-77dfededa78d",
+                            SecurityStamp = "9dfe1feb-fae4-4c80-a386-2e772e35ed4a",
                             TwoFactorEnabled = false,
-                            UserName = "toth.angela@gmail.com",
+                            UserName = "Tóth Angéla",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "EQ702S",
+                            Id = "3UAW0Q",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dbbb1050-02a8-4800-aec6-9612b547970c",
+                            ConcurrencyStamp = "0a1a4c35-af2d-429f-8db2-28e56d1a70a0",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEXEOD8QIt/4Z/GSioKUucp5UWpWZtEjGQYfOB5M8aC17tATym6HofHCpsvQu66qLA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHVo58EtevdWqgsEaIRKHp2gy9PyfRVQp7GxyyW6uusKUJiP3IY085PRAV3ovE93IQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f3cca9e8-7c0c-48d8-bff2-55b11419e69f",
+                            SecurityStamp = "5662a758-a3b5-449b-a498-29a89325ebe7",
                             TwoFactorEnabled = false,
-                            UserName = "balogh.attila@gmail.com",
+                            UserName = "Balogh Attila",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "4O3N2O",
+                            Id = "APPB25",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d2a4b9a2-c8ea-4fad-a9de-861d7c5a3bad",
+                            ConcurrencyStamp = "8d315dd1-f0ca-43c6-a015-bd8a3ca6633c",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAPaVOCwb3WybaDZ90O6A7OZDwGM4rrKA66XTVC2adKBoLiMBZUEHHmVTt8VXJkSCQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO/z4Uslmx6rIk2kaIdhOUx+b43uS95eF4uCO8TYeA2U1idaaZlLDiXYDLe4NxGk8Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f18382db-1e40-45e8-b5f9-85a39e1feacc",
+                            SecurityStamp = "be1b8cfa-be24-4ce7-9ebb-d4a52c41a762",
                             TwoFactorEnabled = false,
-                            UserName = "horvat.karoly@gmail.com",
+                            UserName = "Horváth Károly",
                             nev = "Horváth Károly"
                         });
                 });

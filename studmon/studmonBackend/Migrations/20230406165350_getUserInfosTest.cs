@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class teszt : Migration
+    public partial class getUserInfosTest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -240,14 +240,13 @@ namespace studmonBackend.Migrations
                 name: "Teljesitmenyek",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    teljesitmenyID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     hallgatoNeptunKod = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     oraId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Teljesitmenyek", x => x.ID);
+                    table.PrimaryKey("PK_Teljesitmenyek", x => x.teljesitmenyID);
                     table.ForeignKey(
                         name: "FK_Teljesitmenyek_Hallgatok_hallgatoNeptunKod",
                         column: x => x.hallgatoNeptunKod,
@@ -268,7 +267,7 @@ namespace studmonBackend.Migrations
                 values: new object[,]
                 {
                     { "1", null, "Admin", "ADMIN" },
-                    { "2", null, "Customer", "CUSTOMER" }
+                    { "2", null, "Tanar", "TANAR" }
                 });
 
             migrationBuilder.InsertData(
@@ -276,9 +275,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "40BB54", 0, "2b3adb59-f129-4551-86b7-a66e8ff0177c", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEO0XVEemBZY0jVIrg0iLnbUSIW0CSfeCde3J7iXWILHZrBvzHI9yIcCWFAIjZ4SopA==", null, false, "0b2b8cc4-a5c8-4dd0-b60b-b1c786ea23f3", false, "toth.angela@gmail.com", "Tóth Angéla" },
-                    { "BU5IWQ", 0, "4e18f756-d7d5-4e0e-b200-7ae78cfe7218", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAECBQyOTxtPFtX5BafiIxaK0N1sCNA/fifawOxTcytni6Llcey6abu1+nWPc9Ev8tow==", null, false, "7ee52b83-ae35-4e18-9ab0-fc8a69b7b0d0", false, "balogh.attila@gmail.com", "Balogh Attila" },
-                    { "JNG763", 0, "6b45c020-fb72-44f3-a522-f3af179bbfcf", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEE1E6drI3ZQyt6ANLrSXtPwT6KmoJZoOri8K+h4VzODvR3OF1D9f2J0xgyY4qNG8XA==", null, false, "b5a6d2af-f904-40e4-8f5f-b8706cca951b", false, "horvat.karoly@gmail.com", "Horváth Károly" }
+                    { "3UAW0Q", 0, "0a1a4c35-af2d-429f-8db2-28e56d1a70a0", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEHVo58EtevdWqgsEaIRKHp2gy9PyfRVQp7GxyyW6uusKUJiP3IY085PRAV3ovE93IQ==", null, false, "5662a758-a3b5-449b-a498-29a89325ebe7", false, "Balogh Attila", "Balogh Attila" },
+                    { "APPB25", 0, "8d315dd1-f0ca-43c6-a015-bd8a3ca6633c", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEO/z4Uslmx6rIk2kaIdhOUx+b43uS95eF4uCO8TYeA2U1idaaZlLDiXYDLe4NxGk8Q==", null, false, "be1b8cfa-be24-4ce7-9ebb-d4a52c41a762", false, "Horváth Károly", "Horváth Károly" },
+                    { "CUTH6G", 0, "fa5cf722-f814-480c-839b-854354ac6212", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAELp2hjQf7AsBoIJ+WzzBCUbGCh9m4l+ECvl1p2IeQ2UyevvsDbQ6YrmFIFiIC5h6tg==", null, false, "9dfe1feb-fae4-4c80-a386-2e772e35ed4a", false, "Tóth Angéla", "Tóth Angéla" }
                 });
 
             migrationBuilder.InsertData(
@@ -286,9 +285,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "neptunKod", "kar", "kepzesNev", "nev" },
                 values: new object[,]
                 {
-                    { "14HG88", "NIK", "Bsc", "Nyári Dalma" },
-                    { "65Y420", "NIK", "Bsc", "Török Levente" },
-                    { "W5F04I", "NIK", "Bprof", "Huba Árpád" }
+                    { "5SDJ5O", "NIK", "Bsc", "Nyári Dalma" },
+                    { "8MC285", "NIK", "Bsc", "Török Levente" },
+                    { "WA6XST", "NIK", "Bprof", "Huba Árpád" }
                 });
 
             migrationBuilder.CreateIndex(
