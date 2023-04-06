@@ -73,16 +73,34 @@ namespace studmonBackend.Controllers
         public async Task<IActionResult> GetUserInfos()
         {
             var user = _userManager.Users.FirstOrDefault(t => t.UserName == this.User.Identity.Name);
-            return Ok(new
+            if (user != null)
             {
-                neptunKod = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                nev = user.nev,
-                orakColl = user.orakColl,
-                Roles = await _userManager.GetRolesAsync(user)
-            });
+                return Ok(new
+                {
+                    neptunKod = user.Id,
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    nev = user.nev,
+                    orakColl = user.orakColl,
+                    Roles = await _userManager.GetRolesAsync(user)
+                });
+            }
+            return Unauthorized();
         }
+
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteMyself()
+        {
+            var user = _userManager.Users.FirstOrDefault(t => t.UserName == this.User.Identity.Name);
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            return BadRequest();
+        }
+
 
     }
 }
