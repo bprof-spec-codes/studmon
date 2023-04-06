@@ -45,5 +45,21 @@ namespace studmonBackend.Controllers
             }
             return Unauthorized();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> InsertUser([FromBody] RegisterViewModel model)
+        {
+            var user = new Tanar
+            {
+                Id = model.ID,
+                nev =  model.nev,
+                Email = model.Email,
+                PasswordHash = model.Password,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            await _userManager.CreateAsync(user);
+            await _userManager.AddToRoleAsync(user, "Tanar");
+            return Ok();
+        }
     }
 }
