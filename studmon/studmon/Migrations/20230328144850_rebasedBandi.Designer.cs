@@ -5,21 +5,21 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using studmonBackend.Data.DBContext;
+using studmon.Data;
 
 #nullable disable
 
-namespace studmonBackend.Migrations
+namespace studmon.Migrations
 {
-    [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230328112127_studmon")]
-    partial class studmon
+    [DbContext(typeof(ApplicationDbContext))]
+    [Migration("20230328144850_rebasedBandi")]
+    partial class rebasedBandi
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -49,20 +49,6 @@ namespace studmonBackend.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -118,10 +104,12 @@ namespace studmonBackend.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -158,10 +146,12 @@ namespace studmonBackend.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -171,7 +161,7 @@ namespace studmonBackend.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("studmonBackend.Data.Models.Hallgato", b =>
+            modelBuilder.Entity("studmon.Models.Hallgato", b =>
                 {
                     b.Property<string>("neptunKod")
                         .HasColumnType("nvarchar(450)");
@@ -190,48 +180,33 @@ namespace studmonBackend.Migrations
 
                     b.HasKey("neptunKod");
 
-                    b.ToTable("Hallgatok");
+                    b.ToTable("hallgatoTabla");
 
                     b.HasData(
                         new
                         {
-                            neptunKod = "GX23R6",
+                            neptunKod = "61M2N8",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "BP3S2X",
+                            neptunKod = "KXK4FI",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "50TPLE",
+                            neptunKod = "7N564N",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
                         });
                 });
 
-            modelBuilder.Entity("studmonBackend.Data.Models.ManyToManyModels.OraManyToHallgatoMany", b =>
-                {
-                    b.Property<string>("OraId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("HallgatoId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("OraId", "HallgatoId");
-
-                    b.HasIndex("HallgatoId");
-
-                    b.ToTable("OraManyToHallgatoMany");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Ora", b =>
+            modelBuilder.Entity("studmon.Models.Ora", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -253,11 +228,10 @@ namespace studmonBackend.Migrations
                     b.Property<DateTime>("oraVeg")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("tanarID")
-                        .IsRequired()
+                    b.Property<string>("tanarId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("teremID")
+                    b.Property<string>("teremnev")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
@@ -267,14 +241,14 @@ namespace studmonBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("tanarID");
+                    b.HasIndex("tanarId");
 
-                    b.HasIndex("teremID");
+                    b.HasIndex("teremnev");
 
-                    b.ToTable("Orak");
+                    b.ToTable("oraTabla");
                 });
 
-            modelBuilder.Entity("studmonBackend.Data.Models.Tanar", b =>
+            modelBuilder.Entity("studmon.Models.Tanar", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -287,7 +261,6 @@ namespace studmonBackend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -309,7 +282,6 @@ namespace studmonBackend.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -327,6 +299,9 @@ namespace studmonBackend.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("neptunKod")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("nev")
                         .IsRequired()
@@ -347,81 +322,61 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "N12L77",
+                            Id = "3c0d193f-e46b-40c5-945a-9b487e8b9171",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fe5d743d-9cb9-40a4-b609-2fb94cee54a0",
+                            ConcurrencyStamp = "69ae8cfd-78a0-40ad-9b1b-71457ad33e65",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENQyW1j1kY8Wl626+406JnQpU8sRJt2m4DAz/t43YsHpeESpU6Ejo0jhQkmTuc7I9A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE5KfyNcH2Of2TUZvVpsFlAL8jMWxN19NF63zZDTgTS5d0vTAkImpt623YSovDgJsw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "228edec5-0689-4923-9078-e8fe9cf74fd1",
+                            SecurityStamp = "a3eb07dd-bb6a-4bd0-b90f-9d265aaadefe",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
+                            neptunKod = "058238",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "6CEMPT",
+                            Id = "c7322225-b2cb-4069-a16e-6e15e4c58ed5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dab06039-334e-4274-b312-30ca6f7db773",
+                            ConcurrencyStamp = "effddbb4-107a-451a-b41d-ec5d10fbc80d",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENiQactwc1dU+QLpD8nGvldD5NWNP+MuAnXag9jUHe02evzoO3HCLzTbcdaZ/O8zBw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPLE4rJPfYcnaFJWW21CCZX39qnwOzjfWMKXzoRmQo2SvjFZRdzV7mp2AVm9dkbGVQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c7961fcb-2973-4d63-9133-4e8d60f055b9",
+                            SecurityStamp = "35d3fd79-e710-4adb-9c82-bd69d7b1990f",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
+                            neptunKod = "80K41S",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "7M1OLF",
+                            Id = "19e0c359-f7e9-403a-9fde-5a086e84993e",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b4171af6-3463-4952-aa7e-7c06f54d3787",
-                            Email = "horvat.karoly@gmail.com",
+                            ConcurrencyStamp = "9e52b7cf-cf45-4ca6-b9fc-19b585196a3a",
+                            Email = "horvath.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
-                            NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAECoQapSlUxuy1UWRjOae7Y5VHxT8GrwdTegevz5xaxWL9dwpL+3KkYCSRI48eKGcfg==",
+                            NormalizedEmail = "HORVATH.KAROLY@GMAIL.COM",
+                            NormalizedUserName = "HORVATH.KAROLY@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEK0VPhJjQGt2pjIjE3GJx0q7/EeYrIk+FJ1hl8HLlkLNuNCHkc14Myq7Nyz+gkwVWQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2c3028fd-41fd-4414-9163-9faaff887570",
+                            SecurityStamp = "6215a916-4519-4c8a-9404-6fc4ff135fbb",
                             TwoFactorEnabled = false,
-                            UserName = "horvat.karoly@gmail.com",
+                            UserName = "horvath.karoly@gmail.com",
+                            neptunKod = "2ARR68",
                             nev = "Horváth Károly"
                         });
                 });
 
-            modelBuilder.Entity("studmonBackend.Data.Models.Teljesitmeny", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("hallgatoNeptunKod")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("oraId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("hallgatoNeptunKod");
-
-                    b.HasIndex("oraId");
-
-                    b.ToTable("Teljesitmenyek");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Terem", b =>
+            modelBuilder.Entity("studmon.Models.Terem", b =>
                 {
                     b.Property<string>("nev")
                         .HasColumnType("nvarchar(450)");
@@ -432,7 +387,7 @@ namespace studmonBackend.Migrations
 
                     b.HasKey("nev");
 
-                    b.ToTable("Termek");
+                    b.ToTable("teremTabla");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -446,7 +401,7 @@ namespace studmonBackend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("studmonBackend.Data.Models.Tanar", null)
+                    b.HasOne("studmon.Models.Tanar", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -455,7 +410,7 @@ namespace studmonBackend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("studmonBackend.Data.Models.Tanar", null)
+                    b.HasOne("studmon.Models.Tanar", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -470,7 +425,7 @@ namespace studmonBackend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("studmonBackend.Data.Models.Tanar", null)
+                    b.HasOne("studmon.Models.Tanar", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -479,92 +434,28 @@ namespace studmonBackend.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("studmonBackend.Data.Models.Tanar", null)
+                    b.HasOne("studmon.Models.Tanar", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("studmonBackend.Data.Models.ManyToManyModels.OraManyToHallgatoMany", b =>
+            modelBuilder.Entity("studmon.Models.Ora", b =>
                 {
-                    b.HasOne("studmonBackend.Data.Models.Hallgato", "Hallgato")
-                        .WithMany("orak")
-                        .HasForeignKey("HallgatoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("studmon.Models.Tanar", "tanar")
+                        .WithMany()
+                        .HasForeignKey("tanarId");
 
-                    b.HasOne("studmonBackend.Data.Models.Ora", "Ora")
-                        .WithMany("hallgatokColl")
-                        .HasForeignKey("OraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hallgato");
-
-                    b.Navigation("Ora");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Ora", b =>
-                {
-                    b.HasOne("studmonBackend.Data.Models.Tanar", "tanar")
-                        .WithMany("orakColl")
-                        .HasForeignKey("tanarID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("studmonBackend.Data.Models.Terem", "terem")
-                        .WithMany("Orak")
-                        .HasForeignKey("teremID")
+                    b.HasOne("studmon.Models.Terem", "terem")
+                        .WithMany()
+                        .HasForeignKey("teremnev")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("tanar");
 
                     b.Navigation("terem");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Teljesitmeny", b =>
-                {
-                    b.HasOne("studmonBackend.Data.Models.Hallgato", "hallgato")
-                        .WithMany("teljesitmeny")
-                        .HasForeignKey("hallgatoNeptunKod")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("studmonBackend.Data.Models.Ora", "ora")
-                        .WithMany("teljesitmenyColl")
-                        .HasForeignKey("oraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("hallgato");
-
-                    b.Navigation("ora");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Hallgato", b =>
-                {
-                    b.Navigation("orak");
-
-                    b.Navigation("teljesitmeny");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Ora", b =>
-                {
-                    b.Navigation("hallgatokColl");
-
-                    b.Navigation("teljesitmenyColl");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Tanar", b =>
-                {
-                    b.Navigation("orakColl");
-                });
-
-            modelBuilder.Entity("studmonBackend.Data.Models.Terem", b =>
-                {
-                    b.Navigation("Orak");
                 });
 #pragma warning restore 612, 618
         }
