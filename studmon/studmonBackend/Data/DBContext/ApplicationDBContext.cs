@@ -92,7 +92,13 @@ namespace studmonBackend.Data.DBContext
             {
                 new Hallgato(NeptunKodGenerator(), "Huba Árpád", "NIK", "Bprof"),
                 new Hallgato(NeptunKodGenerator(), "Török Levente", "NIK", "Bsc"),
-                new Hallgato(NeptunKodGenerator(), "Nyári Dalma", "NIK", "Bsc")
+                new Hallgato(NeptunKodGenerator(), "Nyári Dalma", "NIK", "Bsc"),
+                //Bence adatok
+                new Hallgato(NeptunKodGenerator(), "Szabó Pálma", "KGK", "Bsc"),
+                new Hallgato(NeptunKodGenerator(), "Boros ALex", "KVK", "Bsc"),
+                new Hallgato(NeptunKodGenerator(), "Sipos Julianna", "AMK", "Bprof"),
+                new Hallgato(NeptunKodGenerator(), "Merész Márk", "AMK", "Bsc"),
+                new Hallgato(NeptunKodGenerator(), "Sörös Csaba", "NIK", "Bsc"),
             };
 
             tanarLista = new List<Tanar>()
@@ -117,6 +123,24 @@ namespace studmonBackend.Data.DBContext
                     nev="Horváth Károly",
                     PasswordHash= "asdasd",
                     Email="horvat.karoly@gmail.com"
+                },
+                //Bence adatok
+                new Tanar(){
+                    Id = NeptunKodGenerator(),
+                    nev="Éles Márk",
+                    PasswordHash= "asdasd",
+                    Email="eles.mark@gmail.com"
+                },
+                new Tanar(){
+                    Id = NeptunKodGenerator(),
+                    nev="Tompa Tamás",
+                    PasswordHash= "asdasd",
+                    Email="tompa.tamas@gmail.com"
+                },new Tanar(){
+                    Id = NeptunKodGenerator(),
+                    nev="Bátor Béla",
+                    PasswordHash= "asdasd",
+                    Email="bator.bela@gmail.com"
                 },
             };
 
