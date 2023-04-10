@@ -15,6 +15,18 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//-- builder CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: "AllowOrigin",
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        });
+
+});
+//-- builder CORS vége
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -93,6 +105,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowOrigin");     //CORS
 app.MapHub<EventHub>("/events");
 
 app.UseAuthentication();
