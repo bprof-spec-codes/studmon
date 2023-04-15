@@ -24,7 +24,7 @@ namespace studmonBackend.Controllers
 
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public IEnumerable<Hallgato> GetAll()
         {
             return logic.ReadAll();
