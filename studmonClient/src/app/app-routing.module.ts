@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 import { CommonModule } from "@angular/common";
 
 const routes: Routes = [
-  {component: ListTanarokComponent, path: ''}
+  {component: LoginFormComponent, path: ''},
+  {component: ListTanarokComponent, path: 'tanarok'}
 ];
 
 @NgModule({
