@@ -10,7 +10,6 @@ export class TanarokService {
   constructor(private http:HttpClient) { }
 
   getData(){
-    //let url = "https://practiceapi.nikprog.hu/Student";
     let url = "http://localhost:5231/TanarAPI";
     return this.http.get(url);
   }
