@@ -1,0 +1,19 @@
+nav{
+  background-color: #2978a0 !important;
+  box-shadow: #194a63 0px 0px 8px;
+}
+
+nav a{
+  color: #fff;
+}
+
+nav a:active{
+  color: #fff;
+}
+
+nav a:hover{
+  color: #ffff84;
+}
+
+
+
