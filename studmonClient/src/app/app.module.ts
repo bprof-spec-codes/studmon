@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ClassroomComponent } from './classroom/classroom.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainPageComponent } from './main-page/main-page.component';
     LoginFormComponent,
     NavComponent,
     RegisterComponent,
-    MainPageComponent
+    MainPageComponent,
+    ClassroomComponent
   ],
   imports: [
     BrowserModule,
