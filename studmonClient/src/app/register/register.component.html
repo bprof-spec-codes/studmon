@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row form-centered">
+    <div class="col-xl-4 col-md-3 col-sm-2"></div>
+    <div class="col-xl-4 col-md-6 col-sm-8">
+      <form [formGroup]="form" class="d-flex flex-column" (submit)="submit()">
+        <h2 class="align-self-center">Regisztráció</h2>
+        <hr>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Név</label>
+          <input formControlName="nev" type="text" class="form-control" placeholder="Kiss Ferenc">
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Email</label>
+          <input formControlName="email" type="email" class="form-control" placeholder="kiss.ferenc@gmail.com">
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Neptun kód</label>
+          <input formControlName="id" type="text" class="form-control" placeholder="AAA111">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="mb-1">Jelszó</label>
+          <input formControlName="passwordHash" type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your password">
+        </div>
+        <div class="align-items-end">
+          <button type="submit" id="btn-register" class="btn w-100 btn-primary mt-5">Regisztráció</button>
+        </div>
+        <div class="align-items-end">
+        </div>
+          <a routerLink="/"><button type="button" id="btn-login" class="btn w-100 btn-primary my-3">Bejelentkezés</button></a>
+      </form>
+    </div>
+    <div class="col-xl-4 col-md-3 col-sm-2"></div>
+
+
+  </div>
+</div>

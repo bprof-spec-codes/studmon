@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TanarokService } from './tanarok.service';
+import { take, tap } from 'rxjs';
 
 
 @Component({
@@ -8,9 +9,23 @@ import { TanarokService } from './tanarok.service';
   styleUrls: ['./list-tanarok.component.css']
 })
 export class ListTanarokComponent {
-  constructor(private tanar:TanarokService){
-    this.tanar.getData().subscribe(data=>{
-      console.warn(data);
-    })
+  tanarok: any;
+  tanarok$: any;
+
+  constructor(private tanar: TanarokService) {
+
   }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.tanarok$ = this.tanar
+      .getData()
+      .pipe(tap((data) => this.tanarok = data));
+    console.log(this.tanarok$);
+    console.log(this.tanarok);
+  }
+
+
+
 }

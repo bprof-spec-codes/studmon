@@ -37,7 +37,8 @@ namespace studmonBackend.Data.Models
             set
             {
                 base.Email = EkezetEltavolitas(value);
-                base.UserName = nev;
+                this.nev = nev;
+                base.UserName = base.Email;
                 base.NormalizedEmail = base.Email.ToUpper();
                 base.NormalizedUserName = base.NormalizedEmail;
                     
