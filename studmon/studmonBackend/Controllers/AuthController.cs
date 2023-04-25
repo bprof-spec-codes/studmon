@@ -24,7 +24,7 @@ namespace studmonBackend.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
+            var user = await _userManager.FindByNameAsync(model.Email);
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var claim = new List<Claim> 
@@ -59,11 +59,12 @@ namespace studmonBackend.Controllers
             {
                 Id = model.ID,
                 nev =  model.nev,
-                Email = model.Email,
                 PasswordHash = model.Password,
+                Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            await _userManager.CreateAsync(user);
+            var asd = await _userManager.CreateAsync(user);
+            ;
             await _userManager.AddToRoleAsync(user, "Tanar");
             return Ok();
         }
