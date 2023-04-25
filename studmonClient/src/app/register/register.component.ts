@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,8 +29,12 @@ export class RegisterComponent implements OnInit{
   }
 
   submit(): void{
-    //console.log(this.form.getRawValue());
-    this.http.post('http://localhost:5231/TanarAPI',JSON.stringify(this.form.getRawValue()))
+    console.log(this.form.getRawValue());
+    console.log(JSON.stringify(this.form.getRawValue()));
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }
+    this.http.post('http://localhost:5231/TanarAPI',JSON.stringify(this.form.getRawValue()),httpOptions)
     .subscribe(res=> {
         console.log(res);
         this.router.navigate(['/']);
