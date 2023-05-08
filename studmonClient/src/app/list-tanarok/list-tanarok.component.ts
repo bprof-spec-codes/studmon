@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { TanarokService } from './tanarok.service';
-import { take, tap } from 'rxjs';
-
+import { Tanar } from '../_models/tanar';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list-tanarok',
@@ -9,23 +8,27 @@ import { take, tap } from 'rxjs';
   styleUrls: ['./list-tanarok.component.css']
 })
 export class ListTanarokComponent {
-  tanarok: any;
-  tanarok$: any;
+  tanarok: Array<Tanar>
+  http: HttpClient
 
-  constructor(private tanar: TanarokService) {
-
+  constructor(http: HttpClient) {
+    this.tanarok = []
+    this.http = http
+    this.getAllTeacher()
   }
 
-  ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.tanarok$ = this.tanar
-      .getData()
-      .pipe(tap((data) => this.tanarok = data));
-    console.log(this.tanarok$);
-    console.log(this.tanarok);
+  private getAllTeacher() {
+    this.http.get<any>('http://localhost:5231/TanarAPI')
+    .subscribe(resp=>{
+      console.log(resp)
+      resp.map((x:any) => {
+        let t = new Tanar()
+        t.neptun = x.id
+        t.nev = x.nev
+        t.email = x.email
+        this.tanarok.push(t)
+      })
+      console.log(this.tanarok)
+    })
   }
-
-
-
 }

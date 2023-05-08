@@ -1,4 +1,4 @@
-import { ListTanarokModule } from './list-tanarok/list-tanarok.module';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ClassroomComponent } from './classroom/classroom.component';
+import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,13 @@ import { ClassroomComponent } from './classroom/classroom.component';
     NavComponent,
     RegisterComponent,
     MainPageComponent,
-    ClassroomComponent
+    ClassroomComponent,
+    ListTanarokComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ListTanarokModule,
     FormsModule,
     ReactiveFormsModule
 
