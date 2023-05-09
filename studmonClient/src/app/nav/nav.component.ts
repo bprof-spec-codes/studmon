@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../app.service';
 
 @Component({
   selector: 'app-nav',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
+  api: ApiService
 
+  constructor(api: ApiService) {
+    this.api = api
+  }
 }
