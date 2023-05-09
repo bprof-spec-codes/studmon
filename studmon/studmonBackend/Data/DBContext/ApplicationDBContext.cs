@@ -18,6 +18,7 @@ namespace studmonBackend.Data.DBContext
 
         private List<Tanar> tanarLista = new List<Tanar>();
         private List<Hallgato> hallgatoLista = new List<Hallgato>();
+        private List<Terem> teremLista = new List<Terem>();
 
 
         public DbSet<Hallgato> Hallgatok { get; set; }
@@ -87,6 +88,12 @@ namespace studmonBackend.Data.DBContext
             new { Id = "2", Name = "Tanar", NormalizedName = "TANAR" }
             );
 
+            teremLista = new List<Terem>()
+            {
+                new Terem("BA 1.45", "1110111,1110111,1110111,1110111"),
+                new Terem("BA Audmax", "110111,110111,110111,110111"),
+                new Terem("BA 1.21", "1110111,1110111,1110111,1110111")
+            };
 
             hallgatoLista = new List<Hallgato>()
             {
@@ -122,6 +129,7 @@ namespace studmonBackend.Data.DBContext
 
             builder.Entity<Hallgato>().HasData(hallgatoLista);
             builder.Entity<Tanar>().HasData(tanarLista);
+            builder.Entity<Terem>().HasData(teremLista);
 
             base.OnModelCreating(builder);
         }
