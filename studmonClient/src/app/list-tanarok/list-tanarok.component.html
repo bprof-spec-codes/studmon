@@ -1,20 +1,24 @@
-<p>list-tanarok works!</p>
-
-{{tanarok | json}}
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Neptun kód</th>
-      <th scope="col">Név</th>
-      <th scope="col">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of tanarok$ | async">
-      <td>{{item.id}}</td>
-      <td>{{item.nev}}</td>
-      <td>{{item.email}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+  <p class="h1 mt-5">Tanárok</p>
+  <hr>
+  <table class="table table-striped table-sm table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Neptun</th>
+        <th scope="col">Név</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tanarok; index as i;">
+        <td scope="row">{{i}}</td>
+        <td>{{item.neptun}}</td>
+        <td>{{item.nev}}</td>
+        <td>{{item.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
