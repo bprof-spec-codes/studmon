@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ClassroomComponent } from './classroom/classroom.component';
 import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
     RegisterComponent,
     MainPageComponent,
     ClassroomComponent,
-    ListTanarokComponent
+    ListTanarokComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
