@@ -1,0 +1,21 @@
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+app-cell{
+    width: 200px;
+    height: 200px;
+    margin: 5px 0px 5px 0px;
+}
+
+.desk{
+    background-color: red;
+    border: 2px solid black;
+}
+
+.emptyspace{
+    background-color: white;
+
+}
+

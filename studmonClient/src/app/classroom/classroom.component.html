@@ -1,14 +1,9 @@
-<pre>//A terem mérete, ez a példa terem
-    //[5,6]
-    //
-    //A terem elrendezése mátrixban
-    //01111
-    //11011
-    //11011
-    //11011
-    //11011
-    //01111
-    //
-    //A stringes elrendezés
-    //01111,11011,11011,11011,11011,01111</pre>
+<div>
+<div class="row" *ngFor="let row of rows">
+    <app-cell  [ngClass]="cell.isDesk === true ? 'desk' : 'emptyspace'"
+    [name]="cell.name" [isDesk]="cell.isDesk" [isFull]="cell.isFull" *ngFor="let cell of row">
+    </app-cell>
+  </div>
 
+Tanári asztal
+</div>

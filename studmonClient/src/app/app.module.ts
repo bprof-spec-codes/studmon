@@ -13,6 +13,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ClassroomComponent } from './classroom/classroom.component';
 import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
 import { LogoutComponent } from './logout/logout.component';
+import { CellComponent } from './cell/cell.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LogoutComponent } from './logout/logout.component';
     MainPageComponent,
     ClassroomComponent,
     ListTanarokComponent,
-    LogoutComponent
+    LogoutComponent,
+    CellComponent
   ],
   imports: [
     BrowserModule,
