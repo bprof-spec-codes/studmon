@@ -49,7 +49,7 @@ namespace studmonBackend.Data.Models
 
         public Ora()
         {
-            
+            this.Id = Guid.NewGuid().ToString();
         }
 
         public Ora(string nev, string leiras,string teremID, string tanarID, int alkalmakSzama, DateTime oraKezdet, DateTime oraVeg, string ulesRend)

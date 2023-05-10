@@ -23,12 +23,12 @@ namespace studmonBackend.Data.Models
 
         }
 
-        public Terem(string nev)
+        public Terem(string nev, string elrendezes)
         {
             this.nev = nev;
             this.Orak = new HashSet<Ora>();
             //this.elrendezes = new bool[szel,hossz];
-            this.elrendezes = "";
+            this.elrendezes = elrendezes;
         }
     }
 }
