@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { studentModel } from '../_models/studentModel';
 
 @Component({
   selector: 'app-cell',
@@ -7,8 +8,28 @@ import { Component, Input } from '@angular/core';
 })
 export class CellComponent {
 
-  @Input() isDesk: Boolean | undefined;
-  @Input() isFull: Boolean | undefined;
   @Input() name: String | undefined;
+  @Input() type: Number | undefined;
+  @Input() row: Number | undefined;
+  @Input() studentList: studentModel[] | undefined;
+  grade: String ="neutral";
+
+  changeGrade(e:any) {
+    let grade=e.target.value
+    switch (grade) {
+      case "-1":
+        this.grade = "negative"       
+        break;
+        case "0":
+          this.grade="neutral"
+        break;
+        case "1":
+          this.grade="positive"
+        break;
+      default:
+        break;
+    }
+}
+
 
 }

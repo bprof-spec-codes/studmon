@@ -14,6 +14,7 @@ import { ClassroomComponent } from './classroom/classroom.component';
 import { ListTanarokComponent } from './list-tanarok/list-tanarok.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CellComponent } from './cell/cell.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CellComponent } from './cell/cell.component';
     ClassroomComponent,
     ListTanarokComponent,
     LogoutComponent,
-    CellComponent
+    CellComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,

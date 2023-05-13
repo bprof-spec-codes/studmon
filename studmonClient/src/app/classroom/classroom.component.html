@@ -1,9 +1,10 @@
 <div>
 <div class="row" *ngFor="let row of rows">
-    <app-cell  [ngClass]="cell.isDesk === true ? 'desk' : 'emptyspace'"
-    [name]="cell.name" [isDesk]="cell.isDesk" [isFull]="cell.isFull" *ngFor="let cell of row">
+    <app-cell [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row" >
     </app-cell>
   </div>
+
+ 
 
 Tanári asztal
 </div>

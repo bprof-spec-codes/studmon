@@ -1,0 +1,59 @@
+.desk{
+    background-color: beige;
+    border: 2px solid black;
+    
+}
+
+.emptyspace{
+    background-color: white;
+
+}
+
+div{
+    width: 200px;
+    height: 200px;
+    margin: 5px 0px 5px 0px;
+}
+
+.name{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+}
+
+form{
+  display: flex;
+  flex-direction: row;
+}
+
+.positive{
+    background-color: beige;
+    border: 2px solid black;
+    
+    background-color: green;
+}
+
+.negative{
+    background-color: beige;
+    border: 2px solid black;
+    
+    background-color: red;
+}
+
+.neutral{
+    background-color: beige;
+    border: 2px solid black;
+    
+    background-color: beige;
+}
+
+.positive input[type='radio'] {
+    accent-color: green;
+}
+
+
+.negative input[type='radio'] {
+    accent-color: red;
+}
