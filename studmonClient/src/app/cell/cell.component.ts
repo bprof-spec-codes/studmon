@@ -12,11 +12,16 @@ export class CellComponent {
   @Input() type: Number | undefined;
   @Input() row: Number | undefined;
   @Input() studentList: studentModel[] | undefined;
+
+
   grade: String ="neutral";
+  student: studentModel ={neptunKod: "", nev: "", kar: "", kepzesNev: "", orak:[ ], teljesitmeny:[]}
+  gradeNumber: string = "0"
 
   changeGrade(e:any) {
-    let grade=e.target.value
-    switch (grade) {
+    //let grade=e.target.value
+    this.gradeNumber = e.target.value
+    switch (this.gradeNumber) {
       case "-1":
         this.grade = "negative"       
         break;
