@@ -1,0 +1,8 @@
+<app-student-list [title]="'Student Selector'"  [student]="student" [studentList]="students"></app-student-list>
+<div *ngFor="let class of student.orak" class="card" style="width: 18rem;">
+    <div  class="card-body">
+      <h5 class="card-title">{{class.nev}}</h5>
+      <p class="card-text">{{class.leiras}}</p>
+    </div>
+    <p class="card-text">{{student.teljesitmeny}}</p>
+  </div>

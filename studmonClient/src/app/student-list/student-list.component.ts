@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { studentModel } from '../_models/studentModel';
 import { HttpClient } from '@angular/common/http';
+import { performanceModel } from '../_models/performanceModel';
 
 @Component({
   selector: 'app-student-list',
@@ -12,9 +13,10 @@ export class StudentListComponent implements OnChanges {
 
 
   @Input() studentList: Array<studentModel> | undefined;
-  @Input() student: studentModel = { neptunKod: "H4Z8BT", nev: "Sörös Bence", kar: "NIK", kepzesNev: "BSc", orak: [{}, {}], teljesitmeny: [{}, {}] }
+  @Input() student: studentModel = { neptunKod: "H4Z8BT", nev: "Sörös Bence", kar: "NIK", kepzesNev: "BSc", orak: [], teljesitmeny: [] }
   @Input() gradeNumber: string = "99"
   @Input() weekNumber: number = 12
+  @Input() title: string = "title"
   http: HttpClient
 
 

@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ClassroomComponent } from './classroom/classroom.component';
 import { LogoutComponent } from './logout/logout.component';
+import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
 
 const routes: Routes = [
   {component: LoginFormComponent, path: ''},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {component: RegisterComponent, path: 'register'},
   {component: MainPageComponent, path: 'mainpage'},
   {component: ClassroomComponent, path: 'classroom'},
+  {component: StudentStatisticComponent, path: 'studentstatistic' }
 ];
 
 @NgModule({
