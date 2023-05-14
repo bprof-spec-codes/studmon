@@ -12,8 +12,8 @@ using studmonBackend.Data.DBContext;
 namespace studmonBackend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230509095520_dbSeed")]
-    partial class dbSeed
+    [Migration("20230514144231_teszt")]
+    partial class teszt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -195,21 +195,21 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "Y2R34Y",
+                            neptunKod = "YV4PQU",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "CQQ00K",
+                            neptunKod = "X6HY8H",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "EBT3WA",
+                            neptunKod = "UQ4887",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -347,51 +347,51 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "WMH4Y7",
+                            Id = "OO61C4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7d7e5c5f-fac0-4c7f-b729-dd7d772e1b15",
+                            ConcurrencyStamp = "4734c4ce-e090-45c5-ac72-985d9678f992",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL2al8H7UqT91idPkYLZmCRQvUnEEJtuxzpR3qhrBw3EPMYscfzYP0jBB0PEDa0bNw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDL+Zd+chGg1HEHiACi4rJ29XiP3lKWd0466aznUiXlHubprQhDQ4XD7xSM3J47Fwg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8a16a071-c238-4bc6-8a88-39cb8588a811",
+                            SecurityStamp = "a37c571e-2548-4c5f-8999-37ef508c3d5d",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "GPMFSV",
+                            Id = "RG107V",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dc2a0574-4c88-4016-b94f-d2a0938dbbd9",
+                            ConcurrencyStamp = "e5d77619-1625-46a2-9408-f9fbfc01e1b3",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENR079tl4hkiSmw7hzeXGdOW3faP9tnZxtxfkF/m8QaYynXRMp2DmEcU5BTLitgTIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPiGj36CHCCdhXTjcBHjZbDu2ieai1PUBlXFUFsDjZ5/nw6+SvBatmYJQZWG9h/Ceg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a775b724-8232-44cb-968c-85a9054e3daa",
+                            SecurityStamp = "0ae1422c-59ce-4e94-8b38-14fc2f411989",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "CK6482",
+                            Id = "87TPKG",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca7e52e6-2d9c-4f6c-b78f-ee723b03f0b8",
+                            ConcurrencyStamp = "5e4df9b7-4db3-406c-b0d1-9b7db587ee09",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBp69SiMvtpyEITF01o6JOC21MCYipflGeQeJ1wB5W4hP8l8+PNL1u56F6iG5FqG2g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHcKUduQEuygefU3ENQn1n+EErouCOUGvp9YNt47ctP3KWsteKCEp8jukE0/7xgwZg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7aa79ea1-4375-4040-8f94-63292b10ed5d",
+                            SecurityStamp = "2e2852c6-c6a2-4a5f-bf85-cfd5b2ebdfb6",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -433,6 +433,23 @@ namespace studmonBackend.Migrations
                     b.HasKey("nev");
 
                     b.ToTable("Termek");
+
+                    b.HasData(
+                        new
+                        {
+                            nev = "BA 1.45",
+                            elrendezes = "1110111,1110111,1110111,1110111"
+                        },
+                        new
+                        {
+                            nev = "BA Audmax",
+                            elrendezes = "110111,110111,110111,110111"
+                        },
+                        new
+                        {
+                            nev = "BA 1.21",
+                            elrendezes = "1110111,1110111,1110111,1110111"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

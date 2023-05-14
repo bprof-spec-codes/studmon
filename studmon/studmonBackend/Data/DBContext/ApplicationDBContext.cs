@@ -127,6 +127,16 @@ namespace studmonBackend.Data.DBContext
                 },
             };
 
+            foreach (var item in tanarLista)
+            {
+                builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+                {
+                    RoleId = "2",
+                    UserId = item.Id
+                });
+            }
+
+
             builder.Entity<Hallgato>().HasData(hallgatoLista);
             builder.Entity<Tanar>().HasData(tanarLista);
             builder.Entity<Terem>().HasData(teremLista);
