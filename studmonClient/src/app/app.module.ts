@@ -16,6 +16,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { CellComponent } from './cell/cell.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StudentStatisticComponent } from './student-statistic/student-statistic
     LogoutComponent,
     CellComponent,
     StudentListComponent,
-    StudentStatisticComponent
+    StudentStatisticComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
