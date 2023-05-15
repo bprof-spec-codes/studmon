@@ -1,1 +1,62 @@
-<p>admin works!</p>
+<div style="margin-top: 20px;" class="parent">
+
+
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <form class="d-flex flex-column">
+                <h2 class="align-self-center">Tanár létrehozás</h2>
+                <hr>
+                <div class="form-group mb-4">
+                  <label class="mb-1">Név</label>
+                  <input name="name" [(ngModel)]="this.teacher.nev" type="name" class="form-control"
+                    placeholder="Kiss Ferenc">
+                </div>
+                <div class="form-group">
+                  <label class="mb-1">Neptun</label>
+                  <input [(ngModel)]="this.teacher.neptun" class="form-control" placeholder="ABC123">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="mb-1">Email</label>
+                    <input [(ngModel)]="this.teacher.email" name="email" type="email" class="form-control" id="exampleInputEmail1"
+                      placeholder="kiss.ferenc@gmail.com">
+                  </div>
+                <div class="align-items-end">
+                  <button color="warn"
+                  (click)="createTeacher()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+                </div>
+              </form>
+
+        </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+
+        <form class="d-flex flex-column" style="max-width: 80%;">
+            <h2 class="align-self-center">Hallgató létrehozás</h2>
+            <hr>
+            <div class="form-group mb-4">
+              <label class="mb-1">Név</label>
+              <input name="name" type="name" class="form-control"
+                placeholder="Kiss Ferenc">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="mb-1">Neptun</label>
+              <input  class="form-control" placeholder="ABC123">
+            </div>
+            <div class="form-group mb-4">
+                <label class="mb-1">Kar</label>
+                <input name="name" type="name" class="form-control"
+                  placeholder="Informatika">
+              </div>
+              <div class="form-group">
+              <label for="exampleInputPassword1" class="mb-1">Képzésnév</label>
+              <input  class="form-control" placeholder="Üzemmérnök">
+            </div>
+            <div class="align-items-end">
+              <button color="warn"
+              (click)="createTeacher()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+            </div>
+          </form>
+    </div>
+    
+</div>
+
+
