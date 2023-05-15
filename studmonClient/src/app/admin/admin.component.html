@@ -7,16 +7,16 @@
                 <hr>
                 <div class="form-group mb-4">
                   <label class="mb-1">Név</label>
-                  <input name="name" [(ngModel)]="this.teacher.nev" type="name" class="form-control"
+                  <input [(ngModel)]="this.teacher.nev" name="nev" class="form-control"
                     placeholder="Kiss Ferenc">
                 </div>
                 <div class="form-group">
                   <label class="mb-1">Neptun</label>
-                  <input [(ngModel)]="this.teacher.neptun" class="form-control" placeholder="ABC123">
+                  <input [(ngModel)]="this.teacher.neptun" name="neptun" class="form-control" placeholder="ABC123">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="mb-1">Email</label>
-                    <input [(ngModel)]="this.teacher.email" name="email" type="email" class="form-control" id="exampleInputEmail1"
+                    <input [(ngModel)]="this.teacher.email" name="email" class="form-control" id="exampleInputEmail1"
                       placeholder="kiss.ferenc@gmail.com">
                   </div>
                 <div class="align-items-end">
@@ -34,25 +34,25 @@
             <hr>
             <div class="form-group mb-4">
               <label class="mb-1">Név</label>
-              <input name="name" type="name" class="form-control"
+              <input [(ngModel)]="this.student.nev" name="nev" class="form-control"
                 placeholder="Kiss Ferenc">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1" class="mb-1">Neptun</label>
-              <input  class="form-control" placeholder="ABC123">
+              <label class="mb-1">Neptun</label>
+              <input [(ngModel)]="this.student.neptunKod" name="neptunKod" class="form-control" placeholder="ABC123">
             </div>
             <div class="form-group mb-4">
                 <label class="mb-1">Kar</label>
-                <input name="name" type="name" class="form-control"
+                <input [(ngModel)]="this.student.kar" name="kar" class="form-control"
                   placeholder="Informatika">
               </div>
               <div class="form-group">
-              <label for="exampleInputPassword1" class="mb-1">Képzésnév</label>
-              <input  class="form-control" placeholder="Üzemmérnök">
+              <label class="mb-1">Képzésnév</label>
+              <input [(ngModel)]="this.student.kepzesNev" name="kepzesNev" class="form-control" placeholder="Üzemmérnök">
             </div>
             <div class="align-items-end">
               <button color="warn"
-              (click)="createTeacher()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+              (click)="createStudent()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
             </div>
           </form>
     </div>

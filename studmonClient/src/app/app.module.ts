@@ -18,6 +18,8 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
 import { AdminComponent } from './admin/admin.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,6 @@ import { AdminComponent } from './admin/admin.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

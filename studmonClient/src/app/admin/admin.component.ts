@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Tanar } from '../_models/tanar';
+import { studentModel } from '../_models/studentModel';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -10,10 +12,12 @@ import { Tanar } from '../_models/tanar';
 export class AdminComponent {
   http: HttpClient
   teacher: Tanar
+  student: studentModel
 
   constructor(http: HttpClient) {
     this.http = http
     this.teacher = new Tanar()
+    this.student = new studentModel
   }
 
   public createTeacher() : void {
@@ -27,9 +31,21 @@ export class AdminComponent {
         this.teacher,
         { headers: headers }
       )
+      .subscribe(
+        (success) => {
+          console.log(success)
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
   }
 
-  
+  public createStudent() : void{
+
+  }
+
+
 
 
 }
