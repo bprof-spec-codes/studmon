@@ -12,7 +12,7 @@ export class StudentStatisticComponent {
   http: HttpClient
 
  
-  student: studentModel ={neptunKod: "", nev: "", kar: "", kepzesNev: "", orak:[ ], teljesitmeny:[]}
+  student: studentModel ={neptunKod: "GQ814D", nev: "Nyári Dalma", kar: "NIK", kepzesNev: "Bsc", orak:[ ], teljesitmeny:[{performanceId: "sadas",studentId:"GQ814D", classId:"MAth.10", ratings: [1,1,1,1,0,0,0,-1,-1]}]}
 
 
   constructor(http: HttpClient) {

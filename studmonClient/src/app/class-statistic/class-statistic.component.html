@@ -1,13 +1,13 @@
-<app-student-list [title]="'Student Selector'"  [student]="student" [studentList]="students"></app-student-list>
-<!-- <div *ngFor="let class of student.orak" class="card" style="width: 18rem;">
+<app-class-list [title]="'Class Selector'"  [class]="class" [classList]="classes"></app-class-list>
+<!-- <div *ngFor="let class of class.orak" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{class.nev}}</h5>
       <p class="card-text">{{class.leiras}}</p>
     </div>
-    <p class="card-text">{{student.teljesitmeny}}</p>
+    <p class="card-text">{{class.teljesitmeny}}</p>
   </div> -->
 
-  <div *ngFor="let performance of student.teljesitmeny" class="card" style="width: 18rem;">
+  <!-- <div *ngFor="let performance of class.teljesitmeny" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{performance.classId}}</h5>
     </div>
@@ -15,4 +15,4 @@
       <div   *ngFor="let rating of performance.ratings">{{rating}}</div>
 
     </div>
-  </div>
+  </div> -->

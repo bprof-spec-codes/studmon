@@ -8,6 +8,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ClassroomComponent } from './classroom/classroom.component';
 import { LogoutComponent } from './logout/logout.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
+import { ClassListComponent } from './class-list/class-list.component';
+import { ClassStatisticComponent } from './class-statistic/class-statistic.component';
 
 const routes: Routes = [
   {component: LoginFormComponent, path: ''},
@@ -16,7 +18,10 @@ const routes: Routes = [
   {component: RegisterComponent, path: 'register'},
   {component: MainPageComponent, path: 'mainpage'},
   {component: ClassroomComponent, path: 'classroom'},
-  {component: StudentStatisticComponent, path: 'studentstatistic' }
+  {component: StudentStatisticComponent, path: 'studentstatistic' },
+  {component: ClassListComponent, path: 'classes'},
+  {component: ClassStatisticComponent, path: 'classstatistic'}
+
 ];
 
 @NgModule({

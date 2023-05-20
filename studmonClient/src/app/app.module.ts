@@ -16,6 +16,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { CellComponent } from './cell/cell.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
+import { ClassStatisticComponent } from './class-statistic/class-statistic.component';
+import { ClassListComponent } from './class-list/class-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { StudentStatisticComponent } from './student-statistic/student-statistic
     LogoutComponent,
     CellComponent,
     StudentListComponent,
-    StudentStatisticComponent
+    StudentStatisticComponent,
+    ClassStatisticComponent,
+    ClassListComponent
   ],
   imports: [
     BrowserModule,

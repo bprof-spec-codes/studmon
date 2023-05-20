@@ -1,0 +1,31 @@
+<button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button>
+<div *ngIf="nev">
+    {{nev}}
+</div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{nev}}</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Class's list
+                    </button>
+                    <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li *ngFor="let class of classList"><a (click)="changeValue(class)" class="dropdown-item">{{class.nev}}</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
