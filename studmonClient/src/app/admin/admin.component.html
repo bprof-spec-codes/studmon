@@ -1,0 +1,98 @@
+<h1 style="margin-bottom: 50px;margin-left: 100px; margin-top: 50px; font-weight: bold;">Admin felület</h1>
+<div style="margin-top: 20px;" class="parent">
+
+
+<div class="align-items-center">
+
+    <form class="d-flex flex-column" style="max-width: 80%;">
+        <h2 class="align-self-center">Hallgató létrehozás</h2>
+        <hr>
+        <div class="form-group mb-4">
+          <label class="mb-1">Név</label>
+          <input [(ngModel)]="this.student.nev" name="nev" class="form-control"
+            placeholder="Kiss Ferenc">
+        </div>
+        <div class="form-group mb-4">
+          <label class="mb-1">Neptun</label>
+          <input [(ngModel)]="this.student.neptunKod" name="neptunKod" class="form-control" placeholder="ABC123">
+        </div>
+        <div class="form-group mb-4">
+            <label class="mb-1">Kar</label>
+            <input [(ngModel)]="this.student.kar" name="kar" class="form-control"
+              placeholder="NIK">
+          </div>
+        <div class="form-group">
+          <label class="mb-1">Képzésnév</label>
+          <input [(ngModel)]="this.student.kepzesNev" name="kepzesNev" class="form-control" placeholder="BSC">
+        </div>
+        <div class="align-items-end">
+          <button color="warn"
+          (click)="createStudent()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+        </div>
+      </form>
+</div>
+
+<!-- <div class="align-items-center">
+
+  <form class="d-flex flex-column" style="max-width: 80%;">
+      <h2 class="align-self-center">Óra létrehozás</h2>
+      <hr>
+      <div class="form-group mb-4">
+        <label class="mb-1">Név</label>
+        <input [(ngModel)]="this.class.nev" name="nev" class="form-control">
+      </div>
+      <div class="form-group mb-4">
+        <label class="mb-1">Id</label>
+        <input [(ngModel)]="this.class.Id" name="Id" class="form-control">
+      </div>
+      <div class="form-group mb-4">
+          <label class="mb-1">Leíras</label>
+          <input [(ngModel)]="this.class.leiras" name="leiras" class="form-control">
+      </div>
+      <div class="form-group mb-4">
+        <label class="mb-1">Terem ID</label>
+        <input [(ngModel)]="this.class.teremId" name="teremID" class="form-control">
+      </div>
+      <div class="form-group mb-4">
+        <label class="mb-1">Tanár Neptun</label>
+        <input [(ngModel)]="this.class.tanarId" name="tanarId" class="form-control" >
+      </div>
+
+      <div class="form-group mb-4">
+        <label class="mb-1">Alkalmak Száma</label>
+        <input [(ngModel)]="this.class.alkalmakSzama" name="alkalmakSzama" class="form-control">
+      </div>
+      <div class="form-group mb-4">
+        <label class="mb-1">Ülesrend</label>
+        <input [(ngModel)]="this.class.ulesRend" name="alkalmakSzama" class="form-control">
+      </div>
+      <div class="align-items-end">
+        <button color="warn"
+        (click)="createClass()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+      </div>
+    </form>
+</div> -->
+
+<div class="align-items-center" style="margin-left: 30px;">
+
+  <form class="d-flex flex-column" style="max-width: 80%;">
+      <h2 class="align-self-center">Terem létrehozás</h2>
+      <hr>
+      <div class="form-group mb-4">
+        <label class="mb-1">Név</label>
+        <input [(ngModel)]="this.student.nev" name="nev" class="form-control">
+      </div>
+      <div class="form-group">
+        <label class="mb-1">Elrendezés</label>
+        <input [(ngModel)]="this.terem.elrendezes" name="kepzesNev" class="form-control">
+      </div>
+      <div class="align-items-end">
+        <button color="warn"
+        (click)="createTerem()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+      </div>
+    </form>
+</div>
+
+</div>
+
+

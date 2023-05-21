@@ -1,0 +1,16 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+.align-items-center{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.align-items-end{
+    margin-top: 0px;
+}
