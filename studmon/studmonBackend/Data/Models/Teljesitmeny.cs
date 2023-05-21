@@ -14,19 +14,6 @@ namespace studmonBackend.Data.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string teljesitmenyID { get; set; }
 
-        //------------------------------------------
-        //[NotMapped]
-        //public string TeljesitmenyIDGen
-        //{
-
-
-        //    set
-        //    {
-        //       this.teljesitmenyID = Guid.NewGuid().ToString();
-        //    }
-        //}
-        //------------------------------------------
-
 
 
         [Required]

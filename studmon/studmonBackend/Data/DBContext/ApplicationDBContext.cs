@@ -97,35 +97,102 @@ namespace studmonBackend.Data.DBContext
 
             hallgatoLista = new List<Hallgato>()
             {
-                new Hallgato(NeptunKodGenerator(), "Huba Árpád", "NIK", "Bprof"),
-                new Hallgato(NeptunKodGenerator(), "Török Levente", "NIK", "Bsc"),
-                new Hallgato(NeptunKodGenerator(), "Nyári Dalma", "NIK", "Bsc")
+                new Hallgato("FTG456", "Huba Árpád", "NIK", "Bprof"),
+                new Hallgato("KJGL45", "Török Levente", "NIK", "Bsc"),
+                new Hallgato("ERF456", "Nyári Dalma", "NIK", "Bsc")
             };
 
             tanarLista = new List<Tanar>()
             {
                 new Tanar()
                 {
-                    Id = NeptunKodGenerator(),
+                    Id = "DFG234",
                     nev="Tóth Angéla",
                     PasswordHash= "asdasd",
                     Email="toth.angela@gmail.com"
 
                 },
                 new Tanar(){
-                    Id = NeptunKodGenerator(),
+                    Id = "QWE234",
                     nev="Balogh Attila",
                     PasswordHash= "asdasd",
                     Email="balogh.attila@gmail.com"
 
                 },
                 new Tanar(){
-                    Id = NeptunKodGenerator(),
+                    Id = "XY2345",
                     nev="Horváth Károly",
                     PasswordHash= "asdasd",
                     Email="horvat.karoly@gmail.com"
                 },
             };
+
+            List<Ora> oraLista = new List<Ora>()
+            {
+                new Ora()
+                {
+                    Id = "ASD123",
+                    nev = "HFT",
+                    leiras = "hft",
+                    teremID = "BA 1.45",
+                    tanarID = "XY2345",
+                    alkalmakSzama = 12,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(1),
+                    ulesRend = ""
+                },
+
+                new Ora()
+                {
+                    Id = "ASD234",
+                    nev = "Dimat1",
+                    leiras = "dimat1",
+                    teremID = "BA 1.45",
+                    tanarID = "QWE234",
+                    alkalmakSzama = 13,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(1),
+                    ulesRend = ""
+                },
+
+                new Ora()
+                {
+                    Id = "ASD345",
+                    nev = "Vállgazd",
+                    leiras = "hft",
+                    teremID = "BA Audmax",
+                    tanarID = "DFG234",
+                    alkalmakSzama = 11,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(2),
+                    ulesRend = ""
+                }
+            };
+
+            List<Teljesitmeny> teljesitmenyLista = new List<Teljesitmeny>()
+            {
+                new Teljesitmeny
+                {
+                    hallgatoNeptunKod = "KJGL45",
+                    oraId = "ASD345",
+                    Ertekeles = new int []{1,0,0,1,-1,-1,0,1,1,1,1}
+                },
+
+                new Teljesitmeny
+                {
+                    hallgatoNeptunKod = "KJGL45",
+                    oraId = "ASD234",
+                    Ertekeles = new int []{1,1,1,0,1,-1,0,1,1,1,1}
+                },
+
+                new Teljesitmeny
+                {
+                    hallgatoNeptunKod = "FTG456",
+                    oraId = "ASD234",
+                    Ertekeles = new int []{0,0,0,0,1,-1,0,1,0,0,1}
+                },
+            };
+
 
             foreach (var item in tanarLista)
             {
@@ -136,7 +203,7 @@ namespace studmonBackend.Data.DBContext
                 });
             }
 
-
+            builder.Entity<Ora>().HasData(oraLista);
             builder.Entity<Hallgato>().HasData(hallgatoLista);
             builder.Entity<Tanar>().HasData(tanarLista);
             builder.Entity<Terem>().HasData(teremLista);
