@@ -26,6 +26,7 @@ namespace studmonBackend.Data.DBContext
         public DbSet<Terem> Termek { get; set; }
         public DbSet<Tanar> Tanarok { get; set; }
         public DbSet<Teljesitmeny> Teljesitmenyek { get; set; }
+        public DbSet<OraManyToHallgatoMany> OraManyToHallgatoMany { get; set; }
 
         //public DbSet<OraManyToHallgatoMany> OraHallgatoTabla { get; set; }
 
@@ -58,7 +59,21 @@ namespace studmonBackend.Data.DBContext
 
             //Many to Many
 
-            builder.Entity<OraManyToHallgatoMany>(oh => oh
+            builder.Entity<OraManyToHallgatoMany>()
+            .HasKey(oh => new { oh.OraId, oh.HallgatoId });
+
+            builder.Entity<OraManyToHallgatoMany>()
+                .HasOne(oh => oh.Ora)
+                .WithMany(o => o.hallgatokColl)
+                .HasForeignKey(oh => oh.OraId);
+
+            builder.Entity<OraManyToHallgatoMany>()
+                .HasOne(oh => oh.Hallgato)
+                .WithMany(h => h.orak)
+                .HasForeignKey(oh => oh.HallgatoId);
+
+
+            /*builder.Entity<OraManyToHallgatoMany>(oh => oh
                 .HasKey(oh => new { oh.OraId, oh.HallgatoId })
                 );
 
@@ -70,7 +85,7 @@ namespace studmonBackend.Data.DBContext
             builder.Entity<OraManyToHallgatoMany>()
                 .HasOne(oh => oh.Hallgato)
                 .WithMany(h => h.orak)
-                .HasForeignKey(oh => oh.HallgatoId);
+                .HasForeignKey(oh => oh.HallgatoId);*/
 
 
 
@@ -97,35 +112,108 @@ namespace studmonBackend.Data.DBContext
 
             hallgatoLista = new List<Hallgato>()
             {
-                new Hallgato(NeptunKodGenerator(), "Huba Árpád", "NIK", "Bprof"),
-                new Hallgato(NeptunKodGenerator(), "Török Levente", "NIK", "Bsc"),
-                new Hallgato(NeptunKodGenerator(), "Nyári Dalma", "NIK", "Bsc")
+                new Hallgato("FTG456", "Huba Árpád", "NIK", "Bprof"),
+                new Hallgato("KJGL45", "Török Levente", "NIK", "Bsc"),
+                new Hallgato("ERF456", "Nyári Dalma", "NIK", "Bsc")
             };
 
             tanarLista = new List<Tanar>()
             {
                 new Tanar()
                 {
-                    Id = NeptunKodGenerator(),
+                    Id = "DFG234",
                     nev="Tóth Angéla",
                     PasswordHash= "asdasd",
                     Email="toth.angela@gmail.com"
 
                 },
                 new Tanar(){
-                    Id = NeptunKodGenerator(),
+                    Id = "QWE234",
                     nev="Balogh Attila",
                     PasswordHash= "asdasd",
                     Email="balogh.attila@gmail.com"
 
                 },
                 new Tanar(){
-                    Id = NeptunKodGenerator(),
+                    Id = "XY2345",
                     nev="Horváth Károly",
                     PasswordHash= "asdasd",
                     Email="horvat.karoly@gmail.com"
                 },
             };
+
+            List<Ora> oraLista = new List<Ora>()
+            {
+                new Ora()
+                {
+                    Id = "ASD123",
+                    nev = "HFT",
+                    leiras = "hft",
+                    teremID = "BA 1.45",
+                    tanarID = "XY2345",
+                    alkalmakSzama = 12,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(1),
+                    ulesRend = ""
+                },
+
+                new Ora()
+                {
+                    Id = "ASD234",
+                    nev = "Dimat1",
+                    leiras = "dimat1",
+                    teremID = "BA 1.45",
+                    tanarID = "QWE234",
+                    alkalmakSzama = 13,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(1),
+                    ulesRend = ""
+                },
+
+                new Ora()
+                {
+                    Id = "ASD345",
+                    nev = "Vállgazd",
+                    leiras = "hft",
+                    teremID = "BA Audmax",
+                    tanarID = "DFG234",
+                    alkalmakSzama = 11,
+                    oraKezdet = DateTime.Now,
+                    oraVeg = DateTime.Now.AddHours(2),
+                    ulesRend = ""
+                }
+            };
+
+            List<Teljesitmeny> teljesitmenyLista = new List<Teljesitmeny>()
+            {
+                new Teljesitmeny
+                {
+                    teljesitmenyID = 1,
+                    hallgatoNeptunKod = "KJGL45",
+                    oraId = "ASD234",
+                    ertekeles = 0
+
+                },
+
+                new Teljesitmeny
+                {
+                    teljesitmenyID = 2,
+                    hallgatoNeptunKod = "KJGL45",
+                    oraId = "ASD234",
+                    ertekeles = -1
+
+                },
+
+                new Teljesitmeny
+                {
+                    teljesitmenyID = 3,
+                    hallgatoNeptunKod = "KJGL45",
+                    oraId = "ASD234",
+                    ertekeles = 1
+                    
+                },
+            };
+
 
             foreach (var item in tanarLista)
             {
@@ -136,7 +224,23 @@ namespace studmonBackend.Data.DBContext
                 });
             }
 
+            List<OraManyToHallgatoMany> oraHallgatoLista = new List<OraManyToHallgatoMany>()
+            {
+                new OraManyToHallgatoMany
+                {
+                    OraId = "ASD123",
+                    HallgatoId = "FTG456"
+                },
+                new OraManyToHallgatoMany
+                {
+                    OraId = "ASD345",
+                    HallgatoId = "FTG456"
+                }
+            };
 
+            builder.Entity<OraManyToHallgatoMany>().HasData(oraHallgatoLista);
+            builder.Entity<Teljesitmeny>().HasData(teljesitmenyLista);
+            builder.Entity<Ora>().HasData(oraLista);
             builder.Entity<Hallgato>().HasData(hallgatoLista);
             builder.Entity<Tanar>().HasData(tanarLista);
             builder.Entity<Terem>().HasData(teremLista);
