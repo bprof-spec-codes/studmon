@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using JsonIgnoreAttribute = System.Text.Json.Serialization.JsonIgnoreAttribute;
 
 namespace studmonBackend.Data.Models
 {
@@ -12,20 +15,7 @@ namespace studmonBackend.Data.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string teljesitmenyID { get; set; }
-
-        //------------------------------------------
-        //[NotMapped]
-        //public string TeljesitmenyIDGen
-        //{
-
-
-        //    set
-        //    {
-        //       this.teljesitmenyID = Guid.NewGuid().ToString();
-        //    }
-        //}
-        //------------------------------------------
+        public int teljesitmenyID { get; set; }
 
 
 
@@ -34,6 +24,8 @@ namespace studmonBackend.Data.Models
         public string hallgatoNeptunKod { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
+        
         public virtual Hallgato? hallgato { get; set; }
 
         [Required]
@@ -41,29 +33,20 @@ namespace studmonBackend.Data.Models
         public string oraId { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Ora? ora { get; set; } //melyik órához tartozó értékelések
 
-        [NotMapped]
-        public int[] ertekelesek = new int[14]; //1 diákhoz tartozó értékelések
+        
+        public int ertekeles { get; set; } //1 diákhoz tartozó értékelések
 
         //------------------------------------------
-        [NotMapped]
-        public int[] Ertekeles
-        {
-            get{
-                return ertekelesek;
-            }
-
-            set
-            {
-                this.ertekelesek = value;
-            }
-        }
+        
+        
         //------------------------------------------
 
         public Teljesitmeny()
-        {
-            this.teljesitmenyID = Guid.NewGuid().ToString();
+        { 
+            
         }
 
         //public Teljesitmeny(string hallgatoNeptunKod, string oraId)

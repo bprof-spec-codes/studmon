@@ -35,9 +35,11 @@ namespace studmonBackend.Data.Models
         public DateTime oraVeg { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<OraManyToHallgatoMany>? hallgatokColl { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Teljesitmeny>? teljesitmenyColl { get; set; }
 
 

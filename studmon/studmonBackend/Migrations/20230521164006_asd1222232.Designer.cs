@@ -12,8 +12,8 @@ using studmonBackend.Data.DBContext;
 namespace studmonBackend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230514144231_teszt")]
-    partial class teszt
+    [Migration("20230521164006_asd1222232")]
+    partial class asd1222232
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -150,6 +150,23 @@ namespace studmonBackend.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "DFG234",
+                            RoleId = "2"
+                        },
+                        new
+                        {
+                            UserId = "QWE234",
+                            RoleId = "2"
+                        },
+                        new
+                        {
+                            UserId = "XY2345",
+                            RoleId = "2"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -195,21 +212,21 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            neptunKod = "YV4PQU",
+                            neptunKod = "FTG456",
                             kar = "NIK",
                             kepzesNev = "Bprof",
                             nev = "Huba Árpád"
                         },
                         new
                         {
-                            neptunKod = "X6HY8H",
+                            neptunKod = "KJGL45",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Török Levente"
                         },
                         new
                         {
-                            neptunKod = "UQ4887",
+                            neptunKod = "ERF456",
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
@@ -229,6 +246,18 @@ namespace studmonBackend.Migrations
                     b.HasIndex("HallgatoId");
 
                     b.ToTable("OraManyToHallgatoMany");
+
+                    b.HasData(
+                        new
+                        {
+                            OraId = "ASD123",
+                            HallgatoId = "FTG456"
+                        },
+                        new
+                        {
+                            OraId = "ASD345",
+                            HallgatoId = "FTG456"
+                        });
                 });
 
             modelBuilder.Entity("studmonBackend.Data.Models.Ora", b =>
@@ -272,6 +301,44 @@ namespace studmonBackend.Migrations
                     b.HasIndex("teremID");
 
                     b.ToTable("Orak");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ASD123",
+                            alkalmakSzama = 12,
+                            leiras = "hft",
+                            nev = "HFT",
+                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7078),
+                            oraVeg = new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7112),
+                            tanarID = "XY2345",
+                            teremID = "BA 1.45",
+                            ulesRend = ""
+                        },
+                        new
+                        {
+                            Id = "ASD234",
+                            alkalmakSzama = 13,
+                            leiras = "dimat1",
+                            nev = "Dimat1",
+                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7132),
+                            oraVeg = new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7134),
+                            tanarID = "QWE234",
+                            teremID = "BA 1.45",
+                            ulesRend = ""
+                        },
+                        new
+                        {
+                            Id = "ASD345",
+                            alkalmakSzama = 11,
+                            leiras = "hft",
+                            nev = "Vállgazd",
+                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7140),
+                            oraVeg = new DateTime(2023, 5, 21, 20, 40, 6, 427, DateTimeKind.Local).AddTicks(7141),
+                            tanarID = "DFG234",
+                            teremID = "BA Audmax",
+                            ulesRend = ""
+                        });
                 });
 
             modelBuilder.Entity("studmonBackend.Data.Models.Tanar", b =>
@@ -347,51 +414,51 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "OO61C4",
+                            Id = "DFG234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4734c4ce-e090-45c5-ac72-985d9678f992",
+                            ConcurrencyStamp = "7134b231-c53d-4e59-8083-5174a3fcb083",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDL+Zd+chGg1HEHiACi4rJ29XiP3lKWd0466aznUiXlHubprQhDQ4XD7xSM3J47Fwg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMGy9DZ02Jnlj0rYiXLzWmOqyJp62HUxnAsIv1PxRdflhOcL950YbXCMvezLsbu+vA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a37c571e-2548-4c5f-8999-37ef508c3d5d",
+                            SecurityStamp = "8446d98e-5a53-404f-b005-5b3423a98181",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
                         },
                         new
                         {
-                            Id = "RG107V",
+                            Id = "QWE234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e5d77619-1625-46a2-9408-f9fbfc01e1b3",
+                            ConcurrencyStamp = "a26a3acf-6a68-46ae-a9cd-27b4a7bd35ac",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPiGj36CHCCdhXTjcBHjZbDu2ieai1PUBlXFUFsDjZ5/nw6+SvBatmYJQZWG9h/Ceg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPvKOQ8TGT8fZP/r5I/gAYhKb2fCFGHfWG5U6kJoohjxG+nM/lt4uz8lKS70phGZPg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0ae1422c-59ce-4e94-8b38-14fc2f411989",
+                            SecurityStamp = "9063f405-ddfa-4115-a72f-62c9a90f308a",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
                         },
                         new
                         {
-                            Id = "87TPKG",
+                            Id = "XY2345",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5e4df9b7-4db3-406c-b0d1-9b7db587ee09",
+                            ConcurrencyStamp = "deb3a95d-1f3d-41a4-bf7f-8e9b1c8df53c",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHcKUduQEuygefU3ENQn1n+EErouCOUGvp9YNt47ctP3KWsteKCEp8jukE0/7xgwZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELntuInHVS8oQ8LukOCr2MdLRyhmLAyowxxShOc6gxrSZ0CcWKvuIpbzt8uhYMh8Tg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2e2852c6-c6a2-4a5f-bf85-cfd5b2ebdfb6",
+                            SecurityStamp = "74c39723-76b6-4a00-ad53-08b863ec5c4b",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -400,9 +467,11 @@ namespace studmonBackend.Migrations
 
             modelBuilder.Entity("studmonBackend.Data.Models.Teljesitmeny", b =>
                 {
-                    b.Property<string>("teljesitmenyID")
+                    b.Property<int>("teljesitmenyID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("teljesitmenyID"), 1L, 1);
 
                     b.Property<string>("hallgatoNeptunKod")
                         .IsRequired()
@@ -419,6 +488,26 @@ namespace studmonBackend.Migrations
                     b.HasIndex("oraId");
 
                     b.ToTable("Teljesitmenyek");
+
+                    b.HasData(
+                        new
+                        {
+                            teljesitmenyID = 1,
+                            hallgatoNeptunKod = "KJGL45",
+                            oraId = "ASD234"
+                        },
+                        new
+                        {
+                            teljesitmenyID = 2,
+                            hallgatoNeptunKod = "KJGL45",
+                            oraId = "ASD234"
+                        },
+                        new
+                        {
+                            teljesitmenyID = 3,
+                            hallgatoNeptunKod = "KJGL45",
+                            oraId = "ASD234"
+                        });
                 });
 
             modelBuilder.Entity("studmonBackend.Data.Models.Terem", b =>
