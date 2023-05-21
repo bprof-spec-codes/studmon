@@ -26,6 +26,7 @@ namespace studmonBackend.Data.DBContext
         public DbSet<Terem> Termek { get; set; }
         public DbSet<Tanar> Tanarok { get; set; }
         public DbSet<Teljesitmeny> Teljesitmenyek { get; set; }
+        public DbSet<OraManyToHallgatoMany> OraManyToHallgatoMany { get; set; }
 
         //public DbSet<OraManyToHallgatoMany> OraHallgatoTabla { get; set; }
 
@@ -58,7 +59,21 @@ namespace studmonBackend.Data.DBContext
 
             //Many to Many
 
-            builder.Entity<OraManyToHallgatoMany>(oh => oh
+            builder.Entity<OraManyToHallgatoMany>()
+            .HasKey(oh => new { oh.OraId, oh.HallgatoId });
+
+            builder.Entity<OraManyToHallgatoMany>()
+                .HasOne(oh => oh.Ora)
+                .WithMany(o => o.hallgatokColl)
+                .HasForeignKey(oh => oh.OraId);
+
+            builder.Entity<OraManyToHallgatoMany>()
+                .HasOne(oh => oh.Hallgato)
+                .WithMany(h => h.orak)
+                .HasForeignKey(oh => oh.HallgatoId);
+
+
+            /*builder.Entity<OraManyToHallgatoMany>(oh => oh
                 .HasKey(oh => new { oh.OraId, oh.HallgatoId })
                 );
 
@@ -70,7 +85,7 @@ namespace studmonBackend.Data.DBContext
             builder.Entity<OraManyToHallgatoMany>()
                 .HasOne(oh => oh.Hallgato)
                 .WithMany(h => h.orak)
-                .HasForeignKey(oh => oh.HallgatoId);
+                .HasForeignKey(oh => oh.HallgatoId);*/
 
 
 
@@ -173,23 +188,29 @@ namespace studmonBackend.Data.DBContext
             {
                 new Teljesitmeny
                 {
+                    teljesitmenyID = 1,
                     hallgatoNeptunKod = "KJGL45",
-                    oraId = "ASD345",
-                    Ertekeles = new int []{1,0,0,1,-1,-1,0,1,1,1,1}
+                    oraId = "ASD234",
+                    ertekeles = 0
+
                 },
 
                 new Teljesitmeny
                 {
+                    teljesitmenyID = 2,
                     hallgatoNeptunKod = "KJGL45",
                     oraId = "ASD234",
-                    Ertekeles = new int []{1,1,1,0,1,-1,0,1,1,1,1}
+                    ertekeles = -1
+
                 },
 
                 new Teljesitmeny
                 {
-                    hallgatoNeptunKod = "FTG456",
+                    teljesitmenyID = 3,
+                    hallgatoNeptunKod = "KJGL45",
                     oraId = "ASD234",
-                    Ertekeles = new int []{0,0,0,0,1,-1,0,1,0,0,1}
+                    ertekeles = 1
+                    
                 },
             };
 
@@ -203,6 +224,22 @@ namespace studmonBackend.Data.DBContext
                 });
             }
 
+            List<OraManyToHallgatoMany> oraHallgatoLista = new List<OraManyToHallgatoMany>()
+            {
+                new OraManyToHallgatoMany
+                {
+                    OraId = "ASD123",
+                    HallgatoId = "FTG456"
+                },
+                new OraManyToHallgatoMany
+                {
+                    OraId = "ASD345",
+                    HallgatoId = "FTG456"
+                }
+            };
+
+            builder.Entity<OraManyToHallgatoMany>().HasData(oraHallgatoLista);
+            builder.Entity<Teljesitmeny>().HasData(teljesitmenyLista);
             builder.Entity<Ora>().HasData(oraLista);
             builder.Entity<Hallgato>().HasData(hallgatoLista);
             builder.Entity<Tanar>().HasData(tanarLista);

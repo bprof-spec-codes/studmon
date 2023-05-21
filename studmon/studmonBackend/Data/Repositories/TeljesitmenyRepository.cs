@@ -12,13 +12,13 @@ namespace studmonBackend.Data.Repositories
 
         public override Teljesitmeny ReadOne(string id)
         {
-            return db.Set<Teljesitmeny>().FirstOrDefault(t => t.teljesitmenyID == id);
+            return db.Set<Teljesitmeny>().FirstOrDefault(t => t.teljesitmenyID == int.Parse(id));
         }
 
         public override void Update(Teljesitmeny item)
         {
-            var old = ReadOne(item.teljesitmenyID);
-            old.ertekelesek = item.ertekelesek;
+            var old = ReadOne(item.teljesitmenyID.ToString());
+            old.ertekeles = item.ertekeles;
             old.hallgatoNeptunKod = item.hallgatoNeptunKod;
             db.SaveChanges();
         }
