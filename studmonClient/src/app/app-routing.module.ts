@@ -10,6 +10,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
 import { ClassListComponent } from './class-list/class-list.component';
 import { ClassStatisticComponent } from './class-statistic/class-statistic.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {component: LoginFormComponent, path: ''},
@@ -20,8 +21,8 @@ const routes: Routes = [
   {component: ClassroomComponent, path: 'classroom'},
   {component: StudentStatisticComponent, path: 'studentstatistic' },
   {component: ClassListComponent, path: 'classes'},
-  {component: ClassStatisticComponent, path: 'classstatistic'}
-
+  {component: ClassStatisticComponent, path: 'classstatistic'},
+  {component: AdminComponent, path: 'admin'}
 ];
 
 @NgModule({
