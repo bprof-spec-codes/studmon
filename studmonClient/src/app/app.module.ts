@@ -18,6 +18,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentStatisticComponent } from './student-statistic/student-statistic.component';
 import { ClassStatisticComponent } from './class-statistic/class-statistic.component';
 import { ClassListComponent } from './class-list/class-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ClassListComponent } from './class-list/class-list.component';
     StudentListComponent,
     StudentStatisticComponent,
     ClassStatisticComponent,
-    ClassListComponent
+    ClassListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
