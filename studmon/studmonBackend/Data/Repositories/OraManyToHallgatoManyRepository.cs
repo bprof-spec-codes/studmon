@@ -20,10 +20,12 @@ namespace studmonBackend.Data.Repositories
 
         public override void Update(OraManyToHallgatoMany item)
         {
-            var old = ReadOne(item.ID.ToString());
-            old.OraId = item.OraId;
-            old.HallgatoId = item.HallgatoId;
-            db.SaveChanges();
+            //var old = ReadOne(item.ID.ToString());
+            //old.OraId = item.OraId;
+            //old.HallgatoId = item.HallgatoId;
+            //db.SaveChanges();
+
+            return;
         }
     }
 }
