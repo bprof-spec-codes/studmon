@@ -4,8 +4,8 @@
   </div>
   <div class="row my-4 alert alert-warning" *ngFor="let item of myClassesList">
     <div class="col">
-      <h4 class="alert-heading">{{item.nev}}</h4>
-      <p>Leírás: {{item.leiras}}</p>
+      <h4 class="alert-heading" routerLink="/classroom/{{item.id}}/{{item.selectedAlkalom}}">{{item.nev}}</h4>
+      <p class="mt-3">Leírás: {{item.leiras}}</p>
       <hr>
       <!--Kattintható a terem badge és akkor feljön a tervrajza a teremnek-->
       <div class="container-fluid">
@@ -24,7 +24,7 @@
                   <span>Alkalom kiválasztása: </span>
                 </div>
                 <div class="col-md-4">
-                  <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                  <select class="form-select form-select-sm" aria-label=".form-select-sm example" (change)="alkalomValaszto($event, item)">
                     <option value="{{i+1}}" *ngFor="let alkalom of item.alkalmakSzama; index as i;">{{i+1}}</option>
                   </select>
                 </div>

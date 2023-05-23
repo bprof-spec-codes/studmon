@@ -18,7 +18,7 @@ const routes: Routes = [
   {component: ListTanarokComponent, path: 'tanarok'},
   {component: RegisterComponent, path: 'register'},
   {component: MainPageComponent, path: 'mainpage'},
-  {component: ClassroomComponent, path: 'classroom'},
+  {component: ClassroomComponent, path: 'classroom/:id/:alkalom'},
   {component: StudentStatisticComponent, path: 'studentstatistic' },
   {component: ClassListComponent, path: 'classes'},
   {component: ClassStatisticComponent, path: 'classstatistic'},

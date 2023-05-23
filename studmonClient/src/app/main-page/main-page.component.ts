@@ -51,6 +51,7 @@ export class MainPageComponent {
             o.oraKezdet = t.oraKezdet
             o.oraVeg = t.oraVeg
             o.alkalmakSzama = Array(t.alkalmakSzama).fill(0)
+            o.selectedAlkalom = 1
             //console.log(t)
             this.myClassesList.push(o)
           }
@@ -61,6 +62,14 @@ export class MainPageComponent {
           console.log(error)
         }
       )
+  }
+
+  alkalomValaszto(event: any, ora : Ora) {
+    const selectedValue = event.target.value;
+    ora.selectedAlkalom = selectedValue
+    const index = this.myClassesList.findIndex(item => item.id === ora.id);
+    this.myClassesList[index] = ora;
+    //console.log(this.myClassesList);
   }
 
 }
