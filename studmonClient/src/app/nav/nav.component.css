@@ -33,6 +33,10 @@ nav a:hover{
   box-shadow: none;
 }
 
+.nav-item{
+  display: flex;
+  align-items: center;
+}
 
 
 
