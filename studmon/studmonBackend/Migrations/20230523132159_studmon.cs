@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class teszt1 : Migration
+    public partial class studmon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,7 +246,8 @@ namespace studmonBackend.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     hallgatoNeptunKod = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     oraId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ertekeles = table.Column<int>(type: "int", nullable: false)
+                    ertekeles = table.Column<int>(type: "int", nullable: false),
+                    WeekNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -279,9 +280,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "DFG234", 0, "64109d36-e0fc-4337-bfbb-2195f34c0793", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEKgEchJFq5KvllddqmgxS9DbSOYyaioi/gKD7xJwCP+xgB6lAbf6rHjGGLRbcZim4A==", null, false, "8a0b8c87-2431-48e9-80ff-14ba2959a823", false, "toth.angela@gmail.com", "Tóth Angéla" },
-                    { "QWE234", 0, "2a948857-e26b-4a0d-9fd2-edc422479e9b", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEF52Pv6QUpWNF4BrIYZp9SVN+DGPc5qTdaxwRdM2OYyons9BDdUbAAivNJD/ws+qUw==", null, false, "a54c0740-bcd8-4312-a03f-8053a06c5848", false, "balogh.attila@gmail.com", "Balogh Attila" },
-                    { "XY2345", 0, "772ebb6c-ca32-441c-ae49-836efa7263bf", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEAIV1aBBGnKhbmXEzpIgO4ifwQoL1f08/g7dVjG/sPq8OmVLUMXJphN1peRN8D2YbQ==", null, false, "4dc4a60c-afad-4292-abdb-e9ad73c8a03f", false, "horvat.karoly@gmail.com", "Horváth Károly" }
+                    { "DFG234", 0, "17d29100-90cd-4f61-ba0e-d6e67b4c90ce", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEARWknBS23Gej8EtRL3ERCBps6ETqe7H4iA+m1SCC36pxnCbckwrF4Zjr0W6Ic6yPg==", null, false, "8763edaf-70d8-453e-8196-dcf8d7f6179c", false, "toth.angela@gmail.com", "Tóth Angéla" },
+                    { "QWE234", 0, "40af41e7-d87b-4900-8188-6c442b798b28", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEBOw3esPub26ZybybXwkGAc7quGUww4HH6/HIazrKNSrUd8fd5DtvhQbK3DY+LX3rA==", null, false, "45c95abd-3683-4069-874a-7c32475f3157", false, "balogh.attila@gmail.com", "Balogh Attila" },
+                    { "XY2345", 0, "7b59c769-abea-4704-a8ea-b1dc48316ab0", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEL/EbIFIC2RHAGwlHW/miNE8+ZpxHfZ/D9hYDxCGxmulhFnjGJaJGEi+LqBTt7KZYw==", null, false, "e99756c9-8034-4078-8d94-91240566b770", false, "horvat.karoly@gmail.com", "Horváth Károly" }
                 });
 
             migrationBuilder.InsertData(
@@ -319,9 +320,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "alkalmakSzama", "leiras", "nev", "oraKezdet", "oraVeg", "tanarID", "teremID", "ulesRend" },
                 values: new object[,]
                 {
-                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2316), new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2350), "XY2345", "BA 1.45", "" },
-                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2367), new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2369), "QWE234", "BA 1.45", "" },
-                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2374), new DateTime(2023, 5, 23, 16, 57, 15, 778, DateTimeKind.Local).AddTicks(2375), "DFG234", "BA Audmax", "" }
+                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8111), new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8161), "XY2345", "BA 1.45", "" },
+                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8188), new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8193), "QWE234", "BA 1.45", "" },
+                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8204), new DateTime(2023, 5, 23, 17, 21, 58, 825, DateTimeKind.Local).AddTicks(8209), "DFG234", "BA Audmax", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -335,12 +336,12 @@ namespace studmonBackend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Teljesitmenyek",
-                columns: new[] { "teljesitmenyID", "ertekeles", "hallgatoNeptunKod", "oraId" },
+                columns: new[] { "teljesitmenyID", "WeekNumber", "ertekeles", "hallgatoNeptunKod", "oraId" },
                 values: new object[,]
                 {
-                    { 1, 0, "KJGL45", "ASD234" },
-                    { 2, -1, "KJGL45", "ASD234" },
-                    { 3, 1, "KJGL45", "ASD234" }
+                    { 1, 1, 0, "KJGL45", "ASD234" },
+                    { 2, 2, -1, "KJGL45", "ASD234" },
+                    { 3, 3, 1, "KJGL45", "ASD234" }
                 });
 
             migrationBuilder.CreateIndex(
