@@ -191,7 +191,8 @@ namespace studmonBackend.Data.DBContext
                     teljesitmenyID = 1,
                     hallgatoNeptunKod = "KJGL45",
                     oraId = "ASD234",
-                    ertekeles = 0
+                    ertekeles = 0,
+                    WeekNumber = 1,
 
                 },
 
@@ -200,8 +201,8 @@ namespace studmonBackend.Data.DBContext
                     teljesitmenyID = 2,
                     hallgatoNeptunKod = "KJGL45",
                     oraId = "ASD234",
-                    ertekeles = -1
-
+                    ertekeles = -1,
+                    WeekNumber = 2
                 },
 
                 new Teljesitmeny
@@ -209,7 +210,8 @@ namespace studmonBackend.Data.DBContext
                     teljesitmenyID = 3,
                     hallgatoNeptunKod = "KJGL45",
                     oraId = "ASD234",
-                    ertekeles = 1
+                    ertekeles = 1,
+                    WeekNumber = 3
                     
                 },
             };
