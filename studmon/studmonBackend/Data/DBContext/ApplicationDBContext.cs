@@ -228,11 +228,13 @@ namespace studmonBackend.Data.DBContext
             {
                 new OraManyToHallgatoMany
                 {
+                    ID = 1,
                     OraId = "ASD123",
                     HallgatoId = "FTG456"
                 },
                 new OraManyToHallgatoMany
                 {
+                    ID = 2,
                     OraId = "ASD345",
                     HallgatoId = "FTG456"
                 }
