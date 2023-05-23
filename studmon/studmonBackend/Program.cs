@@ -11,6 +11,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using studmonBackend.Data.Models.ManyToManyModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,12 +84,14 @@ builder.Services.AddTransient<IRepository<Ora>, OraRepository>();
 builder.Services.AddTransient<IRepository<Tanar>, TanarRepository>();
 builder.Services.AddTransient<IRepository<Hallgato>, HallgatoRepository>();
 builder.Services.AddTransient<IRepository<Teljesitmeny>, TeljesitmenyRepository>();
+builder.Services.AddTransient<IRepository<OraManyToHallgatoMany>, OraManyToHallgatoManyRepository>();
 ///////////////////
 builder.Services.AddTransient<ITeremLogic, TeremLogic>();
 builder.Services.AddTransient<IOraLogic, OraLogic>();
 builder.Services.AddTransient<ITanarLogic, TanarLogic>();
 builder.Services.AddTransient<IHallgatoLogic, HallgatoLogic>();
 builder.Services.AddTransient<ITeljesitmenyLogic, TeljesitmenyLogic>();
+builder.Services.AddTransient<IOraManyToHallgatoMany, OraManyToHallgatoManyLogic>();
 ///////////////////
 
 builder.Services.AddEndpointsApiExplorer();

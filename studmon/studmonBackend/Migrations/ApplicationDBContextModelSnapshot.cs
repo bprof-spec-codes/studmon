@@ -239,6 +239,12 @@ namespace studmonBackend.Migrations
                     b.Property<string>("HallgatoId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.HasKey("OraId", "HallgatoId");
 
                     b.HasIndex("HallgatoId");
@@ -249,12 +255,14 @@ namespace studmonBackend.Migrations
                         new
                         {
                             OraId = "ASD123",
-                            HallgatoId = "FTG456"
+                            HallgatoId = "FTG456",
+                            ID = 1
                         },
                         new
                         {
                             OraId = "ASD345",
-                            HallgatoId = "FTG456"
+                            HallgatoId = "FTG456",
+                            ID = 2
                         });
                 });
 
@@ -307,8 +315,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 12,
                             leiras = "hft",
                             nev = "HFT",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 41, 24, 315, DateTimeKind.Local).AddTicks(7583),
-                            oraVeg = new DateTime(2023, 5, 21, 19, 41, 24, 315, DateTimeKind.Local).AddTicks(7618),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2316),
+                            oraVeg = new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2350),
                             tanarID = "XY2345",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -319,8 +327,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 13,
                             leiras = "dimat1",
                             nev = "Dimat1",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 41, 24, 315, DateTimeKind.Local).AddTicks(7638),
-                            oraVeg = new DateTime(2023, 5, 21, 19, 41, 24, 315, DateTimeKind.Local).AddTicks(7640),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2367),
+                            oraVeg = new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2369),
                             tanarID = "QWE234",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -331,8 +339,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 11,
                             leiras = "hft",
                             nev = "Vállgazd",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 41, 24, 315, DateTimeKind.Local).AddTicks(7645),
-                            oraVeg = new DateTime(2023, 5, 21, 20, 41, 24, 315, DateTimeKind.Local).AddTicks(7647),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2374),
+                            oraVeg = new DateTime(2023, 5, 23, 16, 57, 15, 778, DateTimeKind.Local).AddTicks(2375),
                             tanarID = "DFG234",
                             teremID = "BA Audmax",
                             ulesRend = ""
@@ -414,15 +422,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "DFG234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c3704cd4-2f2f-4306-80a0-78ee31f2a4a6",
+                            ConcurrencyStamp = "64109d36-e0fc-4337-bfbb-2195f34c0793",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIBX/jEbnBdqaR0yp1ffnDZFDzfsRXh9Ue32y1DgqVQG7bNV7O20naY4FpvaNyUljw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKgEchJFq5KvllddqmgxS9DbSOYyaioi/gKD7xJwCP+xgB6lAbf6rHjGGLRbcZim4A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17667d47-1010-44af-af40-5b5a71cf1204",
+                            SecurityStamp = "8a0b8c87-2431-48e9-80ff-14ba2959a823",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
@@ -431,15 +439,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "QWE234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9a4012b2-676d-4ec0-8ab6-21b3eb9c11dc",
+                            ConcurrencyStamp = "2a948857-e26b-4a0d-9fd2-edc422479e9b",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG20uZmTdRXP3ojRSvcXeTRNAm+MsFALuAa+zeoSvyCNRUKgW9gXl2i2RKhT7zSUdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF52Pv6QUpWNF4BrIYZp9SVN+DGPc5qTdaxwRdM2OYyons9BDdUbAAivNJD/ws+qUw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "320e4f14-0089-4bda-bc3c-6536db5707b2",
+                            SecurityStamp = "a54c0740-bcd8-4312-a03f-8053a06c5848",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
@@ -448,15 +456,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "XY2345",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2dd31a19-6175-4e6c-af5e-464c054321cf",
+                            ConcurrencyStamp = "772ebb6c-ca32-441c-ae49-836efa7263bf",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELO4RrdT7uD2eOcu8rtzh5R7RPJ5O3iq4KKVFed/m55VHc1DH05QL/b4AXy7cnF8lQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAIV1aBBGnKhbmXEzpIgO4ifwQoL1f08/g7dVjG/sPq8OmVLUMXJphN1peRN8D2YbQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4f0033f-8366-492a-8712-d787b1e6dd72",
+                            SecurityStamp = "4dc4a60c-afad-4292-abdb-e9ad73c8a03f",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"

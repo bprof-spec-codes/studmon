@@ -39,9 +39,11 @@ namespace studmonBackend.Data.Models
         
         public int ertekeles { get; set; } //1 diákhoz tartozó értékelések
 
+        public int WeekNumber { get; set; } //hanyadik héthez tartozik az értékelés
+
         //------------------------------------------
-        
-        
+
+
         //------------------------------------------
 
         public Teljesitmeny()

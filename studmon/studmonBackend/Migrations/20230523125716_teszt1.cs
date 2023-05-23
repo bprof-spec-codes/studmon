@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace studmonBackend.Migrations
 {
-    public partial class asd1222232 : Migration
+    public partial class teszt1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -217,7 +217,9 @@ namespace studmonBackend.Migrations
                 columns: table => new
                 {
                     OraId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    HallgatoId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    HallgatoId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
@@ -243,7 +245,8 @@ namespace studmonBackend.Migrations
                     teljesitmenyID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     hallgatoNeptunKod = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    oraId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    oraId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ertekeles = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -276,9 +279,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "DFG234", 0, "7134b231-c53d-4e59-8083-5174a3fcb083", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEMGy9DZ02Jnlj0rYiXLzWmOqyJp62HUxnAsIv1PxRdflhOcL950YbXCMvezLsbu+vA==", null, false, "8446d98e-5a53-404f-b005-5b3423a98181", false, "toth.angela@gmail.com", "Tóth Angéla" },
-                    { "QWE234", 0, "a26a3acf-6a68-46ae-a9cd-27b4a7bd35ac", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEPvKOQ8TGT8fZP/r5I/gAYhKb2fCFGHfWG5U6kJoohjxG+nM/lt4uz8lKS70phGZPg==", null, false, "9063f405-ddfa-4115-a72f-62c9a90f308a", false, "balogh.attila@gmail.com", "Balogh Attila" },
-                    { "XY2345", 0, "deb3a95d-1f3d-41a4-bf7f-8e9b1c8df53c", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAELntuInHVS8oQ8LukOCr2MdLRyhmLAyowxxShOc6gxrSZ0CcWKvuIpbzt8uhYMh8Tg==", null, false, "74c39723-76b6-4a00-ad53-08b863ec5c4b", false, "horvat.karoly@gmail.com", "Horváth Károly" }
+                    { "DFG234", 0, "64109d36-e0fc-4337-bfbb-2195f34c0793", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEKgEchJFq5KvllddqmgxS9DbSOYyaioi/gKD7xJwCP+xgB6lAbf6rHjGGLRbcZim4A==", null, false, "8a0b8c87-2431-48e9-80ff-14ba2959a823", false, "toth.angela@gmail.com", "Tóth Angéla" },
+                    { "QWE234", 0, "2a948857-e26b-4a0d-9fd2-edc422479e9b", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEF52Pv6QUpWNF4BrIYZp9SVN+DGPc5qTdaxwRdM2OYyons9BDdUbAAivNJD/ws+qUw==", null, false, "a54c0740-bcd8-4312-a03f-8053a06c5848", false, "balogh.attila@gmail.com", "Balogh Attila" },
+                    { "XY2345", 0, "772ebb6c-ca32-441c-ae49-836efa7263bf", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEAIV1aBBGnKhbmXEzpIgO4ifwQoL1f08/g7dVjG/sPq8OmVLUMXJphN1peRN8D2YbQ==", null, false, "4dc4a60c-afad-4292-abdb-e9ad73c8a03f", false, "horvat.karoly@gmail.com", "Horváth Károly" }
                 });
 
             migrationBuilder.InsertData(
@@ -316,28 +319,28 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "alkalmakSzama", "leiras", "nev", "oraKezdet", "oraVeg", "tanarID", "teremID", "ulesRend" },
                 values: new object[,]
                 {
-                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7078), new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7112), "XY2345", "BA 1.45", "" },
-                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7132), new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7134), "QWE234", "BA 1.45", "" },
-                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7140), new DateTime(2023, 5, 21, 20, 40, 6, 427, DateTimeKind.Local).AddTicks(7141), "DFG234", "BA Audmax", "" }
+                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2316), new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2350), "XY2345", "BA 1.45", "" },
+                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2367), new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2369), "QWE234", "BA 1.45", "" },
+                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2374), new DateTime(2023, 5, 23, 16, 57, 15, 778, DateTimeKind.Local).AddTicks(2375), "DFG234", "BA Audmax", "" }
                 });
 
             migrationBuilder.InsertData(
                 table: "OraManyToHallgatoMany",
-                columns: new[] { "HallgatoId", "OraId" },
+                columns: new[] { "HallgatoId", "OraId", "ID" },
                 values: new object[,]
                 {
-                    { "FTG456", "ASD123" },
-                    { "FTG456", "ASD345" }
+                    { "FTG456", "ASD123", 1 },
+                    { "FTG456", "ASD345", 2 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Teljesitmenyek",
-                columns: new[] { "teljesitmenyID", "hallgatoNeptunKod", "oraId" },
+                columns: new[] { "teljesitmenyID", "ertekeles", "hallgatoNeptunKod", "oraId" },
                 values: new object[,]
                 {
-                    { 1, "KJGL45", "ASD234" },
-                    { 2, "KJGL45", "ASD234" },
-                    { 3, "KJGL45", "ASD234" }
+                    { 1, 0, "KJGL45", "ASD234" },
+                    { 2, -1, "KJGL45", "ASD234" },
+                    { 3, 1, "KJGL45", "ASD234" }
                 });
 
             migrationBuilder.CreateIndex(

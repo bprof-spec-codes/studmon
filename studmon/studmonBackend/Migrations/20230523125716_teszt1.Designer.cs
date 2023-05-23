@@ -12,8 +12,8 @@ using studmonBackend.Data.DBContext;
 namespace studmonBackend.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20230521164006_asd1222232")]
-    partial class asd1222232
+    [Migration("20230523125716_teszt1")]
+    partial class teszt1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,6 +241,12 @@ namespace studmonBackend.Migrations
                     b.Property<string>("HallgatoId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
                     b.HasKey("OraId", "HallgatoId");
 
                     b.HasIndex("HallgatoId");
@@ -251,12 +257,14 @@ namespace studmonBackend.Migrations
                         new
                         {
                             OraId = "ASD123",
-                            HallgatoId = "FTG456"
+                            HallgatoId = "FTG456",
+                            ID = 1
                         },
                         new
                         {
                             OraId = "ASD345",
-                            HallgatoId = "FTG456"
+                            HallgatoId = "FTG456",
+                            ID = 2
                         });
                 });
 
@@ -309,8 +317,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 12,
                             leiras = "hft",
                             nev = "HFT",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7078),
-                            oraVeg = new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7112),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2316),
+                            oraVeg = new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2350),
                             tanarID = "XY2345",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -321,8 +329,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 13,
                             leiras = "dimat1",
                             nev = "Dimat1",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7132),
-                            oraVeg = new DateTime(2023, 5, 21, 19, 40, 6, 427, DateTimeKind.Local).AddTicks(7134),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2367),
+                            oraVeg = new DateTime(2023, 5, 23, 15, 57, 15, 778, DateTimeKind.Local).AddTicks(2369),
                             tanarID = "QWE234",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -333,8 +341,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 11,
                             leiras = "hft",
                             nev = "Vállgazd",
-                            oraKezdet = new DateTime(2023, 5, 21, 18, 40, 6, 427, DateTimeKind.Local).AddTicks(7140),
-                            oraVeg = new DateTime(2023, 5, 21, 20, 40, 6, 427, DateTimeKind.Local).AddTicks(7141),
+                            oraKezdet = new DateTime(2023, 5, 23, 14, 57, 15, 778, DateTimeKind.Local).AddTicks(2374),
+                            oraVeg = new DateTime(2023, 5, 23, 16, 57, 15, 778, DateTimeKind.Local).AddTicks(2375),
                             tanarID = "DFG234",
                             teremID = "BA Audmax",
                             ulesRend = ""
@@ -416,15 +424,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "DFG234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7134b231-c53d-4e59-8083-5174a3fcb083",
+                            ConcurrencyStamp = "64109d36-e0fc-4337-bfbb-2195f34c0793",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMGy9DZ02Jnlj0rYiXLzWmOqyJp62HUxnAsIv1PxRdflhOcL950YbXCMvezLsbu+vA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKgEchJFq5KvllddqmgxS9DbSOYyaioi/gKD7xJwCP+xgB6lAbf6rHjGGLRbcZim4A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8446d98e-5a53-404f-b005-5b3423a98181",
+                            SecurityStamp = "8a0b8c87-2431-48e9-80ff-14ba2959a823",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
@@ -433,15 +441,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "QWE234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a26a3acf-6a68-46ae-a9cd-27b4a7bd35ac",
+                            ConcurrencyStamp = "2a948857-e26b-4a0d-9fd2-edc422479e9b",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPvKOQ8TGT8fZP/r5I/gAYhKb2fCFGHfWG5U6kJoohjxG+nM/lt4uz8lKS70phGZPg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF52Pv6QUpWNF4BrIYZp9SVN+DGPc5qTdaxwRdM2OYyons9BDdUbAAivNJD/ws+qUw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9063f405-ddfa-4115-a72f-62c9a90f308a",
+                            SecurityStamp = "a54c0740-bcd8-4312-a03f-8053a06c5848",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
@@ -450,15 +458,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "XY2345",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "deb3a95d-1f3d-41a4-bf7f-8e9b1c8df53c",
+                            ConcurrencyStamp = "772ebb6c-ca32-441c-ae49-836efa7263bf",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAELntuInHVS8oQ8LukOCr2MdLRyhmLAyowxxShOc6gxrSZ0CcWKvuIpbzt8uhYMh8Tg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAIV1aBBGnKhbmXEzpIgO4ifwQoL1f08/g7dVjG/sPq8OmVLUMXJphN1peRN8D2YbQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "74c39723-76b6-4a00-ad53-08b863ec5c4b",
+                            SecurityStamp = "4dc4a60c-afad-4292-abdb-e9ad73c8a03f",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -472,6 +480,9 @@ namespace studmonBackend.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("teljesitmenyID"), 1L, 1);
+
+                    b.Property<int>("ertekeles")
+                        .HasColumnType("int");
 
                     b.Property<string>("hallgatoNeptunKod")
                         .IsRequired()
@@ -493,18 +504,21 @@ namespace studmonBackend.Migrations
                         new
                         {
                             teljesitmenyID = 1,
+                            ertekeles = 0,
                             hallgatoNeptunKod = "KJGL45",
                             oraId = "ASD234"
                         },
                         new
                         {
                             teljesitmenyID = 2,
+                            ertekeles = -1,
                             hallgatoNeptunKod = "KJGL45",
                             oraId = "ASD234"
                         },
                         new
                         {
                             teljesitmenyID = 3,
+                            ertekeles = 1,
                             hallgatoNeptunKod = "KJGL45",
                             oraId = "ASD234"
                         });
