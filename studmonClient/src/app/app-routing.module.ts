@@ -11,6 +11,7 @@ import { StudentStatisticComponent } from './student-statistic/student-statistic
 import { ClassListComponent } from './class-list/class-list.component';
 import { ClassStatisticComponent } from './class-statistic/class-statistic.component';
 import { AdminComponent } from './admin/admin.component';
+import { OraCreateComponent } from './ora-create/ora-create.component';
 
 const routes: Routes = [
   {component: LoginFormComponent, path: ''},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {component: StudentStatisticComponent, path: 'studentstatistic' },
   {component: ClassListComponent, path: 'classes'},
   {component: ClassStatisticComponent, path: 'classstatistic'},
-  {component: AdminComponent, path: 'admin'}
+  {component: AdminComponent, path: 'admin'},
+  {component: OraCreateComponent, path: 'oracreate'}
 ];
 
 @NgModule({
