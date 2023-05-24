@@ -1,22 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
   <a class="navbar-brand px-3" routerLink="/mainpage">Studmon</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav w-100">
       <a class="nav-item nav-link" routerLink="/mainpage">Főoldal</a>
       <a class="nav-item nav-link" routerLink="/tanarok">Tanárok</a>
       <a class="nav-item nav-link" routerLink="/studentstatistic">Hallgató statisztika</a>
       <a class="nav-item nav-link" routerLink="/classstatistic">Tanórák lista</a>
+      <a class="nav-item nav-link" routerLink="/classroom">ClassroomTest</a>
+      <a class="nav-item nav-link me-auto" routerLink="/admin">ADMIN</a>
 
-      <div class="w-100">
-        <a class="nav-item nav-link me-auto" routerLink="/classroom">ClassroomTest</a>
-      </div>
-
-      <a class="nav-item nav-link" routerLink="/admin">ADMIN</a>
     </div>
-    <div class="w-100" style="text-align: right;">
+    <div class="navbar-nav ms-auto">
       <a class="nav-item nav-link" routerLink="/logout">Kijelentkezés</a>
     </div>
   </div>

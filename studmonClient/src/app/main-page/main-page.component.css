@@ -1,0 +1,15 @@
+.alert{
+  border-left: 10px rgb(255, 179, 0) solid;
+}
+
+.alert-heading{
+  transition: 0.2s;
+  display: inline;
+}
+
+.alert-heading:hover{
+  text-decoration: underline;
+  transition: 0.2s;
+  color: #231407;
+  cursor:pointer;
+}
