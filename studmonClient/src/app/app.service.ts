@@ -22,6 +22,14 @@ export class ApiService{
     return token !== null
   }
 
+  public canActivate():boolean{
+    if (!this.isLoggedIn()){
+      this.router.navigate(['/'])
+      return false
+    }
+    return true
+  }
+
   siteUser(): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
