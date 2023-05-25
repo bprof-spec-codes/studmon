@@ -28,3 +28,19 @@
   background-color: #f4f459;
   transition: .3s;
 }
+
+#btn-delete{
+  background-color: #ff4f4f;
+  margin: 0 !important;
+  color: #000;
+  border: none;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+}
+
+#btn-delete:hover{
+  background-color: #ff2121;
+  color: #fff;
+  transition: .3s;
+}
