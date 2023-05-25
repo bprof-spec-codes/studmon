@@ -81,4 +81,17 @@ export class MainPageComponent implements OnInit{
     //console.log(this.myClassesList);
   }
 
+  deleteOra(id:string){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+ localStorage.getItem('FrontendFF-token')
+    })
+
+    this.http.delete<any>('http://localhost:5231/OraAPI/'+id, { headers: headers })
+      .subscribe((resp) => {
+        let index = this.myClassesList.findIndex(t=>t.id === id)
+        this.myClassesList.splice(index,1)
+      })
+  }
+
 }
