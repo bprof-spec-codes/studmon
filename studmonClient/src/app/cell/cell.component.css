@@ -1,7 +1,7 @@
 .desk{
     background-color: beige;
     border: 2px solid black;
-    
+
 }
 
 .emptyspace{
@@ -29,24 +29,18 @@ form{
 }
 
 .positive{
-    background-color: beige;
     border: 2px solid black;
-    
     background-color: green;
 }
 
 .negative{
-    background-color: beige;
     border: 2px solid black;
-    
     background-color: red;
 }
 
 .neutral{
     background-color: beige;
     border: 2px solid black;
-    
-    background-color: beige;
 }
 
 .positive input[type='radio'] {

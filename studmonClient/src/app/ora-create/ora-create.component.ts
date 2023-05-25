@@ -45,10 +45,14 @@ export class OraCreateComponent implements OnInit {
       this.oraModel.teremID = this.form.get('terem')?.value
       this.oraModel.oraKezdet = this.form.get('oraKezdet')?.value
       this.oraModel.oraVeg = this.form.get('oraVeg')?.value
+      this.oraModel.alkalmakSzama = this.form.get('alkalmakSzama')?.value
       console.log(this.oraModel)
       this.http.post<OraCreate>('http://localhost:5231/OraAPI/',this.oraModel)
       .subscribe((resp)=>{
         this.router.navigate(['/mainpage'])
+      },
+      (error) => {
+        console.log(error)
       })
     }
   }
