@@ -1,6 +1,19 @@
 <div class="container my-5">
   <div class="row mt-4">
-    <h1>{{me.nev}}</h1>
+    <div class="col-lg-10 col-md-8">
+      <h1>{{me.nev}}</h1>
+    </div>
+    <div class="col-lg-2 col-md-4">
+      <div class="align-items-end">
+        <button type="button" id="btn-create" class="btn w-100 btn-primary my-3" routerLink="/oracreate">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>&nbsp;
+          Új óra
+        </button>
+      </div>
+    </div>
   </div>
   <div class="row my-4 alert alert-warning" *ngFor="let item of myClassesList">
     <div class="col">
@@ -8,10 +21,10 @@
       <p class="mt-3">Leírás: {{item.leiras}}</p>
       <hr>
       <!--Kattintható a terem badge és akkor feljön a tervrajza a teremnek-->
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <div class="row">
           <div class="col-6">
-            <div class="p-2 m-2 badge bg-primary">
+            <div class="p-2 badge bg-primary">
               {{item.oraKezdet | date:"EEEE" }} | {{item.oraKezdet | date:"HH:mm"}} - {{item.oraVeg | date:"HH:mm"}}
             </div>
             <div class="p-2 m-2 badge bg-danger">Terem | {{item.teremNev}}</div>

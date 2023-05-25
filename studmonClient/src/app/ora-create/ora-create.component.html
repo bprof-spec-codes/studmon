@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="form" (ngSubmit)="sendOraCreate()">
+        <h2 class="align-self-center">Óra létrehozása</h2>
+        <hr>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Név</label>
+          <input formControlName="nev" name="nev" type="text" class="form-control" placeholder="SztGUI">
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Leírás</label>
+          <input formControlName="leiras" name="leiras" type="text" class="form-control" placeholder="Vizsgás tárgy">
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Terem</label>
+          <select formControlName="terem" class="form-select"  name="" id="">
+            <option value="{{item.nev}}" *ngFor="let item of termek">{{item.nev}}</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
+          <label for="exampleInputPassword1" class="mb-1">Alkalmak száma:</label>
+          <input formControlName="alkalmakSzama" name="alkalmak" type="number" class="form-control" min="1" value="1">
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="datetime1">Óra kezdet:</label>
+            <input formControlName="oraKezdet" type="datetime-local" id="datetime1" class="form-control">
+          </div>
+          <div class="col">
+            <label for="datetime2">Óra vég:</label>
+            <input formControlName="oraVeg" type="datetime-local" id="datetime2" class="form-control">
+          </div>
+        </div>
+        <div class="align-items-end">
+          <button type="submit" id="btn-create" class="btn w-100 btn-primary mt-5">Létrehozás</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

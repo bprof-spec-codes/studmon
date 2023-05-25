@@ -1,6 +1,6 @@
 import { Tanar } from './../_models/tanar';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ora } from '../_models/oraModel';
 import { ApiService } from '../app.service';
 
@@ -9,14 +9,14 @@ import { ApiService } from '../app.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit{
   userId = localStorage.getItem('neptun')
   http: HttpClient
   headers: HttpHeaders
   myClassesList: Array<Ora>
   me: Tanar
 
-  constructor(http: HttpClient, private apiService: ApiService) {
+  constructor(http: HttpClient) {
     this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
@@ -24,12 +24,21 @@ export class MainPageComponent {
     this.http = http
     this.myClassesList = []
     this.me = new Tanar()
+
+  }
+  ngOnInit(): void {
     this.myDatas()
     this.myClasses()
   }
   myDatas() {
-    this.apiService.siteUser()
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer '+ localStorage.getItem('FrontendFF-token')
+    })
+    this.http.get<any>('http://localhost:5231/TanarAPI', { headers: headers })
       .subscribe((resp) => {
+        console.log('RESP: ',resp)
+        console.log('LOCALSTORAGE:'+localStorage.getItem('neptun'))
         let m = resp.find((t: any) => t.id === localStorage.getItem('neptun'))
         this.me.neptun = m.id
         this.me.nev = m.nev

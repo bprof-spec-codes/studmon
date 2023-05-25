@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../app.service';
 
 @Component({
@@ -6,11 +6,6 @@ import { ApiService } from '../app.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
-  api: ApiService
+export class NavComponent{
 
-  constructor(api: ApiService) {
-    this.api = api
-    api.userInfo()
-  }
 }

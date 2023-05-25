@@ -33,7 +33,7 @@ export class RegisterComponent{
     .subscribe(
       (success)=>{
         alert("Sikeres regisztráció!")
-        this.router.navigate(["/login"])
+        this.router.navigate(["/"])
       },
       (error)=>{
         alert("Sikertelen regisztráció! :(")
