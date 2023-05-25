@@ -41,21 +41,22 @@ export class ApiService{
 
   //------ HÍVD MEG EZT, HA SZÜKSÉGED VAN A BEJELENTKEZETT FELHASZNÁLÓ ADATAIRA
   // localStorage-be eltárolja az NEPTUN-ját
-  userInfo(){
+  userInfo(callback: (success: any) => void, errorCallback: (error: any) => void): void {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer '+ localStorage.getItem('studmon-token')
-    })
+      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
+    });
 
-    this.http.get<any>('http://localhost:5231/Auth', { headers: headers })
-    .subscribe(
-      (success)=>{
-        localStorage.setItem('neptun',success.neptunKod)
-        localStorage.setItem('user-role',success.roles)
+    this.http.get<any>('http://localhost:5231/Auth', { headers: headers }).subscribe(
+      (success) => {
+        localStorage.setItem('neptun', success.neptunKod);
+        localStorage.setItem('user-role', success.roles);
+        callback(success);
       },
-      (error)=>{
-        console.log(error)
+      (error) => {
+        console.log(error);
+        errorCallback(error);
       }
-    )
+    );
   }
 }
