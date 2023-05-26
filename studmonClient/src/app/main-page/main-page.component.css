@@ -44,3 +44,19 @@
   color: #fff;
   transition: .3s;
 }
+
+#btn-add-student{
+  background-color: #4fff78;
+  margin: 0 5px !important;
+  color: #000;
+  border: none;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+}
+
+#btn-add-student:hover{
+  background-color: #21c224;
+  color: #fff;
+  transition: .3s;
+}
