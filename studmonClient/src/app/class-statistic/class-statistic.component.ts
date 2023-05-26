@@ -15,7 +15,7 @@ export class ClassStatisticComponent {
   isSelectedOra: boolean
   allHallgato: Array<studentModel>
   alkalmakSzama: any
-
+  selectedTargy: any | undefined
 
   //class: classModel = { Id: "dasd", nev: "Anal1", leiras: "Matematikai analízis", teremId: "BA1.02", tanarId: "HSA234", alkalmakSzama: 5, oraKezdet: new Date(), oraVeg: new Date(), hallgatokColl: [], teljesitmenyColl: [], ulesRend: "H2123,B5642" }
 
@@ -84,14 +84,16 @@ export class ClassStatisticComponent {
   }
 
   targyValaszto(event: any) {
-    const selectedValue = event.target.value;
+    this.selectedTargy = event.target.value;
     this.isSelectedOra = true
-    this.targyAdatok(selectedValue)
+    this.targyAdatok(this.selectedTargy)
   }
 
   teljesitmenyValaszto(hallgato: studentModel, alkalom: number): string {
-    let a = hallgato.teljesitmeny.find(t => t.weekNumber === alkalom)
+    let a = hallgato.teljesitmeny.find(t => t.weekNumber === alkalom && t.classId===this.selectedTargy)
     if (a !== undefined) {
+      //console.log(hallgato)
+      //console.log(this.selectedTargy)
       return a.rating.toString()
     }
     else {
