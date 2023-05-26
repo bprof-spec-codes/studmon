@@ -43,8 +43,8 @@
             <th scope="col">Neptun kód</th>
             <th scope="col">Kar</th>
             <th scope="col">Képzés név</th>
-            <th *ngFor="let item of alkalmakSzama;  index as i;">{{i+1}}</th>
-            <th scope="col">Aláírás</th>
+            <th *ngFor="let item of alkalmakSzama;  index as i;" class="text-center">{{i+1}}</th>
+            <th scope="col" class="text-center">Aláírás</th>
           </tr>
         </thead>
         <tbody>
@@ -53,7 +53,7 @@
             <td>{{item.neptunKod}}</td>
             <td>{{item.kar}}</td>
             <td>{{item.kepzesNev}}</td>
-            <td *ngFor="let teljesitmeny of alkalmakSzama; index as i;">{{teljesitmenyValaszto(item, i+1)}}</td>
+            <td *ngFor="let teljesitmeny of alkalmakSzama; index as i;" class="text-center">{{teljesitmenyValaszto(item, i+1)}}</td>
             <td class="d-flex justify-content-center align-items-center">
               <span *ngIf="teljesitmenySzamlalo(item)">
                 <svg xmlns="http://www.w3.org/2000/svg" id="check" width="20" height="20" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
