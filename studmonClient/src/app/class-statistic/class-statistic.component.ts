@@ -67,7 +67,7 @@ export class ClassStatisticComponent {
           s.neptunKod = x.hallgato.neptunKod
           s.kar = x.hallgato.kar
           s.kepzesNev = x.hallgato.kepzesNev
-          x.hallgato.teljesitmeny.map((telj:any)=>{
+          x.hallgato.teljesitmeny.map((telj: any) => {
             let k = new performanceModel
             k.performanceId = telj.teljesitmenyID
             k.classId = telj.oraId
@@ -90,7 +90,7 @@ export class ClassStatisticComponent {
   }
 
   teljesitmenyValaszto(hallgato: studentModel, alkalom: number): string {
-    let a = hallgato.teljesitmeny.find(t => t.weekNumber === alkalom && t.classId===this.selectedTargy)
+    let a = hallgato.teljesitmeny.find(t => t.weekNumber === alkalom && t.classId === this.selectedTargy)
     if (a !== undefined) {
       //console.log(hallgato)
       //console.log(this.selectedTargy)
@@ -99,5 +99,32 @@ export class ClassStatisticComponent {
     else {
       return ""
     }
+  }
+
+  teljesitmenySzamlalo(item: studentModel): boolean {
+    let osszes = item.teljesitmeny.length
+    let egyesek = item.teljesitmeny.filter(t => t.rating === 1).length
+    let nullasok = item.teljesitmeny.filter(t => t.rating === 0).length
+    if (egyesek === 0) {
+      return false
+    }
+    else if (egyesek === 1) {
+      if (osszes >= 14) {
+        return false
+      } else if ((nullasok / osszes * 100) >= 50) {
+        return true
+      }
+    }
+    else {
+      if ((nullasok / osszes * 100) >= 50
+        || (egyesek / osszes * 100) >= 60) {
+        return true
+      }
+      else {
+        return false
+      }
+    }
+
+    return false
   }
 }
