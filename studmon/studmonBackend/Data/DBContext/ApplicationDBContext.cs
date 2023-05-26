@@ -189,8 +189,8 @@ namespace studmonBackend.Data.DBContext
                 new Teljesitmeny
                 {
                     teljesitmenyID = 1,
-                    hallgatoNeptunKod = "KJGL45",
-                    oraId = "ASD234",
+                    hallgatoNeptunKod = "FTG456",
+                    oraId = "ASD345",
                     ertekeles = 0,
                     WeekNumber = 1,
 
@@ -199,8 +199,8 @@ namespace studmonBackend.Data.DBContext
                 new Teljesitmeny
                 {
                     teljesitmenyID = 2,
-                    hallgatoNeptunKod = "KJGL45",
-                    oraId = "ASD234",
+                    hallgatoNeptunKod = "FTG456",
+                    oraId = "ASD345",
                     ertekeles = -1,
                     WeekNumber = 2
                 },
@@ -208,10 +208,19 @@ namespace studmonBackend.Data.DBContext
                 new Teljesitmeny
                 {
                     teljesitmenyID = 3,
-                    hallgatoNeptunKod = "KJGL45",
-                    oraId = "ASD234",
+                    hallgatoNeptunKod = "FTG456",
+                    oraId = "ASD345",
                     ertekeles = 1,
                     WeekNumber = 3
+                    
+                },
+                new Teljesitmeny
+                {
+                    teljesitmenyID = 4,
+                    hallgatoNeptunKod = "ERF456",
+                    oraId = "ASD345",
+                    ertekeles = 1,
+                    WeekNumber = 1
                     
                 },
             };
@@ -231,8 +240,8 @@ namespace studmonBackend.Data.DBContext
                 new OraManyToHallgatoMany
                 {
                     ID = 1,
-                    OraId = "ASD123",
-                    HallgatoId = "FTG456"
+                    OraId = "ASD345",
+                    HallgatoId = "ERF456"
                 },
                 new OraManyToHallgatoMany
                 {

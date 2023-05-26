@@ -280,9 +280,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nev" },
                 values: new object[,]
                 {
-                    { "DFG234", 0, "17d29100-90cd-4f61-ba0e-d6e67b4c90ce", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEARWknBS23Gej8EtRL3ERCBps6ETqe7H4iA+m1SCC36pxnCbckwrF4Zjr0W6Ic6yPg==", null, false, "8763edaf-70d8-453e-8196-dcf8d7f6179c", false, "toth.angela@gmail.com", "Tóth Angéla" },
-                    { "QWE234", 0, "40af41e7-d87b-4900-8188-6c442b798b28", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEBOw3esPub26ZybybXwkGAc7quGUww4HH6/HIazrKNSrUd8fd5DtvhQbK3DY+LX3rA==", null, false, "45c95abd-3683-4069-874a-7c32475f3157", false, "balogh.attila@gmail.com", "Balogh Attila" },
-                    { "XY2345", 0, "7b59c769-abea-4704-a8ea-b1dc48316ab0", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAEL/EbIFIC2RHAGwlHW/miNE8+ZpxHfZ/D9hYDxCGxmulhFnjGJaJGEi+LqBTt7KZYw==", null, false, "e99756c9-8034-4078-8d94-91240566b770", false, "horvat.karoly@gmail.com", "Horváth Károly" }
+                    { "DFG234", 0, "eccb0847-e417-49e4-8730-d17385493c3f", "toth.angela@gmail.com", false, false, null, "TOTH.ANGELA@GMAIL.COM", "TOTH.ANGELA@GMAIL.COM", "AQAAAAEAACcQAAAAEGOEVDzbKtkX1cu40oIP/VlXl6yMF1kBEk3NT4G6i/50Pbel7jtrGEzyCbFWy7yL5w==", null, false, "9b94128b-68d4-4a15-8d0f-a2fa3d8728f1", false, "toth.angela@gmail.com", "Tóth Angéla" },
+                    { "QWE234", 0, "f709087d-5de0-4333-a29b-337f0ce2716b", "balogh.attila@gmail.com", false, false, null, "BALOGH.ATTILA@GMAIL.COM", "BALOGH.ATTILA@GMAIL.COM", "AQAAAAEAACcQAAAAEI0hwwVHPqHIJa0A7EEPi3tN4uhYg4iXtrIWgj1eQwn1oMN6u+QWneSqcJFUUQwE/A==", null, false, "5697782f-15c3-498e-aa2a-5edcc8a7ebd5", false, "balogh.attila@gmail.com", "Balogh Attila" },
+                    { "XY2345", 0, "0c773655-c372-451c-b5d7-9aef2f2c12f1", "horvat.karoly@gmail.com", false, false, null, "HORVAT.KAROLY@GMAIL.COM", "HORVAT.KAROLY@GMAIL.COM", "AQAAAAEAACcQAAAAENhy8XyPP2x3IcwwvXqzcAkAxco8dAipSb1vGh8DdA73PaHWJsSZKFHZTG8nVCxbQA==", null, false, "1f0c3dc7-6b5f-40da-8e8d-cee59f1e0102", false, "horvat.karoly@gmail.com", "Horváth Károly" }
                 });
 
             migrationBuilder.InsertData(
@@ -320,9 +320,9 @@ namespace studmonBackend.Migrations
                 columns: new[] { "Id", "alkalmakSzama", "leiras", "nev", "oraKezdet", "oraVeg", "tanarID", "teremID", "ulesRend" },
                 values: new object[,]
                 {
-                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8111), new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8161), "XY2345", "BA 1.45", "" },
-                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8188), new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8193), "QWE234", "BA 1.45", "" },
-                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8204), new DateTime(2023, 5, 23, 17, 21, 58, 825, DateTimeKind.Local).AddTicks(8209), "DFG234", "BA Audmax", "" }
+                    { "ASD123", 12, "hft", "HFT", new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8138), new DateTime(2023, 5, 26, 19, 40, 33, 866, DateTimeKind.Local).AddTicks(8181), "XY2345", "BA 1.45", "" },
+                    { "ASD234", 13, "dimat1", "Dimat1", new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8200), new DateTime(2023, 5, 26, 19, 40, 33, 866, DateTimeKind.Local).AddTicks(8203), "QWE234", "BA 1.45", "" },
+                    { "ASD345", 11, "hft", "Vállgazd", new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8209), new DateTime(2023, 5, 26, 20, 40, 33, 866, DateTimeKind.Local).AddTicks(8212), "DFG234", "BA Audmax", "" }
                 });
 
             migrationBuilder.InsertData(
@@ -330,7 +330,7 @@ namespace studmonBackend.Migrations
                 columns: new[] { "HallgatoId", "OraId", "ID" },
                 values: new object[,]
                 {
-                    { "FTG456", "ASD123", 1 },
+                    { "ERF456", "ASD345", 1 },
                     { "FTG456", "ASD345", 2 }
                 });
 
@@ -339,9 +339,10 @@ namespace studmonBackend.Migrations
                 columns: new[] { "teljesitmenyID", "WeekNumber", "ertekeles", "hallgatoNeptunKod", "oraId" },
                 values: new object[,]
                 {
-                    { 1, 1, 0, "KJGL45", "ASD234" },
-                    { 2, 2, -1, "KJGL45", "ASD234" },
-                    { 3, 3, 1, "KJGL45", "ASD234" }
+                    { 1, 1, 0, "FTG456", "ASD345" },
+                    { 2, 2, -1, "FTG456", "ASD345" },
+                    { 3, 3, 1, "FTG456", "ASD345" },
+                    { 4, 1, 1, "ERF456", "ASD345" }
                 });
 
             migrationBuilder.CreateIndex(

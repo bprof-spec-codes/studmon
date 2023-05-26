@@ -1,13 +1,13 @@
-<app-class-list [title]="'Class Selector'"  [class]="class" [classList]="classes"></app-class-list>
-<!-- <div *ngFor="let class of class.orak" class="card" style="width: 18rem;">
+<!--<app-class-list [title]="'Class Selector'"  [class]="class" [classList]="classes"></app-class-list>-->
+<!--<div *ngFor="let class of class.orak" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{class.nev}}</h5>
       <p class="card-text">{{class.leiras}}</p>
     </div>
     <p class="card-text">{{class.teljesitmeny}}</p>
-  </div> -->
-
-  <!-- <div *ngFor="let performance of class.teljesitmeny" class="card" style="width: 18rem;">
+  </div>-->
+<!--
+  <div *ngFor="let performance of class.teljesitmeny" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{performance.classId}}</h5>
     </div>
@@ -15,4 +15,47 @@
       <div   *ngFor="let rating of performance.ratings">{{rating}}</div>
 
     </div>
-  </div> -->
+  </div>
+-->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <h1>Tárgyakra járó diákok</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Válassz tárgyat!</p>
+      <select class="form-select" name="" id="" (change)="targyValaszto($event)">
+        <option disabled selected>-- Válassz egy tárgyat</option>
+        <option value="{{item.Id}}" *ngFor="let item of classes">{{item.nev}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt-5" *ngIf="isSelectedOra">
+  <div class="row">
+    <div class="col">
+      <table class="table table-sm table-striped table-warning table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Név</th>
+            <th scope="col">Neptun kód</th>
+            <th scope="col">Kar</th>
+            <th scope="col">Képzés név</th>
+            <th *ngFor="let item of alkalmakSzama;  index as i;">{{i+1}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allHallgato">
+            <td>{{item.nev}}</td>
+            <td>{{item.neptunKod}}</td>
+            <td>{{item.kar}}</td>
+            <td>{{item.kepzesNev}}</td>
+            <td *ngFor="let teljesitmeny of alkalmakSzama; index as i;">{{teljesitmenyValaszto(item, i+1)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

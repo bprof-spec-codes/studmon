@@ -11,8 +11,8 @@ export class StudentStatisticComponent {
   students: Array<studentModel>
   http: HttpClient
 
- 
-  student: studentModel ={neptunKod: "GQ814D", nev: "Nyári Dalma", kar: "NIK", kepzesNev: "Bsc", orak:[ ], teljesitmeny:[{performanceId: "sadas",studentId:"GQ814D", classId:"MAth.10", ratings: [1,1,1,1,0,0,0,-1,-1]}]}
+
+  student: studentModel ={neptunKod: "GQ814D", nev: "Nyári Dalma", kar: "NIK", kepzesNev: "Bsc", orak:[ ], teljesitmeny:[{performanceId: "sadas",studentId:"GQ814D", classId:"MAth.10", rating: 1,weekNumber:1}]}
 
 
   constructor(http: HttpClient) {
