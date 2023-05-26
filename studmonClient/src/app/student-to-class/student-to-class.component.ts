@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { studentModel } from '../_models/studentModel';
 import { findIndex } from 'rxjs';
@@ -15,12 +15,14 @@ export class StudentToClassComponent implements OnInit {
   oraId: string | undefined;
   unsubscribedStudents: Array<studentModel>
   subscribedStudents: Array<studentModel>
+  addableStudents: Array<studentModel>
 
   constructor(http: HttpClient, router: Router, private route: ActivatedRoute) {
     this.http = http
     this.router = router
     this.unsubscribedStudents = []
     this.subscribedStudents = []
+    this.addableStudents = new Array<studentModel>
   }
   ngOnInit(): void {
     this.getUnSubscribedStudents()
@@ -56,6 +58,36 @@ export class StudentToClassComponent implements OnInit {
 
   }
 
+  checkboxClicked(event:any, item:studentModel){
+    let benneVan = this.addableStudents.findIndex((t:any)=>t.neptunKod === item.neptunKod)
+    if(benneVan === -1){//ha nincs benne akkor beleteszem
+      this.addableStudents.push(item)
+    }else{//ha benne van, kiveszem
+      this.addableStudents.splice(benneVan, 1)
+    }
+  }
+
+  async addStudentsForm(){
+    console.log(this.addableStudents)
+    await this.addableStudents.forEach(t=>{
+      let saveTo:any =
+        {
+          oraId: this.oraId,
+          hallgatoId: t.neptunKod
+        }
+
+      console.log(JSON.stringify(saveTo))
+      this.http.post<any>('http://localhost:5231/OMToHMAPI',saveTo)
+      .subscribe((resp)=>{
+        this.addableStudents = []
+        let i = this.unsubscribedStudents.findIndex((k:any)=>k.neptunKod === t.neptunKod)
+        this.unsubscribedStudents.splice(i,1)
+        this.subscribedStudents.push(t)
+      })
+    })
+  }
+
+  //Hallgató törlése az óráról
   async removeStudent(item:studentModel){
     console.log(item)
     await this.http.get<any>('http://localhost:5231/OMToHMAPI')
