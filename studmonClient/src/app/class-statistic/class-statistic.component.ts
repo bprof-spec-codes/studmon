@@ -102,9 +102,9 @@ export class ClassStatisticComponent {
   }
 
   teljesitmenySzamlalo(item: studentModel): boolean {
-    let osszes = item.teljesitmeny.length
-    let egyesek = item.teljesitmeny.filter(t => t.rating === 1).length
-    let nullasok = item.teljesitmeny.filter(t => t.rating === 0).length
+    let osszes = item.teljesitmeny.filter(t=> t.classId === this.selectedTargy).length
+    let egyesek = item.teljesitmeny.filter(t => t.rating === 1 && t.classId === this.selectedTargy).length
+    let nullasok = item.teljesitmeny.filter(t => t.rating === 0 && t.classId === this.selectedTargy).length
     if (egyesek === 0) {
       return false
     }
