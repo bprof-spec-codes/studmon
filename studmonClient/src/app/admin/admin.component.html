@@ -14,7 +14,10 @@
         </div>
         <div class="form-group mb-4">
           <label class="mb-1">Neptun</label>
-          <input [(ngModel)]="this.student.neptunKod" name="neptunKod" class="form-control" placeholder="ABC123">
+          <input [(ngModel)]="this.student.neptunKod" 
+            [maxlength]="6"
+            [minlength]="6"
+            pattern="[^\s]+" name="neptunKod" class="form-control" placeholder="ABC123">
         </div>
         <div class="form-group mb-4">
             <label class="mb-1">Kar</label>
@@ -27,7 +30,8 @@
         </div>
         <div class="align-items-end">
           <button color="warn"
-          (click)="createStudent()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+          (click)="createStudent()" 
+          [disabled]="!isHallgatoValid()"  class="btn w-100 btn-primary mt-5" >Létrehoz</button>
         </div>
       </form>
 </div>
@@ -73,6 +77,8 @@
     </form>
 </div> -->
 
+
+
 <div class="align-items-center" style="margin-left: 30px;">
 
   <form class="d-flex flex-column" style="max-width: 80%;">
@@ -80,12 +86,24 @@
       <hr>
       <div class="form-group mb-4">
         <label class="mb-1">Név</label>
-        <input [(ngModel)]="this.student.nev" name="nev" class="form-control">
+        <input [(ngModel)]="this.terem.nev" name="nev" class="form-control">
       </div>
-      <div class="form-group">
-        <label class="mb-1">Elrendezés</label>
-        <input [(ngModel)]="this.terem.elrendezes" name="kepzesNev" class="form-control">
-      </div>
+
+
+      
+
+      <h3 style="text-align: center;display: flex;">Terem elrendezés:</h3>
+      <table style="width: 60%; border: 1px solid black;">
+        <tr *ngFor="let row of classroom; let rowIndex = index">
+          <td style="text-align: center; height: 40px;"  *ngFor="let checkbox of row; let colIndex = index">
+            <input type="checkbox" style="transform: scale(1.5)" [(ngModel)]="checkbox.checked" [name]="'checkbox-' + rowIndex + '-' + colIndex">
+          </td>
+          </tr>
+      </table>
+
+
+      
+
       <div class="align-items-end">
         <button color="warn"
         (click)="createTerem()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
