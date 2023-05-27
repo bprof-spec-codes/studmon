@@ -70,7 +70,8 @@ namespace studmonBackend.Data.DBContext
             builder.Entity<OraManyToHallgatoMany>()
                 .HasOne(oh => oh.Hallgato)
                 .WithMany(h => h.orak)
-                .HasForeignKey(oh => oh.HallgatoId);
+                .HasForeignKey(oh => oh.HallgatoId)
+               ;
 
 
             /*builder.Entity<OraManyToHallgatoMany>(oh => oh
