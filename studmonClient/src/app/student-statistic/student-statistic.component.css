@@ -3,3 +3,29 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.btn-search{
+  background-color: #4fff78;
+  margin: 0 5px !important;
+  color: #000;
+  border: none;
+  transition: .3s;
+  display: flex;
+  align-items: center;
+  border: solid #21c224 1px;
+  border-left-width: 5px;
+}
+
+.btn-search:hover{
+  background-color: #21c224;
+  color: #fff;
+  transition: .3s;
+}
+
+#check{
+  color: #4b860d;
+}
+
+#x{
+  color: #ff2121;
+}
