@@ -254,8 +254,8 @@ namespace studmonBackend.Migrations
                     b.HasData(
                         new
                         {
-                            OraId = "ASD123",
-                            HallgatoId = "FTG456",
+                            OraId = "ASD345",
+                            HallgatoId = "ERF456",
                             ID = 1
                         },
                         new
@@ -315,8 +315,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 12,
                             leiras = "hft",
                             nev = "HFT",
-                            oraKezdet = new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8111),
-                            oraVeg = new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8161),
+                            oraKezdet = new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8138),
+                            oraVeg = new DateTime(2023, 5, 26, 19, 40, 33, 866, DateTimeKind.Local).AddTicks(8181),
                             tanarID = "XY2345",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -327,8 +327,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 13,
                             leiras = "dimat1",
                             nev = "Dimat1",
-                            oraKezdet = new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8188),
-                            oraVeg = new DateTime(2023, 5, 23, 16, 21, 58, 825, DateTimeKind.Local).AddTicks(8193),
+                            oraKezdet = new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8200),
+                            oraVeg = new DateTime(2023, 5, 26, 19, 40, 33, 866, DateTimeKind.Local).AddTicks(8203),
                             tanarID = "QWE234",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -339,8 +339,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 11,
                             leiras = "hft",
                             nev = "Vállgazd",
-                            oraKezdet = new DateTime(2023, 5, 23, 15, 21, 58, 825, DateTimeKind.Local).AddTicks(8204),
-                            oraVeg = new DateTime(2023, 5, 23, 17, 21, 58, 825, DateTimeKind.Local).AddTicks(8209),
+                            oraKezdet = new DateTime(2023, 5, 26, 18, 40, 33, 866, DateTimeKind.Local).AddTicks(8209),
+                            oraVeg = new DateTime(2023, 5, 26, 20, 40, 33, 866, DateTimeKind.Local).AddTicks(8212),
                             tanarID = "DFG234",
                             teremID = "BA Audmax",
                             ulesRend = ""
@@ -422,15 +422,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "DFG234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "17d29100-90cd-4f61-ba0e-d6e67b4c90ce",
+                            ConcurrencyStamp = "eccb0847-e417-49e4-8730-d17385493c3f",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEARWknBS23Gej8EtRL3ERCBps6ETqe7H4iA+m1SCC36pxnCbckwrF4Zjr0W6Ic6yPg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGOEVDzbKtkX1cu40oIP/VlXl6yMF1kBEk3NT4G6i/50Pbel7jtrGEzyCbFWy7yL5w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8763edaf-70d8-453e-8196-dcf8d7f6179c",
+                            SecurityStamp = "9b94128b-68d4-4a15-8d0f-a2fa3d8728f1",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
@@ -439,15 +439,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "QWE234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "40af41e7-d87b-4900-8188-6c442b798b28",
+                            ConcurrencyStamp = "f709087d-5de0-4333-a29b-337f0ce2716b",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBOw3esPub26ZybybXwkGAc7quGUww4HH6/HIazrKNSrUd8fd5DtvhQbK3DY+LX3rA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI0hwwVHPqHIJa0A7EEPi3tN4uhYg4iXtrIWgj1eQwn1oMN6u+QWneSqcJFUUQwE/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "45c95abd-3683-4069-874a-7c32475f3157",
+                            SecurityStamp = "5697782f-15c3-498e-aa2a-5edcc8a7ebd5",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
@@ -456,15 +456,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "XY2345",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7b59c769-abea-4704-a8ea-b1dc48316ab0",
+                            ConcurrencyStamp = "0c773655-c372-451c-b5d7-9aef2f2c12f1",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL/EbIFIC2RHAGwlHW/miNE8+ZpxHfZ/D9hYDxCGxmulhFnjGJaJGEi+LqBTt7KZYw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENhy8XyPP2x3IcwwvXqzcAkAxco8dAipSb1vGh8DdA73PaHWJsSZKFHZTG8nVCxbQA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e99756c9-8034-4078-8d94-91240566b770",
+                            SecurityStamp = "1f0c3dc7-6b5f-40da-8e8d-cee59f1e0102",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -507,24 +507,32 @@ namespace studmonBackend.Migrations
                             teljesitmenyID = 1,
                             WeekNumber = 1,
                             ertekeles = 0,
-                            hallgatoNeptunKod = "KJGL45",
-                            oraId = "ASD234"
+                            hallgatoNeptunKod = "FTG456",
+                            oraId = "ASD345"
                         },
                         new
                         {
                             teljesitmenyID = 2,
                             WeekNumber = 2,
                             ertekeles = -1,
-                            hallgatoNeptunKod = "KJGL45",
-                            oraId = "ASD234"
+                            hallgatoNeptunKod = "FTG456",
+                            oraId = "ASD345"
                         },
                         new
                         {
                             teljesitmenyID = 3,
                             WeekNumber = 3,
                             ertekeles = 1,
-                            hallgatoNeptunKod = "KJGL45",
-                            oraId = "ASD234"
+                            hallgatoNeptunKod = "FTG456",
+                            oraId = "ASD345"
+                        },
+                        new
+                        {
+                            teljesitmenyID = 4,
+                            WeekNumber = 1,
+                            ertekeles = 1,
+                            hallgatoNeptunKod = "ERF456",
+                            oraId = "ASD345"
                         });
                 });
 

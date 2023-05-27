@@ -20,6 +20,7 @@ import { ClassStatisticComponent } from './class-statistic/class-statistic.compo
 import { ClassListComponent } from './class-list/class-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { OraCreateComponent } from './ora-create/ora-create.component';
+import { StudentToClassComponent } from './student-to-class/student-to-class.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { OraCreateComponent } from './ora-create/ora-create.component';
     ClassStatisticComponent,
     ClassListComponent,
     AdminComponent,
-    OraCreateComponent
+    OraCreateComponent,
+    StudentToClassComponent
   ],
   imports: [
     BrowserModule,

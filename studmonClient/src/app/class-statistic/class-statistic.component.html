@@ -1,13 +1,13 @@
-<app-class-list [title]="'Class Selector'"  [class]="class" [classList]="classes"></app-class-list>
-<!-- <div *ngFor="let class of class.orak" class="card" style="width: 18rem;">
+<!--<app-class-list [title]="'Class Selector'"  [class]="class" [classList]="classes"></app-class-list>-->
+<!--<div *ngFor="let class of class.orak" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{class.nev}}</h5>
       <p class="card-text">{{class.leiras}}</p>
     </div>
     <p class="card-text">{{class.teljesitmeny}}</p>
-  </div> -->
-
-  <!-- <div *ngFor="let performance of class.teljesitmeny" class="card" style="width: 18rem;">
+  </div>-->
+<!--
+  <div *ngFor="let performance of class.teljesitmeny" class="card" style="width: 18rem;">
     <div  class="card-body">
       <h5 class="card-title">{{performance.classId}}</h5>
     </div>
@@ -15,4 +15,60 @@
       <div   *ngFor="let rating of performance.ratings">{{rating}}</div>
 
     </div>
-  </div> -->
+  </div>
+-->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <h1>Tárgyakra járó diákok</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Válassz tárgyat!</p>
+      <select class="form-select" name="" id="" (change)="targyValaszto($event)">
+        <option disabled selected>-- Válassz egy tárgyat</option>
+        <option value="{{item.Id}}" *ngFor="let item of classes">{{item.nev}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt-5" *ngIf="isSelectedOra">
+  <div class="row">
+    <div class="col">
+      <table class="table table-sm table-striped table-warning table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Név</th>
+            <th scope="col">Neptun kód</th>
+            <th scope="col">Kar</th>
+            <th scope="col">Képzés név</th>
+            <th *ngFor="let item of alkalmakSzama;  index as i;" class="text-center">{{i+1}}</th>
+            <th scope="col" class="text-center">Aláírás</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allHallgato">
+            <td>{{item.nev}}</td>
+            <td>{{item.neptunKod}}</td>
+            <td>{{item.kar}}</td>
+            <td>{{item.kepzesNev}}</td>
+            <td *ngFor="let teljesitmeny of alkalmakSzama; index as i;" class="text-center">{{teljesitmenyValaszto(item, i+1)}}</td>
+            <td class="d-flex justify-content-center align-items-center">
+              <span *ngIf="teljesitmenySzamlalo(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" id="check" width="20" height="20" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
+                </svg>
+              </span>
+              <span *ngIf="!teljesitmenySzamlalo(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" id="x" width="20" height="20" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                </svg>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

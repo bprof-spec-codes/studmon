@@ -1,32 +1,22 @@
-.alert{
-  border-left: 10px rgb(255, 179, 0) solid;
+.chb-style{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
 }
 
-.alert-heading{
-  transition: 0.2s;
-  display: inline;
+.chb-style:checked{
+  background-color: #4b860d !important;
+  border: 0px solid;
+  outline: none;
 }
 
-.alert-heading:hover{
-  text-decoration: underline;
-  transition: 0.2s;
-  color: #231407;
-  cursor:pointer;
+.chb-style:hover{
+  cursor: pointer;
 }
 
-#btn-create{
-  background-color: #ffff84 ;
-  color: #000;
-  border: none;
-  transition: .3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#btn-create:hover{
-  background-color: #f4f459;
-  transition: .3s;
+.chb-style:focus{
+  box-shadow: none;
 }
 
 #btn-delete{
@@ -53,6 +43,8 @@
   transition: .3s;
   display: flex;
   align-items: center;
+  border: solid #21c224 1px;
+  border-left-width: 5px;
 }
 
 #btn-add-student:hover{
