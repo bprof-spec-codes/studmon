@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,31 +13,31 @@ export class ClassroomComponent implements OnInit {
   http: HttpClient
   rows: Array<any>
   studentList: Array<any>
-  classRoomIdTest: string
-  weekNumberTest: number
+  nameList: Array<string>
   classRoomId: string | undefined;
   oraId: string | undefined;
   weekNumber: number | undefined; //alkalmakSzama
+  class: any
 
 
   constructor(http: HttpClient, router: Router, private route: ActivatedRoute) {
     this.studentList = []
     this.rows = []
-    this.classRoomIdTest = "BA 1.21"
     this.http = http
     this.router = router
-    this.weekNumberTest = 12
-
+    this.nameList = []
   }
 
   ngOnInit(): void {
-    this.getOra()
+    this.apiCall()
+    console.log(this.studentList);
+    
   }
 
 
 
 
-  async getOra() {
+  async apiCall() {
     await this.route.params.subscribe(params=>{
       this.oraId = params['id'];
       this.weekNumber = params['alkalom'];
@@ -46,44 +46,48 @@ export class ClassroomComponent implements OnInit {
       .subscribe(resp => {
         //console.log(resp)
         this.classRoomId = resp.terem.nev
-
-        this.getChairs()
-        this.getStudents()
+        this.class = resp
+        this.getChairs(resp)
+        this.getStudents(resp)
         })
     })
+    
   }
 
 
-  private getChairs() {
-      this.http.get<any>(`http://localhost:5231/TeremAPI/${this.classRoomId}`, { responseType: 'json' })
-        .subscribe(resp => {
-          console.log(resp)
-          const inputRows = resp.elrendezes.split(",")
+  private getChairs(resp: any) {
 
-          inputRows.map((x: any) => {
-            let currentrow: { type: string }[] = []
-            x.split('').map((y: any) => {
-              let currentCell = { type: "0" }
-              if (y === "1") {
-                currentCell = { type: "1" }
-              } else {
-                currentCell = { type: "0" }
-              }
-              currentrow.push(currentCell)
-            })
-            this.rows.push(currentrow)
-          })
-        })
-
-    console.log(this.rows)
+      
+          const inputRows = resp?.terem.elrendezes.split(",")
+          const ulesRend = resp.ulesRend.split(" ")
+        
+            let index = 0
+            inputRows.map((x: any) => {
+              let currentrow: { type: string }[] = []
+              x.split('').map((y: any) => {
+                let currentCell = { type: "0", nk: ulesRend[index]}
+                if (y === "1") {
+                  currentCell = { type: "1", nk: ulesRend[index]}
+                  index++
+                } else {
+                  currentCell = { type: "0", nk: ulesRend[index]}
+                }
+                currentrow.push(currentCell)
+              })
+              this.rows.push(currentrow)
+            
+            })    
+            // ulesRend.map((y: any, index : any) => {
+            //   this.rows[index]={...this.rows[index], nk: y}
+            // })  
+            console.log(this.rows)
+            
   }
 
-  private getStudents() {
-    this.http.get<any>(`http://localhost:5231/HallgatoApi`, { responseType: 'json' })
-      .subscribe(resp => {
-        console.log(resp)
-        this.studentList = resp
-      })
+  private getStudents(resp: any) {
+        this.studentList = resp.hallgatokColl.map((e:any) => e.hallgato)
   }
+
+  
 
 }

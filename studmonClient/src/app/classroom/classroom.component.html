@@ -1,10 +1,11 @@
 <div>
-<div class="row" *ngFor="let row of rows">
-    <app-cell [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row" >
+<div class="row" *ngFor="let row of rows; let rowIndex=index">
+    <app-cell [rowIndex]="rowIndex" [coll]="coll" [nk]="cell.nk" [class]="class" [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row; let coll=index" >
     </app-cell>
   </div>
 
  
 
 Tanári asztal
+<!-- <button type="button" class="btn btn-primary">Save classroom</button> -->
 </div>

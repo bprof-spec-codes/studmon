@@ -20,7 +20,7 @@ export class StudentStatisticComponent implements OnInit{
   public searchForm !: FormGroup
 
 
-  //student: studentModel ={neptunKod: "GQ814D", nev: "Nyári Dalma", kar: "NIK", kepzesNev: "Bsc", orak:[ ], teljesitmeny:[{performanceId: "sadas",studentId:"GQ814D", classId:"MAth.10", rating: 1,weekNumber:1}]}
+  //student: studentModel ={neptunKod: "GQ814D", nev: "Nyári Dalma", kar: "NIK", kepzesNev: "Bsc", orak:[ ], teljesitmeny:[{performanceId: "sadas",studentId:"GQ814D", classId:"MAth.10", ertekeles: 1,weekNumber:1}]}
 
 
   constructor(http: HttpClient, private formBuilder: FormBuilder, private router: Router) {
@@ -86,7 +86,7 @@ export class StudentStatisticComponent implements OnInit{
         let perMentes = new performanceModel
         perMentes.performanceId = x.teljesitmenyID
         perMentes.classId = x.oraId
-        perMentes.rating = x.ertekeles
+        perMentes.ertekeles = x.ertekeles
         perMentes.studentId = x.hallgatoNeptunKod
         perMentes.weekNumber = x.weekNumber
         performanceMentesTomb.push(perMentes)
@@ -117,7 +117,7 @@ export class StudentStatisticComponent implements OnInit{
   teljesitmenyValaszto(oraModel: classModel, alkalom: number): string {
     let a = this.actualStudent.teljesitmeny.find(t=>t.weekNumber === alkalom && oraModel.Id === t.classId)
     if (a !== undefined) {
-      return a.rating.toString()
+      return a.ertekeles.toString()
     }
     else {
       return "-"
@@ -126,8 +126,8 @@ export class StudentStatisticComponent implements OnInit{
 
   teljesitmenySzamlalo(item: classModel): boolean {
     let osszes = this.actualStudent.teljesitmeny.filter(t=> t.classId === item.Id).length
-    let egyesek = this.actualStudent.teljesitmeny.filter(t => t.rating === 1 && t.classId === item.Id).length
-    let nullasok = this.actualStudent.teljesitmeny.filter(t => t.rating === 0 && t.classId === item.Id).length
+    let egyesek = this.actualStudent.teljesitmeny.filter(t => t.ertekeles === 1 && t.classId === item.Id).length
+    let nullasok = this.actualStudent.teljesitmeny.filter(t => t.ertekeles === 0 && t.classId === item.Id).length
     if (egyesek === 0) {
       return false
     }

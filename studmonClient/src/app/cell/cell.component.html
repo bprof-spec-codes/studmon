@@ -6,18 +6,20 @@
     [ngClass]="{'neutral': this.grade === 'neutral', 'positive' : this.grade  === 'positive', 'negative' : this.grade  === 'negative' }"
     *ngSwitchCase="1">
     <form>
-      <input type="radio" id="negative" name="grade" value="-1" (change)="changeGrade($event)">
+      <input type="radio" id="negative" name="grade" value=-1 (change)="changeGrade($event)">
       <label for="negative">-1</label><br>
-      <input type="radio" id="neutral" name="grade" value="0" (change)="changeGrade($event)">
+      <input type="radio" id="neutral" name="grade" value=0 (change)="changeGrade($event)">
       <label for="neutral">0</label><br>
-      <input type="radio" id="positive" name="grade" value="1" (change)="changeGrade($event)">
+      <input type="radio" id="positive" name="grade" value=1 (change)="changeGrade($event)">
       <label for="positive">1</label><br><br>
 
     </form>
+    
+      {{this.student?.nev}}
+    
 
 
-
-    <app-student-list [title]="'Student Selector'" [gradeNumber]="gradeNumber" [student]="student"
+    <app-student-list [rowIndex]="rowIndex" [coll]="coll" [class]="class" [title]="'Student Selector'" [gradeNumber]="gradeNumber" [student]="student"
       [studentList]="studentList"></app-student-list>
 
   </div>

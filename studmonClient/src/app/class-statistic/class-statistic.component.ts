@@ -72,7 +72,7 @@ export class ClassStatisticComponent {
             k.performanceId = telj.teljesitmenyID
             k.classId = telj.oraId
             k.studentId = telj.hallgatoNeptunKod
-            k.rating = telj.ertekeles
+            k.ertekeles = telj.ertekeles
             k.weekNumber = telj.weekNumber
             s.teljesitmeny.push(k)
           })
@@ -94,7 +94,7 @@ export class ClassStatisticComponent {
     if (a !== undefined) {
       //console.log(hallgato)
       //console.log(this.selectedTargy)
-      return a.rating.toString()
+      return a.ertekeles.toString()
     }
     else {
       return ""
@@ -103,8 +103,8 @@ export class ClassStatisticComponent {
 
   teljesitmenySzamlalo(item: studentModel): boolean {
     let osszes = item.teljesitmeny.filter(t=> t.classId === this.selectedTargy).length
-    let egyesek = item.teljesitmeny.filter(t => t.rating === 1 && t.classId === this.selectedTargy).length
-    let nullasok = item.teljesitmeny.filter(t => t.rating === 0 && t.classId === this.selectedTargy).length
+    let egyesek = item.teljesitmeny.filter(t => t.ertekeles === 1 && t.classId === this.selectedTargy).length
+    let nullasok = item.teljesitmeny.filter(t => t.ertekeles === 0 && t.classId === this.selectedTargy).length
     if (egyesek === 0) {
       return false
     }

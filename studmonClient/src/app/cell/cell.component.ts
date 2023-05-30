@@ -13,56 +13,69 @@ export class CellComponent {
   @Input() name: String | undefined;
   @Input() type: Number | undefined;
   @Input() row: Number | undefined;
+  @Input() class: any | undefined;
   @Input() studentList: studentModel[] | undefined;
-  @Input() student: studentModel 
-  http: HttpClient
+  @Input() nk: String | undefined;
+  @Input() coll: number =1
+  @Input() rowIndex: number =1
 
+
+  http: HttpClient
+  student: any
+  student2: any
+  weekNumber: number
 
   grade: String ="neutral";
   // student: studentModel ={neptunKod: "", nev: "", kar: "", kepzesNev: "", orak:[ ], teljesitmeny:[]}
-  gradeNumber: string = "-100"
+  gradeNumber: number = -100
 
 
 
   constructor(http: HttpClient, private route: ActivatedRoute) {
     this.http = http
-    this.student ={neptunKod: "", nev: "", kar: "", kepzesNev: "", orak:[ ], teljesitmeny:[]}
+    this.weekNumber = 0
+    
+  }
+
+  ngOnInit(): void {
+    this.student2 = this.fetchData()
     
   }
 
   changeGrade(e:any) {
     //let grade=e.target.value
+    //TODO nem működik a színváltás tíusát kinyomozni
     this.gradeNumber = e.target.value
+    console.log(this.gradeNumber);
+    
     switch (this.gradeNumber) {
-      case "-1":
+      case -1:
         this.grade = "negative"       
         break;
-        case "0":
+        case 0:
           this.grade="neutral"
         break;
-        case "1":
+        case 1:
           this.grade="positive"
         break;
       default:
         break;
     }
-    console.log("Répa torta")
-    //this.apiCall()
+    // this.apiCall()
 }
 
  private apiCall(){
-  console.log("EZT NÉZZÜK BASZD MEG",this.student)
+  console.log("EZT NÉZZÜK BASZD MEG",this.student2)
   let oraId = ""
-  let weekNumber = 0
   this.route.params.subscribe((params)=>{
      oraId = params['id'];
-     weekNumber = params['alkalom']})
+     this.weekNumber = params['alkalom']})
 
   let newTeljesitmeny = {
-  hallgatoNeptunKod: this.student!.neptunKod,
+  hallgatoNeptunKod: this.nk,
   oraId: oraId,
   ertekeles: this.gradeNumber,
-  weekNumber: weekNumber  }
+  weekNumber: this.weekNumber  }
   console.log(newTeljesitmeny)
   this.http.post<any>(`http://localhost:5231/TeljesitmenyAPI/`, newTeljesitmeny, { responseType: 'json' })
       .subscribe(resp => {
@@ -70,5 +83,30 @@ export class CellComponent {
       })
  }
 
+
+private fetchData(){
+  if(this.nk !== "@"){
+     this.http.get<any>(`http://localhost:5231/HallgatoAPI/${this.nk}`, { responseType: 'json' })
+      .subscribe(resp => {
+        this.student = resp
+          console.log("AlmásRétes",this.student)
+          this.gradeNumber = this.student!.teljesitmeny[this.weekNumber].ertekeles
+          switch (this.gradeNumber) {
+            case -1:
+              this.grade = "negative"       
+              break;
+              case 0:
+                this.grade="neutral"
+              break;
+              case 1:
+                this.grade="positive"
+              break;
+            default:
+              break;
+          }
+        })
+  }
+  return this.student
+}
 
 }
