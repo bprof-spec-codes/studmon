@@ -33,7 +33,7 @@ export class ClassStatisticComponent {
       .subscribe(resp => {
         console.log(resp)
         resp.map((x: any) => {
-          if (x.tanarID === localStorage.getItem('neptun')) {
+          if (x.tanarID === localStorage.getItem('neptun') || "Admin" === localStorage.getItem('user-role')) {
             let c = new classModel()
             c.Id = x.id
             c.nev = x.nev
