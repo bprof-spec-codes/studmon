@@ -84,7 +84,7 @@ export class StudentStatisticComponent implements OnInit{
       })
       resp.teljesitmeny.map((x:any)=>{
         let perMentes = new performanceModel
-        perMentes.performanceId = x.teljesitmenyID
+        perMentes.teljesitmenyID = x.teljesitmenyID
         perMentes.classId = x.oraId
         perMentes.ertekeles = x.ertekeles
         perMentes.studentId = x.hallgatoNeptunKod
