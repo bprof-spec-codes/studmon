@@ -16,7 +16,7 @@ Backend: belépünk a studmon mappába, azon belül pedig studmon és elindítju
 
 Frontend: Visual Studio Code-dal megnyitjuk a studmonClient mappát, ahol legelőszőr a terminálban kell egy „npm install”-t futtatni aztán pedig „ng serve”-t írni a terminálba és máris elindult a kliens oldalunk is ami elérhető a <http://localhost:4200> címen.
 
-##User – pass kombinációk
+## User – pass kombinációk
 
 Teszt tanár felhasználó
 
