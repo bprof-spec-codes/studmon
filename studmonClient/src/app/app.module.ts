@@ -21,6 +21,7 @@ import { ClassListComponent } from './class-list/class-list.component';
 import { AdminComponent } from './admin/admin.component';
 import { OraCreateComponent } from './ora-create/ora-create.component';
 import { StudentToClassComponent } from './student-to-class/student-to-class.component';
+import { AdminModifyComponent } from './admin-modify/admin-modify.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { StudentToClassComponent } from './student-to-class/student-to-class.com
     ClassListComponent,
     AdminComponent,
     OraCreateComponent,
-    StudentToClassComponent
+    StudentToClassComponent,
+    AdminModifyComponent
   ],
   imports: [
     BrowserModule,
