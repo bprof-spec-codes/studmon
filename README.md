@@ -30,7 +30,7 @@ Email=<toth.angela@gmail.com>
 
 Az egyszerűség kedvéért egy felhasználóval teszteltük a dolgokat.
 
-##API lista
+## API lista
 
 Programunkhoz hét API pontot használunk.
 
