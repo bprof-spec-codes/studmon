@@ -68,11 +68,11 @@ export class ClassroomComponent implements OnInit {
                 let currentCell = { type: "0", nk: ulesRend[index]}
                 if (y === "1") {
                   currentCell = { type: "1", nk: ulesRend[index]}
-                  index++
                 } else {
                   currentCell = { type: "0", nk: ulesRend[index]}
                 }
                 currentrow.push(currentCell)
+                ++index
               })
               this.rows.push(currentrow)
             
