@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './register/register.component'
@@ -22,6 +22,8 @@ import { AdminComponent } from './admin/admin.component';
 import { OraCreateComponent } from './ora-create/ora-create.component';
 import { StudentToClassComponent } from './student-to-class/student-to-class.component';
 import { AdminModifyComponent } from './admin-modify/admin-modify.component';
+
+
 
 @NgModule({
   declarations: [
