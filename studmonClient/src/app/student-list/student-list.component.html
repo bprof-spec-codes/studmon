@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-info btn-lg" (click)="openModal()">click to open</button>
+<button type="button" class="btn btn-info btn-sm" (click)="openModal()">Hallgató kiválasztása</button>
 <div *ngIf="nev">
     {{nev}}
 </div>
@@ -7,14 +7,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">{{title}}</h4>
-                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
-                        aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Student's list
+                        Hallgatók listája
                     </button>
                     <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li *ngFor="let student of studentList"><a (click)="changeValue(student)" class="dropdown-item">{{student.nev}}</a></li>
@@ -23,7 +21,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Bezárás</button>
 
             </div>
         </div>

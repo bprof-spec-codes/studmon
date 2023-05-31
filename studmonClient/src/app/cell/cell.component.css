@@ -1,11 +1,7 @@
-.desk{
-    background-color: beige;
-    border: 2px solid black;
 
-}
 
 .emptyspace{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 
 }
 
@@ -28,19 +24,22 @@ form{
   flex-direction: row;
 }
 
+.positive,.negative,.neutral,.emptyspace{
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 3px;
+}
+
 .positive{
-    border: 2px solid black;
-    background-color: green;
+    background-color: #4fff78;
 }
 
 .negative{
-    border: 2px solid black;
-    background-color: red;
+    background-color: #ff4f4f;
 }
 
 .neutral{
     background-color: beige;
-    border: 2px solid black;
+
 }
 
 .positive input[type='radio'] {
@@ -51,3 +50,9 @@ form{
 .negative input[type='radio'] {
     accent-color: red;
 }
+
+container-element {
+
+    justify-content: center; /* Horizontally center align */
+    align-items: center; /* Vertically center align */
+  }

@@ -1,6 +1,6 @@
-<div>
+<div class="container-fluid container">
 <div class="row" *ngFor="let row of rows; let rowIndex=index">
-    <app-cell [rowIndex]="rowIndex" [coll]="coll" [nk]="cell.nk" [class]="class" [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row; let coll=index" >
+    <app-cell class="col" [rowIndex]="rowIndex" [coll]="coll" [nk]="cell.nk" [class]="class" [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row; let coll=index" >
     </app-cell>
   </div>
 
