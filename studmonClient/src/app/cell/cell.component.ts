@@ -37,6 +37,13 @@ export class CellComponent {
     
   }
 
+
+  private numbersCalc(){
+    this.route.params.subscribe((params)=>{
+  
+      this.weekNumber =  params['alkalom']})
+  }
+
   ngOnInit(): void {
     this.student2 = this.fetchData()
     
@@ -45,8 +52,9 @@ export class CellComponent {
   changeGrade(e:any) {
     //let grade=e.target.value
     //TODO nem működik a színváltás tíusát kinyomozni
-    this.gradeNumber = e.target.value
-    console.log(this.gradeNumber);
+    this.gradeNumber = parseInt(e.target.value,10)
+    //console.log(this.gradeNumber);
+
     
     switch (this.gradeNumber) {
       case -1:
@@ -85,12 +93,13 @@ export class CellComponent {
 
 
 private fetchData(){
+  this.numbersCalc()
   if(this.nk !== "@"){
      this.http.get<any>(`http://localhost:5231/HallgatoAPI/${this.nk}`, { responseType: 'json' })
       .subscribe(resp => {
         this.student = resp
           console.log("AlmásRétes",this.student)
-          this.gradeNumber = this.student!.teljesitmeny[this.weekNumber].ertekeles
+          this.gradeNumber = this.student?.teljesitmeny[this.weekNumber-1]?.ertekeles || 0
           switch (this.gradeNumber) {
             case -1:
               this.grade = "negative"       
