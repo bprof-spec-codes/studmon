@@ -14,6 +14,7 @@ import { AdminComponent } from './admin/admin.component';
 import { OraCreateComponent } from './ora-create/ora-create.component';
 import { ApiService } from './app.service';
 import { StudentToClassComponent } from './student-to-class/student-to-class.component';
+import { AdminModifyComponent } from './admin-modify/admin-modify.component';
 
 const routes: Routes = [
   {component: LoginFormComponent, path: ''},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {component: ClassStatisticComponent, path: 'classstatistic', canActivate: [ApiService]},
   {component: AdminComponent, path: 'admin', canActivate: [ApiService]},
   {component: OraCreateComponent, path: 'oracreate', canActivate: [ApiService]},
-  {component: StudentToClassComponent, path: 'studentToClass/:id', canActivate: [ApiService]}
+  {component: StudentToClassComponent, path: 'studentToClass/:id', canActivate: [ApiService]},
+  {component: AdminModifyComponent, path: 'admin-modify', canActivate: [ApiService]}
 ];
 
 @NgModule({

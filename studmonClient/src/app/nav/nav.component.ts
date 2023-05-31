@@ -8,4 +8,12 @@ import { ApiService } from '../app.service';
 })
 export class NavComponent{
 
+  api: ApiService
+
+  constructor(api: ApiService){
+    this.api = api
+  }
+
+  
+
 }

@@ -4,6 +4,7 @@ import { Tanar } from '../_models/tanar';
 import { studentModel } from '../_models/studentModel';
 import { classModel } from '../_models/classModel';
 import { TeremModel } from '../_models/teremModel';
+import { OraCreate } from '../_models/oraModel';
 
 interface Checkbox {
   checked: boolean;
@@ -17,19 +18,50 @@ interface Checkbox {
 export class AdminComponent {
   http: HttpClient;
   student: studentModel;
-  class: classModel;
+  students: Array<studentModel> = []
+  teachers: Array<Tanar> = []
+  class: OraCreate;
   terem: TeremModel;
   classroomLayout: string = '';
   classroom: Checkbox[][] = [];
-  rowcount: number = 7;
-  coloumncount: number = 8;
+  rowcount: number = 4;
+  coloumncount: number = 7;
+  termek: Array<TeremModel>
 
   constructor(http: HttpClient) {
     this.http = http;
     this.student = new studentModel();
-    this.class = new classModel();
+    this.class = new OraCreate();
     this.terem = new TeremModel();
+    this.termek =[]
     this.initializeClassroom();
+  }
+
+  ngOnInit() : void{
+    this.http.get<any>('http://localhost:5231/TeremAPI')
+    .subscribe((resp)=>{
+      resp.map((t:any)=>{
+        let ter = new TeremModel
+        ter.nev = t.nev
+        ter.elrendezes = t.elrendezes
+        console.log(ter)
+        this.termek.push(ter)
+      })} 
+    )
+
+    this.http.get<any>('http://localhost:5231/TanarAPI')
+    .subscribe((resp)=>{
+      resp.map((t:any)=>{
+        let tanar = new Tanar;
+        tanar.neptun = t.neptun
+        tanar.nev = t.nev
+        tanar.email = t.email
+        this.teachers.push(tanar)
+      })
+      console.log(this.teachers)
+    }
+
+    )
   }
 
   initializeClassroom() {
@@ -41,6 +73,8 @@ export class AdminComponent {
       this.classroom.push(row);
     }
   }
+
+
 
   public createStudent(): void {
     console.log(this.student);
@@ -56,27 +90,6 @@ export class AdminComponent {
         (success) => {
           console.log(success);
           this.student = new studentModel();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
-
-  public createClass(): void {
-    console.log(this.class);
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
-    });
-
-    this.http
-      .post('http://localhost:5231/OraAPI', this.class, { headers: headers })
-      .subscribe(
-        (success) => {
-          console.log(success);
-          this.terem = new TeremModel();
         },
         (error) => {
           console.log(error);
@@ -112,6 +125,27 @@ export class AdminComponent {
       );
   }
 
+  public createClass() : void{
+
+    this.class.tanarId = 'DFG234'
+    console.log(this.class)
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
+    });
+    this.http
+      .post('http://localhost:5231/OraAPI', this.class, { headers: headers })
+      .subscribe(
+        (success) => {
+          console.log(success);
+          console.log(this.class);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
   // isTeremValid() {
   //   return this.terem.nev !== '' && this.terem.elrendezes !== '';
   // }
@@ -123,6 +157,10 @@ export class AdminComponent {
       this.student.neptunKod.length === 6 &&
       !/\s/.test(this.student.neptunKod)
     );
+  }
+
+  isTeremValid(){
+    return this.terem.nev === ''
   }
 
 

@@ -9,6 +9,8 @@ export class Ora {
   public oraVeg: Date = new Date()
   public alkalmakSzama: number[] = []
   public selectedAlkalom: number = 1
+
+  
 }
 
 export class OraCreate{

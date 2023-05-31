@@ -141,6 +141,12 @@ namespace studmonBackend.Data.DBContext
                     PasswordHash= "asdasd",
                     Email="horvat.karoly@gmail.com"
                 },
+                new Tanar(){
+                    Id = "ADMIN1",
+                    nev="Admin",
+                    PasswordHash= "admin",
+                    Email="admin@gmail.com"
+                },
             };
 
             List<Ora> oraLista = new List<Ora>()
@@ -229,11 +235,23 @@ namespace studmonBackend.Data.DBContext
 
             foreach (var item in tanarLista)
             {
-                builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+                if(item.Id == "ADMIN1")
                 {
-                    RoleId = "2",
-                    UserId = item.Id
-                });
+                    builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+                    {
+                        RoleId = "1",
+                        UserId = item.Id
+                    });
+                }
+                else
+                {
+                    builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+                    {
+                        RoleId = "2",
+                        UserId = item.Id
+                    });
+                }
+                
             }
 
             List<OraManyToHallgatoMany> oraHallgatoLista = new List<OraManyToHallgatoMany>()
