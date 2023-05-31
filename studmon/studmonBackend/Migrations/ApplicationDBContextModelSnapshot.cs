@@ -233,6 +233,20 @@ namespace studmonBackend.Migrations
                             kar = "NIK",
                             kepzesNev = "Bsc",
                             nev = "Nyári Dalma"
+                        },
+                        new
+                        {
+                            neptunKod = "ABC123",
+                            kar = "NIK",
+                            kepzesNev = "Bsc",
+                            nev = "Sörös Csaba"
+                        },
+                        new
+                        {
+                            neptunKod = "ABC456",
+                            kar = "NIK",
+                            kepzesNev = "Bsc",
+                            nev = "Sörös Bence"
                         });
                 });
 
@@ -320,8 +334,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 12,
                             leiras = "hft",
                             nev = "HFT",
-                            oraKezdet = new DateTime(2023, 5, 31, 18, 38, 10, 419, DateTimeKind.Local).AddTicks(8167),
-                            oraVeg = new DateTime(2023, 5, 31, 19, 38, 10, 419, DateTimeKind.Local).AddTicks(8196),
+                            oraKezdet = new DateTime(2023, 5, 31, 21, 7, 1, 635, DateTimeKind.Local).AddTicks(3576),
+                            oraVeg = new DateTime(2023, 5, 31, 22, 7, 1, 635, DateTimeKind.Local).AddTicks(3611),
                             tanarID = "XY2345",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -332,8 +346,8 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 13,
                             leiras = "dimat1",
                             nev = "Dimat1",
-                            oraKezdet = new DateTime(2023, 5, 31, 18, 38, 10, 419, DateTimeKind.Local).AddTicks(8202),
-                            oraVeg = new DateTime(2023, 5, 31, 19, 38, 10, 419, DateTimeKind.Local).AddTicks(8204),
+                            oraKezdet = new DateTime(2023, 5, 31, 21, 7, 1, 635, DateTimeKind.Local).AddTicks(3626),
+                            oraVeg = new DateTime(2023, 5, 31, 22, 7, 1, 635, DateTimeKind.Local).AddTicks(3627),
                             tanarID = "QWE234",
                             teremID = "BA 1.45",
                             ulesRend = ""
@@ -344,11 +358,11 @@ namespace studmonBackend.Migrations
                             alkalmakSzama = 11,
                             leiras = "hft",
                             nev = "Vállgazd",
-                            oraKezdet = new DateTime(2023, 5, 31, 18, 38, 10, 419, DateTimeKind.Local).AddTicks(8207),
-                            oraVeg = new DateTime(2023, 5, 31, 20, 38, 10, 419, DateTimeKind.Local).AddTicks(8209),
+                            oraKezdet = new DateTime(2023, 5, 31, 21, 7, 1, 635, DateTimeKind.Local).AddTicks(3632),
+                            oraVeg = new DateTime(2023, 5, 31, 23, 7, 1, 635, DateTimeKind.Local).AddTicks(3634),
                             tanarID = "DFG234",
                             teremID = "BA Audmax",
-                            ulesRend = ""
+                            ulesRend = "ERF456 FTG456 @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @"
                         });
                 });
 
@@ -427,15 +441,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "DFG234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d99ea350-66a9-4636-9739-f7a5464c18de",
+                            ConcurrencyStamp = "0dce74da-cf4f-44b7-bab0-51903aeae074",
                             Email = "toth.angela@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "TOTH.ANGELA@GMAIL.COM",
                             NormalizedUserName = "TOTH.ANGELA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMSd7+vgjLtPYh37gekbJT2nklOy4k+fctRy866jdhTL1dBP7vmgNYaHhKV66S0sRg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECv0Xw8cCDQGXqmbLBv2BeGpMGNqR8oOr9jtte2/FoppJt/yQIbIJvYj0uAvOdu0Iw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4761eb2d-d152-4920-ac58-360c3f8acb09",
+                            SecurityStamp = "44d26a9b-b09b-460a-b32c-ba8d16e843c9",
                             TwoFactorEnabled = false,
                             UserName = "toth.angela@gmail.com",
                             nev = "Tóth Angéla"
@@ -444,15 +458,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "QWE234",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7a500cfa-f59f-4ab5-8a67-7d6112dd407b",
+                            ConcurrencyStamp = "8a361fff-f758-48a6-b53c-edb558c811bd",
                             Email = "balogh.attila@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "BALOGH.ATTILA@GMAIL.COM",
                             NormalizedUserName = "BALOGH.ATTILA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJPR4AY24qMcWGxtPUtnlYb1k/aQkSPTAdt8MElhr7bS94OCec8AsiDm9eo3L+NDOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECw8a6RoRTho7joqgepzai0C1uGFXCujsf5F5m6rsr3GBPebLwQ6KMVzA5D+KFdmfQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e6cf7406-bea2-4003-af91-6645973e71e6",
+                            SecurityStamp = "bac09c36-1656-4f59-b1b4-988323b71620",
                             TwoFactorEnabled = false,
                             UserName = "balogh.attila@gmail.com",
                             nev = "Balogh Attila"
@@ -461,15 +475,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "XY2345",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "41185570-e3a4-4dc8-82a2-ced743221099",
+                            ConcurrencyStamp = "6f9cbd2d-1f3b-4246-afb5-feebca8fbe8e",
                             Email = "horvat.karoly@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "HORVAT.KAROLY@GMAIL.COM",
                             NormalizedUserName = "HORVAT.KAROLY@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOyolPGzgNntFTPB+hUTVuPjl1aaIBTh9Nyi6qYxZxSfw33i0sYRTdVY4B0POTcMqw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC9mMCCllOJtPEa1OKxYw9gjeRi0X4DK64HLSRqAEUkexUdAxNkFAvIpNqqG0RyWbg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b9654dd5-9d57-46f5-94d9-1971b4a55f91",
+                            SecurityStamp = "317c2f37-ad1f-4aed-82b4-19384e0768ca",
                             TwoFactorEnabled = false,
                             UserName = "horvat.karoly@gmail.com",
                             nev = "Horváth Károly"
@@ -478,15 +492,15 @@ namespace studmonBackend.Migrations
                         {
                             Id = "ADMIN1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3f72577c-c63a-4a32-8d51-1f56d85533e9",
+                            ConcurrencyStamp = "ff1d3fe2-7710-49cc-8653-9c9e50231e29",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOWTXibG6UpdQkSBitSkR7eLF4Q3U7mteFwIGqF9NUV1dcBPbXWg68rhgrUMQr/9/A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJivB3t2044gNuS0JfSBfst4JED68HvAbou7j+NVG+wn7sGbFdg2Ry+IAK9Bv/JaaQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c869dc91-cd86-40a8-b767-d39087e3b96a",
+                            SecurityStamp = "8041a9c0-7a53-431b-b22f-c3d4e9418231",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com",
                             nev = "Admin"

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json.Linq;
+using studmonBackend.Data.Models;
 using studmonBackend.Data.Models.ManyToManyModels;
 using studmonBackend.Logic;
 using studmonBackend.Logic.Interfaces;
@@ -18,13 +19,16 @@ namespace studmonBackend.Controllers
 
         IHallgatoLogic hallgatoLogic { get; set; }
 
+        IOraLogic oraLogic { get; set; }
+
         IHubContext<EventHub> hub;
 
-        public OMToHMAPI(IOraManyToHallgatoMany logic, IHallgatoLogic hallgatoLogic , ITeljesitmenyLogic teljesitmenyLogic, IHubContext<EventHub> hub)
+        public OMToHMAPI(IOraManyToHallgatoMany logic, IHallgatoLogic hallgatoLogic , ITeljesitmenyLogic teljesitmenyLogic, IOraLogic oraLogic, IHubContext<EventHub> hub)
         {
             this.logic = logic;
             this.teljesitmenyLogic = teljesitmenyLogic;
             this.hallgatoLogic = hallgatoLogic;
+            this.oraLogic = oraLogic;
             this.hub = hub;
         }
 
@@ -47,6 +51,17 @@ namespace studmonBackend.Controllers
         public async void Post([FromBody] OraManyToHallgatoMany value)
         {
             logic.Create(value);
+            var hallgato = hallgatoLogic.Readone(value.HallgatoId);
+            var ora = oraLogic.Readone(value.OraId);
+            
+            for (int i = 1; i <= ora.alkalmakSzama; i++)
+            {
+                Teljesitmeny teljesitmeny = new Teljesitmeny();
+                teljesitmeny.oraId = value.OraId;
+                teljesitmeny.hallgatoNeptunKod = value.HallgatoId;
+                teljesitmeny.WeekNumber = i;
+                teljesitmenyLogic.Create(teljesitmeny);
+            }
             await hub.Clients.All.SendAsync("OMToHM_Created", value);
         }
 

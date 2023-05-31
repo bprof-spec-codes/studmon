@@ -47,8 +47,8 @@ namespace studmonBackend.Data.Models
         //------------------------------------------
 
         public Teljesitmeny()
-        { 
-            
+        {
+            this.ertekeles = -1;
         }
 
         //public Teljesitmeny(string hallgatoNeptunKod, string oraId)

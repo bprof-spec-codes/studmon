@@ -115,7 +115,9 @@ namespace studmonBackend.Data.DBContext
             {
                 new Hallgato("FTG456", "Huba Árpád", "NIK", "Bprof"),
                 new Hallgato("KJGL45", "Török Levente", "NIK", "Bsc"),
-                new Hallgato("ERF456", "Nyári Dalma", "NIK", "Bsc")
+                new Hallgato("ERF456", "Nyári Dalma", "NIK", "Bsc"),
+                new Hallgato("ABC123", "Sörös Csaba", "NIK", "Bsc"),
+                new Hallgato("ABC456", "Sörös Bence", "NIK", "Bsc")
             };
 
             tanarLista = new List<Tanar>()
@@ -187,7 +189,7 @@ namespace studmonBackend.Data.DBContext
                     alkalmakSzama = 11,
                     oraKezdet = DateTime.Now,
                     oraVeg = DateTime.Now.AddHours(2),
-                    ulesRend = ""
+                    ulesRend = "ERF456 FTG456 @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @"
                 }
             };
 
