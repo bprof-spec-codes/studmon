@@ -1,5 +1,5 @@
 export class performanceModel {
-  public performanceId: string = ''
+  public teljesitmenyID: string = ''
   public studentId: string = ''
   public classId: string = ''
   public ertekeles: number = 0
