@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { studentModel } from '../_models/studentModel';
 import { HttpClient } from '@angular/common/http';
 import { performanceModel } from '../_models/performanceModel';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
@@ -23,29 +23,36 @@ export class StudentListComponent implements OnChanges {
   @Input() rowIndex: number =1
 
   http: HttpClient
+  changeNumber: number = 0
 
 
-  constructor(http: HttpClient, private route: ActivatedRoute) {
+  constructor(http: HttpClient, private route: ActivatedRoute, private router: Router) {
     this.http = http
     //console.log(this.student);
+    this.router = router
     
   }
 
 
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.changeNumber++
     let change = changes['gradeNumber']
-    if (change?.currentValue && !change.isFirstChange()) {
-      console.log(change.currentValue)
-      this.student.teljesitmeny[this.weekNumber] = change.currentValue
+    if (change?.currentValue && this.changeNumber>2) {
+
+      
+      //this.student.teljesitmeny[this.weekNumber] = change.currentValue
       if(change?.currentValue != change.previousValue){
-        console.log(this.student)
-        this.apiCall()
+        this.numbersCalc()
+        this.apiCall(this.student.teljesitmeny[this.weekNumber-1]!.teljesitmenyID,change.currentValue)
 
 
 
 
-        
+
+
+
+
         // this.http.put("http://localhost:5231/HallgatoAPI", this.student)
         // .subscribe(
         //   (success) => {
@@ -70,7 +77,7 @@ export class StudentListComponent implements OnChanges {
   nev: string = ""
 
   ngOnInit() {
-    console.log(this.rowIndex, this.coll);
+    //console.log(this.rowIndex, this.coll);
     
   }
   openModal() {
@@ -81,7 +88,7 @@ export class StudentListComponent implements OnChanges {
   }
 
   changeValue(value: studentModel) {
-    console.log("onchange",value)
+    //console.log("onchange",value)
     this.nev = value.nev
     this.student = value
     this.modifyCell()
@@ -89,8 +96,14 @@ export class StudentListComponent implements OnChanges {
   }
 
 
+  private numbersCalc(){
+    this.route.params.subscribe((params)=>{
+  
+      this.weekNumber =  params['alkalom']})
+  }
 
-  private apiCall(){
+
+  private apiCall(performanceId: string, alma: number){
     let oraId = ""
     let weekNumber = 0
     this.route.params.subscribe((params)=>{
@@ -98,14 +111,16 @@ export class StudentListComponent implements OnChanges {
        weekNumber = params['alkalom']})
   
     let newTeljesitmeny = {
+    teljesitmenyID: parseInt(performanceId),
     hallgatoNeptunKod: this.student!.neptunKod,
     oraId: oraId,
-    ertekeles: this.gradeNumber,
+    ertekeles: alma,
     weekNumber: weekNumber  }
-    console.log(newTeljesitmeny)
-     this.http.post<any>(`http://localhost:5231/TeljesitmenyAPI/`, newTeljesitmeny, { responseType: 'json' })
+    //console.log(newTeljesitmeny)
+
+     this.http.put<any>(`http://localhost:5231/TeljesitmenyAPI/`, newTeljesitmeny, { responseType: 'json' })
          .subscribe(resp => {
-           console.log(resp)
+           //console.log(resp)
          })
    }
 
@@ -134,23 +149,26 @@ export class StudentListComponent implements OnChanges {
 
     let elrendezes = newOra.ulesRend.split(" ")
     elrendezes[tmp]= this.student.neptunKod
-    console.log(elrendezes);
+    //console.log(elrendezes);
 
     newOra.ulesRend= elrendezes.join(" ")
     
-    
+    //console.log(newOra);   
     this.http.put<any>(`http://localhost:5231/OraAPI/`, newOra,{ responseType: 'json' })
       .subscribe(resp => {
-        console.log(resp)
-  
+        //console.log("Üllésrend beállítás");
+        
         })
+        this.numbersCalc()
+        this.router.navigate([`/classroom/${this.class.id}/${this.weekNumber}`])
+        //window.location.reload()
   }
  
     
   
 
   ulesRendMapping(e: any){
-    console.log(e);
+    //console.log(e);
     
     if(e){
       return e 
@@ -165,7 +183,7 @@ export class StudentListComponent implements OnChanges {
   saveUlesRend(){
     this.http.put<any>(`http://localhost:5231/OraAPI/${this.class}`, { responseType: 'json' })
       .subscribe(resp => {
-        console.log(resp)
+        //console.log(resp)
   
         })
   }
