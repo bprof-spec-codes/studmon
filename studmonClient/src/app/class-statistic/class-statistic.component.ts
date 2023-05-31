@@ -69,7 +69,7 @@ export class ClassStatisticComponent {
           s.kepzesNev = x.hallgato.kepzesNev
           x.hallgato.teljesitmeny.map((telj: any) => {
             let k = new performanceModel
-            k.performanceId = telj.teljesitmenyID
+            k.teljesitmenyID = telj.teljesitmenyID
             k.classId = telj.oraId
             k.studentId = telj.hallgatoNeptunKod
             k.ertekeles = telj.ertekeles
