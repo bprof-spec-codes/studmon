@@ -19,6 +19,7 @@ export class AdminComponent {
   http: HttpClient;
   student: studentModel;
   students: Array<studentModel> = []
+  teachers: Array<Tanar> = []
   class: OraCreate;
   terem: TeremModel;
   classroomLayout: string = '';
@@ -45,9 +46,23 @@ export class AdminComponent {
         ter.elrendezes = t.elrendezes
         console.log(ter)
         this.termek.push(ter)
-      })
+      })} 
+    )
 
-  })}
+    this.http.get<any>('http://localhost:5231/TanarAPI')
+    .subscribe((resp)=>{
+      resp.map((t:any)=>{
+        let tanar = new Tanar;
+        tanar.neptun = t.neptun
+        tanar.nev = t.nev
+        tanar.email = t.email
+        this.teachers.push(tanar)
+      })
+      console.log(this.teachers)
+    }
+
+    )
+  }
 
   initializeClassroom() {
     for (let i = 0; i < this.rowcount; i++) {

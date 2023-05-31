@@ -59,4 +59,8 @@ export class ApiService{
       }
     );
   }
+
+  public isAdmin() :boolean{
+    return localStorage.getItem('user-role') === 'Admin'
+  }
 }

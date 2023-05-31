@@ -97,6 +97,12 @@
           </select>
         </div>
         <div class="form-group mb-4">
+          <label for="exampleInputEmail1" class="mb-1">Tanár</label>
+          <select [(ngModel)]="this.class.tanarId" class="form-select"  name="terem" id="">
+            <option value="{{item.neptun}}" *ngFor="let item of teachers">{{item.nev}}</option>
+          </select>
+        </div>
+        <div class="form-group mb-4">
           <label for="exampleInputPassword1" class="mb-1">Alkalmak száma:</label>
           <input  [(ngModel)]="this.class.alkalmakSzama" name="alkalmak" type="number" class="form-control" min="1" value="1">
         </div>

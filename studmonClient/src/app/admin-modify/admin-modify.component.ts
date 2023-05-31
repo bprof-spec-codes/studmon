@@ -6,6 +6,7 @@ import { Ora } from '../_models/oraModel';
 import { studentModel } from '../_models/studentModel';
 import { Router } from '@angular/router';
 import { ApiService } from '../app.service';
+import { Tanar } from '../_models/tanar';
 
 @Component({
   selector: 'app-admin-modify',
@@ -29,7 +30,8 @@ export class AdminModifyComponent {
     this.students =[];
     this.router = router;
     this.api = api;
-    this.selectedObject = 'Hallgato'
+    this.selectedObject = 'Hallgato';
+
   }
 
   ngOnInit() : void{
