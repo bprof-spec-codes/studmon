@@ -14,8 +14,12 @@ namespace studmonBackend.Data.Repositories
 
         public void Create(T item)
         {
-            db.Set<T>().Add(item);
-            db.SaveChanges();
+            try
+            {
+                db.Set<T>().Add(item);
+                db.SaveChanges();
+            }
+            catch(Exception) { }
         }
 
         public void DeleteById(string id)

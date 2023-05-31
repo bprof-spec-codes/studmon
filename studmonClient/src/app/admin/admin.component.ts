@@ -17,6 +17,7 @@ interface Checkbox {
 export class AdminComponent {
   http: HttpClient;
   student: studentModel;
+  students: Array<studentModel> = []
   class: classModel;
   terem: TeremModel;
   classroomLayout: string = '';
@@ -56,27 +57,6 @@ export class AdminComponent {
         (success) => {
           console.log(success);
           this.student = new studentModel();
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
-
-  public createClass(): void {
-    console.log(this.class);
-
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
-    });
-
-    this.http
-      .post('http://localhost:5231/OraAPI', this.class, { headers: headers })
-      .subscribe(
-        (success) => {
-          console.log(success);
-          this.terem = new TeremModel();
         },
         (error) => {
           console.log(error);

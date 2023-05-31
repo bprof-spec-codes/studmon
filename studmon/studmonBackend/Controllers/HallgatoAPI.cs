@@ -40,7 +40,7 @@ namespace studmonBackend.Controllers
         public async void Post([FromBody] Hallgato h)
         {
             logic.Create(h);
-            await hub.Clients.All.SendAsync("hallgatoCreated",h);
+            await hub.Clients.All.SendAsync("hallgatoCreated", h);
         }
 
         [HttpDelete("{id}")]
