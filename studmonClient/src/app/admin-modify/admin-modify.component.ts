@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import { TeremModel } from '../_models/teremModel';
@@ -20,6 +20,7 @@ export class AdminModifyComponent {
   students: Array<studentModel>;
   router: Router;
   api: ApiService;
+  selectedObject: string
 
   constructor(http: HttpClient, api: ApiService, router: Router){
     this.http = http;
@@ -28,5 +29,100 @@ export class AdminModifyComponent {
     this.students =[];
     this.router = router;
     this.api = api;
+    this.selectedObject = 'Hallgato'
   }
+
+  ngOnInit() : void{
+    this.http
+    .get<Array<studentModel>>('http://localhost:5231/HallgatoAPI')
+    .subscribe(resp=> {
+      resp.map(x=>{
+        let s = new studentModel();
+        s.neptunKod = x.neptunKod;
+        s.nev = x.nev;
+        s.kar = x.kar;
+        s.kepzesNev = x.kepzesNev;
+        s.orak = x.orak;
+        s.teljesitmeny = x.teljesitmeny;
+        this.students.push(s);
+      })
+      console.log(this.students)
+    })
+
+    this.http
+    .get<Array<TeremModel>>('http://localhost:5231/TeremAPI')
+    .subscribe(resp=> {
+      resp.map(x=>{
+        let t = new TeremModel();
+        t.nev = x.nev;
+        t.elrendezes = x.elrendezes;
+        t.orak = x.orak;
+        this.classrooms.push(t);
+      })
+      console.log(this.classrooms)
+    })
+
+    this.http
+    .get<Array<Ora>>('http://localhost:5231/OraAPI')
+    .subscribe(resp=> {
+      resp.map(x=>{
+        let o = new Ora();
+        o.id = x.id;
+        o.nev = x.nev;
+        o.leiras = x.leiras;
+        o.teremNev = x.teremNev;
+        o.oraKezdet = x.oraKezdet;
+        o.oraVeg = x.oraVeg;
+        o.alkalmakSzama = x.alkalmakSzama;
+        o.selectedAlkalom = x.selectedAlkalom;
+        this.subjects.push(o);
+      })
+      console.log(this.subjects)
+    })
+
+    
+  }
+
+  public delete(tipus: string, id: string) : void {
+    const baseUrl = 'http://localhost:5231/';
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
+    })
+    this.http
+      .delete(
+        `${baseUrl}${tipus}API/`+ id,
+        { headers: headers }
+      )
+      .subscribe(
+        (success) => {
+          //this.snackBar.open("Delete successful!", "Close", { duration: 5000 })
+          console.log(success)
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/admin-modify']);
+          });
+        },
+        (error) => {
+          console.log(error)
+          //this.snackBar.open("Error occured, please try again.", "Close", { duration: 5000 })
+        }
+      )
+
+  }
+
+  public SelectObject(type: string){
+    this.selectedObject = type;
+    console.log(this.selectedObject)
+  }
+
+  public DateToString(date: Date): string {
+    const year = date.getFullYear().toString().padStart(4, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const hour = date.getHours().toString().padStart(2, '0');
+    const minute = date.getMinutes().toString().padStart(2, '0');
+  
+    return `${year}/${month}/${day} ${hour}/${minute}`;
+  }
+  
 }

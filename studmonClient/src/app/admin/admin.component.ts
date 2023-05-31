@@ -4,6 +4,7 @@ import { Tanar } from '../_models/tanar';
 import { studentModel } from '../_models/studentModel';
 import { classModel } from '../_models/classModel';
 import { TeremModel } from '../_models/teremModel';
+import { OraCreate } from '../_models/oraModel';
 
 interface Checkbox {
   checked: boolean;
@@ -18,20 +19,35 @@ export class AdminComponent {
   http: HttpClient;
   student: studentModel;
   students: Array<studentModel> = []
-  class: classModel;
+  class: OraCreate;
   terem: TeremModel;
   classroomLayout: string = '';
   classroom: Checkbox[][] = [];
-  rowcount: number = 7;
-  coloumncount: number = 8;
+  rowcount: number = 4;
+  coloumncount: number = 7;
+  termek: Array<TeremModel>
 
   constructor(http: HttpClient) {
     this.http = http;
     this.student = new studentModel();
-    this.class = new classModel();
+    this.class = new OraCreate();
     this.terem = new TeremModel();
+    this.termek =[]
     this.initializeClassroom();
   }
+
+  ngOnInit() : void{
+    this.http.get<any>('http://localhost:5231/TeremAPI')
+    .subscribe((resp)=>{
+      resp.map((t:any)=>{
+        let ter = new TeremModel
+        ter.nev = t.nev
+        ter.elrendezes = t.elrendezes
+        console.log(ter)
+        this.termek.push(ter)
+      })
+
+  })}
 
   initializeClassroom() {
     for (let i = 0; i < this.rowcount; i++) {
@@ -42,6 +58,8 @@ export class AdminComponent {
       this.classroom.push(row);
     }
   }
+
+
 
   public createStudent(): void {
     console.log(this.student);
@@ -92,6 +110,27 @@ export class AdminComponent {
       );
   }
 
+  public createClass() : void{
+
+    this.class.tanarId = 'DFG234'
+    console.log(this.class)
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
+    });
+    this.http
+      .post('http://localhost:5231/OraAPI', this.class, { headers: headers })
+      .subscribe(
+        (success) => {
+          console.log(success);
+          console.log(this.class);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }
+
   // isTeremValid() {
   //   return this.terem.nev !== '' && this.terem.elrendezes !== '';
   // }
@@ -103,6 +142,10 @@ export class AdminComponent {
       this.student.neptunKod.length === 6 &&
       !/\s/.test(this.student.neptunKod)
     );
+  }
+
+  isTeremValid(){
+    return this.terem.nev === ''
   }
 
 
