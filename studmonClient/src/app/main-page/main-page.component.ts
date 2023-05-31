@@ -51,7 +51,7 @@ export class MainPageComponent implements OnInit{
     this.http.get<any>('http://localhost:5231/OraAPI', { headers: this.headers })
       .subscribe((success) => {
         success.map((t: any) => {
-          if (t.tanarID === localStorage.getItem('neptun')) {
+          if (t.tanarID === localStorage.getItem('neptun') || "Admin" === localStorage.getItem('user-role')) {
             let o = new Ora
             o.id = t.id
             o.nev = t.nev
