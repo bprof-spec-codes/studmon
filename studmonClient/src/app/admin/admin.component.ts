@@ -27,6 +27,7 @@ export class AdminComponent {
   rowcount: number = 4;
   coloumncount: number = 7;
   termek: Array<TeremModel>
+  selectedObject: string = 'Hallgato'
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -159,10 +160,18 @@ export class AdminComponent {
     );
   }
 
+  public SelectObject(type: string){
+    this.selectedObject = type;
+    console.log(this.selectedObject)
+  }
+
   isTeremValid(){
     return this.terem.nev === ''
   }
 
+  isOraValid(){
+    return this.class.nev !=''
+  }
 
   
 }
