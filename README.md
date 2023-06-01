@@ -69,7 +69,12 @@ API pontok:
 - [HttpDelete("{id}")] Delete(string id) Ezzel tudjuk törölni a hallgatót.
 - [HttpPut] Put([FromBody] Hallgato h) Ezzel frissítjük a hallgatót.
 
-OMToHMAPI !!!!!!!!!!!!!!Mit is csinál
+### OMToHMAPI:
+- [HttpGet] GetAll() Összes OraManyToHallgatoMany  lekérdezi.
+- [HttpGet("{id}")] Get(string id) Visszaad egy  OraManyToHallgatoMany-t.
+- [HttpPost] tPost([FromBody] OraManyToHallgatoMany value) Ezzel hozunk létre OraManyToHallgatoMany-t.
+- [HttpDelete("{id}")] Delete(string id) Ezzel tudjuk törölni a OraManyToHallgatoMany-t.
+- [HttpPut] Put([FromBody] OraManyToHallgatoMany value) Ezzel frissítjük a OraManyToHallgatoMany-t.
 
 ### OraAPI:
 
