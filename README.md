@@ -134,8 +134,25 @@ Tanórák lista felület:
 ![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/077279ef-6155-4c4b-8ec9-77a87bb7356e)
 
 
-Admin felület:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/d4ab36b5-77e6-44d4-bc08-26a1ef021367)
+Admin létrehozás:
+Hallgatók:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/0801d149-0a5a-4a66-892b-aaa572751ac0)
+Órák:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/7770dca2-d515-4c97-92ca-7e611b7bf5ea)
+Termek:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/8e6fb9fd-29af-4dcf-a0cc-9bb1dd301748)
+
+Admin listák:
+Hallgatók:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/477f166c-a016-4e92-88b6-b56f70be12fc)
+Órák:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/de0ab5ff-4d36-410c-a5d4-bc11a7e3601e)
+Termek:
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/4a8abc0f-6de4-42b0-afe5-7e4447f5f03f)
+
+
+
+
 
 
 Probléma jegyzőkönyv:
