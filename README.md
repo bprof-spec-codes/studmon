@@ -111,10 +111,12 @@ API pontok:
 ## UI felület:
 
 Regisztrációs felület:
+
 ![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/4d4a6f39-6460-4e67-b94f-53063021a155)
 
 
 Bejelntkezési felület: 
+
 ![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/77dbd4ad-de72-4f45-81d0-2312c1efb4ff)
 
 
