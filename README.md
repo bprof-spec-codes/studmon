@@ -28,7 +28,17 @@ Password= "asdasd",
 
 Email=<toth.angela@gmail.com>
 
-Az egyszerűség kedvéért egy felhasználóval teszteltük a dolgokat.
+Teszt admin felhasználó
+
+Id = "ADMIN1",
+
+nev="Admin",
+
+Password= "admin",
+
+Email=<admin@gmail.com>
+
+
 
 ## API lista
 
