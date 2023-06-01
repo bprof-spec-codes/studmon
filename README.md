@@ -142,21 +142,26 @@ Hallgatók:
 ![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/0801d149-0a5a-4a66-892b-aaa572751ac0)
 
 Órák:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/7770dca2-d515-4c97-92ca-7e611b7bf5ea)
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/d459da8d-713c-4d11-91a7-0b3a72a1dc5b)
+
 
 Termek:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/8e6fb9fd-29af-4dcf-a0cc-9bb1dd301748)
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/25ef484a-b61e-44a7-ae8d-6cb140cd9407)
+
 
 Admin listák:
 
 Hallgatók:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/477f166c-a016-4e92-88b6-b56f70be12fc)
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/dd8d6a12-0737-46e8-ae05-06c1cff6d6f9)
+
 
 Órák:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/de0ab5ff-4d36-410c-a5d4-bc11a7e3601e)
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/a5b806e1-fae1-4b70-9121-af8bd5675bf3)
+
 
 Termek:
-![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/4a8abc0f-6de4-42b0-afe5-7e4447f5f03f)
+![image](https://github.com/bprof-spec-codes/studmon/assets/91876468/d0b527a0-5c10-4cef-be88-72578dde2f93)
+
 
 
 
