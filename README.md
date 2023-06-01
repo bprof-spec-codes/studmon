@@ -164,9 +164,11 @@ Termek:
 
 
 
-
-
-
-
-Probléma jegyzőkönyv:
-
+## Probléma jegyzőkönyv:
+### BackEnd:
+- Túl sok adat küldése - FrontEnd oldalon szűrni arra amire kell
+- Maga a BackEnd hogyan legyen felépítve - Közös megbeszélés a csapattal
+### FrontEnd:
+- HTML oldalon hogyan hangoljuk be  az adatkötést - Gyakorlás a saját kliens oldali félévessel 
+- A statisztikai oldal számolása - Levezetés tollal és papírral
+- Az adat visszaküldése BackEnd-re - A frontend modellek minél inkább hasonlítsanak a BackEndről kapott adatokhoz.
