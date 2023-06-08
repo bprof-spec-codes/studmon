@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10% 5px;
+  padding: 4% 5px 10%;
 }
 
 .minusOne{
@@ -45,6 +45,20 @@ input:hover, select:hover, label:hover{
 .completed-radio:checked{
   background-color: #157216;
   border-color: #157216;
+}
+
+#not-sit-here-btn{
+  color: #901313;
+  transition: 0.5s;
+}
+
+#not-sit-here-btn:hover{
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+#right-align{
+  text-align: right;
 }
 
 

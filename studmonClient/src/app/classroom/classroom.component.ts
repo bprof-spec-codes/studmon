@@ -143,7 +143,7 @@ export class ClassroomComponent implements OnInit {
   }
 
   //HALLGATÓ LEÜLTETÉSE
-  async hallgatoUltetes(event:any, oneRow:any, onePlace:any){
+  hallgatoUltetes(event:any, oneRow:any, onePlace:any){
     //console.log("event", event.target.value)
     //console.log("ROW", oneRow)
     //console.log("PLACE", onePlace)
@@ -155,7 +155,28 @@ export class ClassroomComponent implements OnInit {
       });
     });
     ultetes.trim()
-    //console.log(this.studentList)
+    console.log(this.notSittedStudents)
+    let index = this.notSittedStudents.findIndex((t:any)=>t.neptunKod === event.target.value)
+    this.notSittedStudents.splice(index, 1)
+    this.updateSitting(ultetes)
+  }
+
+  removeStudentFromPlace(neptun: string, oneRow:any, onePlace:any){
+    this.rows[oneRow][onePlace].nk = "@"
+    let ultetes = ""
+    this.rows.forEach(element => {
+      element.forEach((item:any) => {
+        ultetes+=item.nk + " "
+      });
+    });
+    ultetes.trim()
+    let student = this.studentList.find((t:any)=>t.neptunKod === neptun)
+    console.log(student)
+    this.notSittedStudents.push(student)
+    this.updateSitting(ultetes)
+  }
+
+  async updateSitting(ultetes:string){
     await this.http.get<any>(`http://localhost:5231/OraAPI/${this.oraId}`, { responseType: 'json' })
     .subscribe(resp => {
       //console.log(resp)
@@ -177,8 +198,7 @@ export class ClassroomComponent implements OnInit {
         //console.log(returnData)
       })
     })
-    //this.http.put<any>('http://localhost:5231/OraAPI')
-
   }
+
 
 }
