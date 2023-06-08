@@ -140,6 +140,44 @@ export class ClassroomComponent implements OnInit {
         //console.log(this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId))
         //console.log(resp)
       })
+  }
+
+  //HALLGATÓ LEÜLTETÉSE
+  async hallgatoUltetes(event:any, oneRow:any, onePlace:any){
+    //console.log("event", event.target.value)
+    //console.log("ROW", oneRow)
+    //console.log("PLACE", onePlace)
+    this.rows[oneRow][onePlace].nk = event.target.value
+    let ultetes = ""
+    this.rows.forEach(element => {
+      element.forEach((item:any) => {
+        ultetes+=item.nk + " "
+      });
+    });
+    ultetes.trim()
+    //console.log(this.studentList)
+    await this.http.get<any>(`http://localhost:5231/OraAPI/${this.oraId}`, { responseType: 'json' })
+    .subscribe(resp => {
+      //console.log(resp)
+      resp.ulesRend = ultetes
+      //console.log(JSON.stringify(resp))
+      const returnData = {
+        id : resp.id,
+        nev : resp.nev,
+        leiras : resp.leiras,
+        teremID : resp.teremID,
+        tanarID : resp.tanarID,
+        alkalmakSzama : resp.alkalmakSzama,
+        oraKezdet : resp.oraKezdet,
+        oraVeg : resp.oraVeg,
+        ulesRend : resp.ulesRend,
+      }
+      this.http.put<any>('http://localhost:5231/OraApi',returnData)
+      .subscribe((t)=>{
+        //console.log(returnData)
+      })
+    })
+    //this.http.put<any>('http://localhost:5231/OraAPI')
 
   }
 

@@ -8,8 +8,8 @@ Tanári asztal
 </div>-->
 
 <div class="container-fluid mt-3">
-  <div class="row" *ngFor="let oneRow of rows">
-    <div class="col colHely" *ngFor="let onePlace of oneRow">
+  <div class="row" *ngFor="let oneRow of rows; index as i">
+    <div class="col colHely" *ngFor="let onePlace of oneRow; index as j">
       <div class="hely" [ngClass]="{
             'minusOne': isEqualWithRadioButton(-1,onePlace.nk),
             'zero': isEqualWithRadioButton(0,onePlace.nk),
@@ -45,9 +45,9 @@ Tanári asztal
         <ng-template #ureshely>
           <div>
             <p class="mb-1">Válassz hallgatót</p>
-            <select class="form-select form-select-sm mb-3" name="" id="">
+            <select class="form-select form-select-sm mb-3" name="" id="" (change)="hallgatoUltetes($event, i, j)">
               <option selected disabled>--Hallgató választása</option>
-              <option [value]="item" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})</option>
+              <option [value]="item.neptunKod" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})</option>
             </select>
           </div>
         </ng-template>
