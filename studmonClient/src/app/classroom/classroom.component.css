@@ -5,6 +5,15 @@
   min-height: 40px;
 }
 
+.wrapper{
+  display: block;
+  overflow-x: auto;
+}
+
+.wrapper-row{
+  min-width: 1000px !important;
+}
+
 .hely{
   height: 100%;
   display: flex;

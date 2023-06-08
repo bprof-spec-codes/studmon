@@ -13,8 +13,8 @@ Tanári asztal
     </div>
   </div>
 </div>
-<div class="container-fluid mt-3">
-  <div class="row" *ngFor="let oneRow of rows; index as i">
+<div class="container-fluid wrapper mt-3">
+  <div class="row wrapper-row" *ngFor="let oneRow of rows; index as i">
     <div class="col colHely" *ngFor="let onePlace of oneRow; index as j">
       <div class="hely" [ngClass]="{
             'minusOne': isEqualWithRadioButton(-1,onePlace.nk),
