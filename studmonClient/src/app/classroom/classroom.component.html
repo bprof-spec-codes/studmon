@@ -1,11 +1,70 @@
-<div class="container-fluid container">
+<!--<div class="container-fluid container">
 <div class="row" *ngFor="let row of rows; let rowIndex=index">
     <app-cell class="col" [rowIndex]="rowIndex" [coll]="coll" [nk]="cell.nk" [class]="class" [studentList]="studentList" [name]="cell.name" [type]="cell.type"  *ngFor="let cell of row; let coll=index" >
     </app-cell>
   </div>
-
- 
-
 Tanári asztal
-<!-- <button type="button" class="btn btn-primary">Save classroom</button> -->
+<button type="button" class="btn btn-primary">Save classroom</button>
+</div>-->
+
+<div class="container-fluid mt-3">
+  <div class="row" *ngFor="let oneRow of rows">
+    <div class="col colHely" *ngFor="let onePlace of oneRow">
+      <div class="hely" [ngClass]="{
+            'minusOne': isEqualWithRadioButton(-1,onePlace.nk),
+            'zero': isEqualWithRadioButton(0,onePlace.nk),
+            'plusOne': isEqualWithRadioButton(1,onePlace.nk)}" *ngIf="onePlace.type==1; else folyoso">
+        <div *ngIf="onePlace.nk !== '@'; else ureshely">
+          <p class="m-0">{{getExactStudent(onePlace.nk)}}</p>
+          <p>{{onePlace.nk}}</p>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <input class="form-check-input not-completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}--1" value="-1" [checked]="isEqualWithRadioButton(-1,onePlace.nk)" (change)="radioChange($event)">
+              </div>
+              <div class="col">
+                <input class="form-check-input" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-0" value="0" [checked]="isEqualWithRadioButton(0,onePlace.nk)" (change)="radioChange($event)">
+              </div>
+              <div class="col">
+                <input class="form-check-input completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-1" value="1" [checked]="isEqualWithRadioButton(1,onePlace.nk)" (change)="radioChange($event)">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-check-label" for="{{onePlace.nk}}--1">-1</label>
+              </div>
+              <div class="col">
+                <label class="form-check-label" for="{{onePlace.nk}}-0">0</label>
+              </div>
+              <div class="col">
+                <label class="form-check-label" for="{{onePlace.nk}}-1">1</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #ureshely>
+          <div>
+            <p class="mb-1">Válassz hallgatót</p>
+            <select class="form-select form-select-sm mb-3" name="" id="">
+              <option selected disabled>--Hallgató választása</option>
+              <option [value]="item" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})</option>
+            </select>
+          </div>
+        </ng-template>
+
+      </div>
+      <ng-template #folyoso>
+        <div class="hely folyoso">|FOLYOSÓ|</div>
+      </ng-template>
+    </div>
+  </div>
 </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="colHely d-flex justify-content-center align-items-center">
+      <span>TANÁRI ASZTAL</span>
+    </div>
+  </div>
+</div>
+
+

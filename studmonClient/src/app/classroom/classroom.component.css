@@ -1,4 +1,54 @@
-.container{
+.colHely{
+  border: 1px solid rgb(78, 78, 171);
+  padding: 0;
+  text-align: center;
+  min-height: 40px;
+}
+
+.hely{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 5px;
+}
+
+.minusOne{
+  background-color: #ff9090;
+}
+.zero{
+  background-color: none;
+}
+.plusOne{
+  background-color: #4fff78;
+}
+
+.folyoso{
+  background-color: rgb(78, 78, 171);
+  color: white;
+  height: 100%;
+}
+
+input:focus, select:focus{
+  box-shadow: none !important;
+}
+
+input:hover, select:hover, label:hover{
+  cursor: pointer;
+}
+
+.not-completed-radio:checked{
+  background-color: #ff2121;
+  border-color: #ff2121;
+}
+
+.completed-radio:checked{
+  background-color: #21c224;
+  border-color: #21c224;
+}
+
+
+/*.container{
     min-width: 1500px;
     display: block;
   width: 100%;
@@ -10,12 +60,12 @@ app-cell{
     width: 200px;
     height: 200px;
     margin: 5px 0px 5px 0px;
-    
+
 }
-
-
 
 .emptyspace{
     background-color: white;
 
-}
+}*/
+
+
