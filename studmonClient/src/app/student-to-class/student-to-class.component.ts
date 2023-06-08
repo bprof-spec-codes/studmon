@@ -44,62 +44,88 @@ export class StudentToClassComponent implements OnInit {
             uss.kar = t.kar
             uss.kepzesNev = t.kepzesNev
             uss.orak = t.orak
-            let oraKereses = t.orak.find((t:any)=>t.oraId===this.oraId)
-            if (oraKereses===undefined) {
+            let oraKereses = t.orak.find((t: any) => t.oraId === this.oraId)
+            if (oraKereses === undefined) {
               this.unsubscribedStudents.push(uss)
-            }else{
+            } else {
               this.subscribedStudents.push(uss)
             }
           })
-          console.log("NEM FELIRATKOZOTTAK",this.unsubscribedStudents)
-          console.log("FELIRATKOZOTTAK",this.subscribedStudents)
+          console.log("NEM FELIRATKOZOTTAK", this.unsubscribedStudents)
+          console.log("FELIRATKOZOTTAK", this.subscribedStudents)
         })
     })
 
   }
 
-  checkboxClicked(event:any, item:studentModel){
-    let benneVan = this.addableStudents.findIndex((t:any)=>t.neptunKod === item.neptunKod)
-    if(benneVan === -1){//ha nincs benne akkor beleteszem
+  checkboxClicked(event: any, item: studentModel) {
+    let benneVan = this.addableStudents.findIndex((t: any) => t.neptunKod === item.neptunKod)
+    if (benneVan === -1) {//ha nincs benne akkor beleteszem
       this.addableStudents.push(item)
-    }else{//ha benne van, kiveszem
+    } else {//ha benne van, kiveszem
       this.addableStudents.splice(benneVan, 1)
     }
   }
 
-  async addStudentsForm(){
+  async addStudentsForm() {
     console.log(this.addableStudents)
-    await this.addableStudents.forEach(t=>{
-      let saveTo:any =
-        {
-          oraId: this.oraId,
-          hallgatoId: t.neptunKod
-        }
+    await this.addableStudents.forEach(t => {
+      let saveTo: any =
+      {
+        oraId: this.oraId,
+        hallgatoId: t.neptunKod
+      }
 
       console.log(JSON.stringify(saveTo))
-      this.http.post<any>('http://localhost:5231/OMToHMAPI',saveTo)
-      .subscribe((resp)=>{
-        this.addableStudents = []
-        let i = this.unsubscribedStudents.findIndex((k:any)=>k.neptunKod === t.neptunKod)
-        this.unsubscribedStudents.splice(i,1)
-        this.subscribedStudents.push(t)
-      })
+      this.http.post<any>('http://localhost:5231/OMToHMAPI', saveTo)
+        .subscribe((resp) => {
+          this.addableStudents = []
+          let i = this.unsubscribedStudents.findIndex((k: any) => k.neptunKod === t.neptunKod)
+          this.unsubscribedStudents.splice(i, 1)
+          this.subscribedStudents.push(t)
+        })
     })
   }
 
   //Hallgató törlése az óráról
-  async removeStudent(item:studentModel){
+  async removeStudent(item: studentModel) {
     console.log(item)
     await this.http.get<any>('http://localhost:5231/OMToHMAPI')
-    .subscribe((resp)=>{
-      let keresettKapcsolat = resp.find((t:any)=>t.hallgatoId === item.neptunKod && t.oraId === this.oraId)
-      this.http.delete<any>('http://localhost:5231/OMToHMAPI/'+keresettKapcsolat.id)
-      .subscribe((resp)=>{
-        this.unsubscribedStudents.push(item)
-        let index = this.subscribedStudents.findIndex((t:any)=>t.neptunKod === item.neptunKod)
-        this.subscribedStudents.splice(index,1)
+      .subscribe((resp) => {
+        let keresettKapcsolat = resp.find((t: any) => t.hallgatoId === item.neptunKod && t.oraId === this.oraId)
+        this.http.delete<any>('http://localhost:5231/OMToHMAPI/' + keresettKapcsolat.id)
+          .subscribe((resp) => {
+            this.unsubscribedStudents.push(item)
+            let index = this.subscribedStudents.findIndex((t: any) => t.neptunKod === item.neptunKod)
+            this.subscribedStudents.splice(index, 1)
+
+            //ÜLÉSREND
+            this.http.get<any>(`http://localhost:5231/OraAPI/${this.oraId}`, { responseType: 'json' })
+              .subscribe(resp => {
+                //debugger
+                console.log(resp.ulesRend)
+                resp.ulesRend = resp.ulesRend.replace(item.neptunKod, '@')
+                console.log(resp.ulesRend)
+                //console.log(JSON.stringify(resp))
+                const returnData = {
+                  id: resp.id,
+                  nev: resp.nev,
+                  leiras: resp.leiras,
+                  teremID: resp.teremID,
+                  tanarID: resp.tanarID,
+                  alkalmakSzama: resp.alkalmakSzama,
+                  oraKezdet: resp.oraKezdet,
+                  oraVeg: resp.oraVeg,
+                  ulesRend: resp.ulesRend,
+                }
+                this.http.put<any>('http://localhost:5231/OraApi', returnData)
+                  .subscribe((t) => {
+                    //console.log(returnData)
+                  })
+              })
+          })
+
       })
-    })
     //this.http.delete<any>('')
   }
 
