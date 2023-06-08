@@ -1,5 +1,5 @@
 .colHely{
-  border: 1px solid rgb(78, 78, 171);
+  border-left: 1px solid #2978a0a0;
   padding: 0;
   text-align: center;
   min-height: 40px;
@@ -8,10 +8,12 @@
 .wrapper{
   display: block;
   overflow-x: auto;
+  border-bottom:  1px solid #2978a0a0;
 }
 
 .wrapper-row{
   min-width: 1000px !important;
+  border-top:  1px solid #2978a0a0;
 }
 
 .hely{
@@ -26,16 +28,17 @@
   background-color: #ff9090;
 }
 .zero{
-  background-color: none;
+  background-color: rgb(184, 184, 255);
 }
 .plusOne{
   background-color: #4fff78;
 }
 
 .folyoso{
-  background-color: rgb(78, 78, 171);
+  background-color: #2978a0a0;
   color: white;
   height: 100%;
+  padding-top: 40px
 }
 
 input:focus, select:focus{
