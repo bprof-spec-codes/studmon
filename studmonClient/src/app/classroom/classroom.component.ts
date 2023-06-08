@@ -136,7 +136,7 @@ export class ClassroomComponent implements OnInit {
     //console.log(JSON.stringify(teljesitmeny))
     this.http.put<any>('http://localhost:5231/TeljesitmenyAPI',teljesitmeny)
       .subscribe((resp)=>{
-        this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId).ertekeles = event.target.value
+        this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId).ertekeles = Number(event.target.value)
         //console.log(this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId))
         //console.log(resp)
       })
