@@ -20,13 +20,13 @@ Tanári asztal
           <div class="container-fluid">
             <div class="row">
               <div class="col">
-                <input class="form-check-input not-completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}--1" value="-1" [checked]="isEqualWithRadioButton(-1,onePlace.nk)" (change)="radioChange($event)">
+                <input class="form-check-input not-completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}--1" value="-1" [checked]="isEqualWithRadioButton(-1,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
               </div>
               <div class="col">
-                <input class="form-check-input" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-0" value="0" [checked]="isEqualWithRadioButton(0,onePlace.nk)" (change)="radioChange($event)">
+                <input class="form-check-input" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-0" value="0" [checked]="isEqualWithRadioButton(0,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
               </div>
               <div class="col">
-                <input class="form-check-input completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-1" value="1" [checked]="isEqualWithRadioButton(1,onePlace.nk)" (change)="radioChange($event)">
+                <input class="form-check-input completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-1" value="1" [checked]="isEqualWithRadioButton(1,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
               </div>
             </div>
             <div class="row">

@@ -37,9 +37,6 @@ export class ClassroomComponent implements OnInit {
 
   }
 
-
-
-
   async apiCall() {
     await this.route.params.subscribe(params => {
       this.oraId = params['id'];
@@ -57,7 +54,6 @@ export class ClassroomComponent implements OnInit {
     })
 
   }
-
 
   private getChairs(resp: any) {
     const inputRows = resp?.terem.elrendezes.split(",")
@@ -125,8 +121,26 @@ export class ClassroomComponent implements OnInit {
     return false
   }
 
-  radioChange(event:any){
-    event.target.value
+  radioChange(event:any, neptun:string){
+    console.log(event.target.value, neptun)
+    const stud = this.studentList.find((t: any) => t.neptunKod === neptun)
+    const teljesitmenyId = stud.teljesitmeny.find((t: any) => (t.oraId == this.oraId && t.weekNumber == this.weekNumber)).teljesitmenyID
+    console.log(teljesitmenyId)
+    const teljesitmeny = {
+      teljesitmenyID: teljesitmenyId,
+      hallgatoNeptunKod: neptun,
+      oraId: this.oraId,
+      ertekeles: event.target.value,
+      weekNumber: this.weekNumber
+    }
+    //console.log(JSON.stringify(teljesitmeny))
+    this.http.put<any>('http://localhost:5231/TeljesitmenyAPI',teljesitmeny)
+      .subscribe((resp)=>{
+        this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId).ertekeles = event.target.value
+        //console.log(this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId))
+        //console.log(resp)
+      })
+
   }
 
 }
