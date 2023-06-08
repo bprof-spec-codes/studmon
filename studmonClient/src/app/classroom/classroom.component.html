@@ -6,7 +6,13 @@
 Tanári asztal
 <button type="button" class="btn btn-primary">Save classroom</button>
 </div>-->
-
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{class.nev}} - {{weekNumber}}. hét</h1>
+    </div>
+  </div>
+</div>
 <div class="container-fluid mt-3">
   <div class="row" *ngFor="let oneRow of rows; index as i">
     <div class="col colHely" *ngFor="let onePlace of oneRow; index as j">
@@ -49,7 +55,6 @@ Tanári asztal
         </div>
         <ng-template #ureshely>
           <div>
-            <p class="mb-1">Válassz hallgatót</p>
             <select class="form-select form-select-sm mb-3" name="" id="" (change)="hallgatoUltetes($event, i, j)">
               <option selected disabled>--Hallgató választása</option>
               <option [value]="item.neptunKod" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})</option>
