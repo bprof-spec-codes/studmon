@@ -1,10 +1,10 @@
 
-  <div class="button-container">
-    <button (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'" >Hallgatók</button>
-    <button (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
-    <button (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
+  <div class="container-md text-center my-5">
+    <button class="btn" (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'" >Hallgatók</button>
+    <button class="btn" (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
+    <button class="btn" (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
   </div>
-<div class="container">
+<div class="container-md">
   <div *ngIf="selectedObject=='Hallgato'"  class="container mt-4"  class="form-container">
     <div class="row">
       <div class="col">
@@ -18,7 +18,7 @@
           </div>
           <div class="form-group mb-4">
             <label class="mb-1">Neptun</label>
-            <input [(ngModel)]="this.student.neptunKod" 
+            <input [(ngModel)]="this.student.neptunKod"
               [maxlength]="6"
               [minlength]="6"
               pattern="[^\s]+" name="neptunKod" class="form-control" placeholder="ABC123">
@@ -34,7 +34,7 @@
           </div>
           <div class="align-items-end">
             <button color="warn"
-            (click)="createStudent()" 
+            (click)="createStudent()"
             [disabled]="!isHallgatoValid()"  class="btn w-100 btn-primary mt-5" >Létrehoz</button>
           </div>
         </form>
@@ -84,18 +84,18 @@
           </div>
           <div class="align-items-end">
             <button (click)="createClass()"
-            [disabled]="!isOraValid()" class="btn w-100 btn-primary mt-5">Létrehozás</button>
+            [disabled]="!isOraValid()" class="btn w-100 btn-primary my-5">Létrehozás</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  
-  
-  
-  
+
+
+
+
   <div class="form-container" *ngIf="selectedObject=='Terem'">
-  
+
     <form class="d-flex flex-column">
         <h2 class="align-self-center">Terem létrehozás</h2>
         <hr>
@@ -111,10 +111,10 @@
             </td>
             </tr>
         </table>
-  
-  
-        
-  
+
+
+
+
         <div class="align-items-end">
           <button color="warn"
           (click)="createTerem()"
@@ -122,7 +122,7 @@
         </div>
       </form>
   </div>
-  
-  
-  
+
+
+
 </div>

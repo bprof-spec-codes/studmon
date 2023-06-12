@@ -1,25 +1,38 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-  
- 
-  
-  .selected {
-    background-color: greenyellow;
-  }
 
-  .h1{
-    margin-bottom: 50px;
-  }
 
-  .container{
-    max-width: 50%;
-    justify-content: center;
-  }
- 
+.selected {
+  background-color: #4fff78;
+  margin: 0 5px !important;
+  color: #000;
+  border: none;
+  transition: .3s;
+  border: solid #21c224 1px;
+  border-left-width: 5px;
+}
+
+.selected:hover {
+  background-color: #21c224;
+  color: #fff;
+  transition: .3s;
+}
+
+.selected:focus {
+  box-shadow: none;
+}
+
+.h1 {
+  margin-bottom: 50px;
+}
+
+.container {
+  max-width: 50%;
+  justify-content: center;
+}
