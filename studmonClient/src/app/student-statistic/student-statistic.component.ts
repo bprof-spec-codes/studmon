@@ -104,7 +104,7 @@ export class StudentStatisticComponent implements OnInit{
     split = split.replace(")", "")
     let datas = split.split(' ')
     //console.log(datas[2])
-    let found = this.students.find(t=>t.neptunKod === datas[2])
+    let found = this.students.find(t=>t.neptunKod === datas[datas.length-1])
     if(found===undefined){
       this.foundStudent = false
     }else{

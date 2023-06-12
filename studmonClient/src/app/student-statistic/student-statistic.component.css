@@ -22,6 +22,10 @@
   transition: .3s;
 }
 
+.btn-search:focus{
+  box-shadow: none;
+}
+
 #check{
   color: #4b860d;
 }
