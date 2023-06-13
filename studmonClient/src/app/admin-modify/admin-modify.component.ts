@@ -67,12 +67,13 @@ export class AdminModifyComponent {
     this.http
     .get<Array<Ora>>('http://localhost:5231/OraAPI')
     .subscribe(resp=> {
-      resp.map(x=>{
+      console.log("RESP",resp)
+      resp.map((x:any)=>{
         let o = new Ora();
         o.id = x.id;
         o.nev = x.nev;
         o.leiras = x.leiras;
-        o.teremNev = x.teremNev;
+        o.teremNev = x.teremID;
         o.oraKezdet = x.oraKezdet;
         o.oraVeg = x.oraVeg;
         o.alkalmakSzama = x.alkalmakSzama;
@@ -82,7 +83,7 @@ export class AdminModifyComponent {
       console.log(this.subjects)
     })
 
-    
+
   }
 
   public delete(tipus: string, id: string) : void {
@@ -123,8 +124,8 @@ export class AdminModifyComponent {
     const day = date.getDate().toString().padStart(2, '0');
     const hour = date.getHours().toString().padStart(2, '0');
     const minute = date.getMinutes().toString().padStart(2, '0');
-  
+
     return `${year}/${month}/${day} ${hour}/${minute}`;
   }
-  
+
 }
