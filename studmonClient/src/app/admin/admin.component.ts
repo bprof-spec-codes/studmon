@@ -24,8 +24,8 @@ export class AdminComponent {
   terem: TeremModel;
   classroomLayout: string = '';
   classroom: Checkbox[][] = [];
-  rowcount: number = 4;
-  coloumncount: number = 7;
+  rowcount: number = 1;
+  coloumncount: number = 1;
   termek: Array<TeremModel>
   selectedObject: string = 'Hallgato'
 
@@ -47,7 +47,7 @@ export class AdminComponent {
         ter.elrendezes = t.elrendezes
         console.log(ter)
         this.termek.push(ter)
-      })} 
+      })}
     )
 
     this.http.get<any>('http://localhost:5231/TanarAPI')
@@ -66,6 +66,7 @@ export class AdminComponent {
   }
 
   initializeClassroom() {
+    this.classroom = []
     for (let i = 0; i < this.rowcount; i++) {
       const row: Checkbox[] = [];
       for (let j = 0; j < this.coloumncount; j++) {
@@ -73,6 +74,16 @@ export class AdminComponent {
       }
       this.classroom.push(row);
     }
+  }
+
+  rowcountChange(value:any){
+    this.rowcount = value.target.value
+    this.initializeClassroom()
+  }
+
+  columncountChange(value:any){
+    this.coloumncount = value.target.value
+    this.initializeClassroom()
   }
 
 
@@ -104,7 +115,7 @@ export class AdminComponent {
 
     console.log(this.classroom)
 
-    let layoutString = this.classroom.map(row => row.map(checkbox => (checkbox.checked ? '1' : '0')).join('')).join(',');
+    let layoutString = this.classroom.map(row => row.map(checkbox => (checkbox.checked ? '0' : '1')).join('')).join(',');
 
     this.terem.elrendezes = layoutString;
 
@@ -173,5 +184,5 @@ export class AdminComponent {
     return this.class.nev !=''
   }
 
-  
+
 }

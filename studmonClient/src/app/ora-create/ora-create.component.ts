@@ -47,7 +47,6 @@ export class OraCreateComponent implements OnInit {
       this.oraModel.oraVeg = this.form.get('oraVeg')?.value
       this.oraModel.alkalmakSzama = this.form.get('alkalmakSzama')?.value
       let elrendezes = this.termek.find((t:any)=>t.nev === this.oraModel.teremID)?.elrendezes!
-      debugger
 
       elrendezes = elrendezes.replaceAll(',','')
       let ultetes = ""
@@ -55,7 +54,6 @@ export class OraCreateComponent implements OnInit {
         ultetes += "@ "
       }
       this.oraModel.ulesrend = ultetes.trimEnd()
-      debugger
       console.log(this.oraModel)
       this.http.post<OraCreate>('http://localhost:5231/OraAPI/',this.oraModel)
       .subscribe((resp)=>{

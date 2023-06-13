@@ -36,3 +36,10 @@
   max-width: 50%;
   justify-content: center;
 }
+
+.info{
+  background-color: rgb(0, 179, 255);
+  border-radius: 5px;
+  width: fit-content;
+  padding: 5px 20px;
+}

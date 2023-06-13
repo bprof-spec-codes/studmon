@@ -4,12 +4,12 @@
     <button class="btn" (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
     <button class="btn" (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
   </div>
-<div class="container-md">
+<div class="container-md mb-5">
   <div *ngIf="selectedObject=='Hallgato'"  class="container mt-4"  class="form-container">
     <div class="row">
       <div class="col">
       <form class="d-flex flex-column">
-          <h2 class="align-self-center">Hallgató létrehozás</h2>
+          <h2 class="text-center">Hallgató létrehozás</h2>
           <hr>
           <div class="form-group mb-4">
             <label class="mb-1">Név</label>
@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col">
         <form class="d-flex flex-column">
-          <h2 class="align-self-center">Óra létrehozás</h2>
+          <h2 class="text-center">Óra létrehozás</h2>
           <hr>
           <div class="form-group mb-4">
             <label for="exampleInputEmail1" class="mb-1">Név</label>
@@ -84,7 +84,7 @@
           </div>
           <div class="align-items-end">
             <button (click)="createClass()"
-            [disabled]="!isOraValid()" class="btn w-100 btn-primary my-5">Létrehozás</button>
+            [disabled]="!isOraValid()" class="btn w-100 btn-primary mt-5">Létrehozás</button>
           </div>
         </form>
       </div>
@@ -97,14 +97,27 @@
   <div class="form-container" *ngIf="selectedObject=='Terem'">
 
     <form class="d-flex flex-column">
-        <h2 class="align-self-center">Terem létrehozás</h2>
+        <h2 class="text-center">Terem létrehozás</h2>
         <hr>
         <div class="form-group mb-4">
           <label class="mb-1">Név</label>
           <input [(ngModel)]="this.terem.nev" name="nev" class="form-control">
         </div>
-        <h3 style="text-align: center;display: flex;">Terem elrendezés:</h3>
-        <table style="width: 60%; border: 1px solid black;">
+        <div class="form-group">
+          <label for="sorok">Sorok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></label>
+          <input type="number" class="form-control w-50" id="sorok" value="{{rowcount}}" (change)="rowcountChange($event)">
+        </div>
+        <div class="form-group my-4">
+          <label for="oszlopok">Oszlopok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></label>
+          <input type="number" class="form-control w-50" id="oszlopok" value="{{coloumncount}}" (change)="columncountChange($event)">
+        </div>
+        <h3>Terem elrendezés:</h3>
+        <i class="info mb-2">Adja meg a sorok és oszlopok számát, majd pipálja be azokat a cellákat, amelyek a folyósóval egyeznek!</i>
+        <table>
           <tr *ngFor="let row of classroom; let rowIndex = index">
             <td style="text-align: center; height: 40px;"  *ngFor="let checkbox of row; let colIndex = index">
               <input type="checkbox" style="transform: scale(1.5)" [(ngModel)]="checkbox.checked" [name]="'checkbox-' + rowIndex + '-' + colIndex">
