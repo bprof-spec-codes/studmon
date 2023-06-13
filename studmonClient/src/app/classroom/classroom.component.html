@@ -21,23 +21,31 @@ Tanári asztal
             'zero': isEqualWithRadioButton(0,onePlace.nk),
             'plusOne': isEqualWithRadioButton(1,onePlace.nk)}" *ngIf="onePlace.type==1; else folyoso">
         <div class="w-100" *ngIf="onePlace.nk !== '@'; else ureshely">
-          <div id="right-align"><button type="button" id="not-sit-here-btn" class="btn btn-sm p-0" (click)="removeStudentFromPlace(onePlace.nk, i, j)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
-        </button></div>
+          <div id="right-align"><button type="button" id="not-sit-here-btn" class="btn btn-sm p-0"
+              (click)="removeStudentFromPlace(onePlace.nk, i, j)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x"
+                viewBox="0 0 16 16">
+                <path
+                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+              </svg>
+            </button></div>
           <p class="m-0">{{getExactStudent(onePlace.nk)}}</p>
           <p>{{onePlace.nk}}</p>
           <div class="container-fluid">
             <div class="row">
               <div class="col">
-                <input class="form-check-input not-completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}--1" value="-1" [checked]="isEqualWithRadioButton(-1,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
+                <input class="form-check-input not-completed-radio" type="radio" name="{{onePlace.nk}}"
+                  id="{{onePlace.nk}}--1" value="-1" [checked]="isEqualWithRadioButton(-1,onePlace.nk)"
+                  (change)="radioChange($event,onePlace.nk)">
               </div>
               <div class="col">
-                <input class="form-check-input" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-0" value="0" [checked]="isEqualWithRadioButton(0,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
+                <input class="form-check-input" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-0" value="0"
+                  [checked]="isEqualWithRadioButton(0,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
               </div>
               <div class="col">
-                <input class="form-check-input completed-radio" type="radio" name="{{onePlace.nk}}" id="{{onePlace.nk}}-1" value="1" [checked]="isEqualWithRadioButton(1,onePlace.nk)" (change)="radioChange($event,onePlace.nk)">
+                <input class="form-check-input completed-radio" type="radio" name="{{onePlace.nk}}"
+                  id="{{onePlace.nk}}-1" value="1" [checked]="isEqualWithRadioButton(1,onePlace.nk)"
+                  (change)="radioChange($event,onePlace.nk)">
               </div>
             </div>
             <div class="row">
@@ -57,14 +65,17 @@ Tanári asztal
           <div>
             <select class="form-select form-select-sm mb-3" name="" id="" (change)="hallgatoUltetes($event, i, j)">
               <option selected disabled>--Hallgató választása</option>
-              <option [value]="item.neptunKod" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})</option>
+              <option [value]="item.neptunKod" *ngFor="let item of notSittedStudents">{{item.nev}} ({{item.neptunKod}})
+              </option>
             </select>
           </div>
         </ng-template>
 
       </div>
       <ng-template #folyoso>
-        <div class="hely folyoso"><h5>FOLYOSÓ</h5></div>
+        <div class="hely folyoso">
+          <h5>FOLYOSÓ</h5>
+        </div>
       </ng-template>
     </div>
   </div>
@@ -76,5 +87,3 @@ Tanári asztal
     </div>
   </div>
 </div>
-
-

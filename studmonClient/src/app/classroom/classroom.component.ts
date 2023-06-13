@@ -89,8 +89,7 @@ export class ClassroomComponent implements OnInit {
 
   private notSittedStudentsMethod() {
     this.studentList.forEach(element => {
-      if(!this.ulesRend.includes(element.neptunKod))
-      {
+      if (!this.ulesRend.includes(element.neptunKod)) {
         this.notSittedStudents.push(element)
       }
     });
@@ -100,28 +99,28 @@ export class ClassroomComponent implements OnInit {
     return this.studentList.find((t: any) => t.neptunKod === neptunKod).nev;
   }
 
-  public isEqualWithRadioButton(value:number, studentNeptun:string):boolean{
+  public isEqualWithRadioButton(value: number, studentNeptun: string): boolean {
     const stud = this.studentList.find((t: any) => t.neptunKod === studentNeptun)
     //console.log("STUD", stud)
     //debugger
-    if(stud === undefined){
+    if (stud === undefined) {
       return false
     }
     const findTeljesitmeny = stud.teljesitmeny.find((t: any) => (t.oraId == this.oraId && t.weekNumber == this.weekNumber))
     //console.log("TELJESITMENY",findTeljesitmeny)
-    if(findTeljesitmeny===undefined){
-      if(value === -1)
-      return true
+    if (findTeljesitmeny === undefined) {
+      if (value === -1)
+        return true
       else
-      return false
+        return false
     }
-    else if(value === findTeljesitmeny.ertekeles){
+    else if (value === findTeljesitmeny.ertekeles) {
       return true
     }
     return false
   }
 
-  radioChange(event:any, neptun:string){
+  radioChange(event: any, neptun: string) {
     console.log(event.target.value, neptun)
     const stud = this.studentList.find((t: any) => t.neptunKod === neptun)
     const teljesitmenyId = stud.teljesitmeny.find((t: any) => (t.oraId == this.oraId && t.weekNumber == this.weekNumber)).teljesitmenyID
@@ -134,70 +133,70 @@ export class ClassroomComponent implements OnInit {
       weekNumber: this.weekNumber
     }
     //console.log(JSON.stringify(teljesitmeny))
-    this.http.put<any>('http://localhost:5231/TeljesitmenyAPI',teljesitmeny)
-      .subscribe((resp)=>{
-        this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId).ertekeles = Number(event.target.value)
+    this.http.put<any>('http://localhost:5231/TeljesitmenyAPI', teljesitmeny)
+      .subscribe((resp) => {
+        this.studentList.find((t: any) => t.neptunKod === neptun).teljesitmeny.find((t: any) => t.teljesitmenyID === teljesitmenyId).ertekeles = Number(event.target.value)
         //console.log(this.studentList.find((t:any)=>t.neptunKod===neptun).teljesitmeny.find((t:any)=>t.teljesitmenyID===teljesitmenyId))
         //console.log(resp)
       })
   }
 
   //HALLGATÓ LEÜLTETÉSE
-  hallgatoUltetes(event:any, oneRow:any, onePlace:any){
+  hallgatoUltetes(event: any, oneRow: any, onePlace: any) {
     //console.log("event", event.target.value)
     //console.log("ROW", oneRow)
     //console.log("PLACE", onePlace)
     this.rows[oneRow][onePlace].nk = event.target.value
     let ultetes = ""
     this.rows.forEach(element => {
-      element.forEach((item:any) => {
-        ultetes+=item.nk + " "
+      element.forEach((item: any) => {
+        ultetes += item.nk + " "
       });
     });
     ultetes.trim()
     console.log(this.notSittedStudents)
-    let index = this.notSittedStudents.findIndex((t:any)=>t.neptunKod === event.target.value)
+    let index = this.notSittedStudents.findIndex((t: any) => t.neptunKod === event.target.value)
     this.notSittedStudents.splice(index, 1)
     this.updateSitting(ultetes)
   }
 
-  removeStudentFromPlace(neptun: string, oneRow:any, onePlace:any){
+  removeStudentFromPlace(neptun: string, oneRow: any, onePlace: any) {
     this.rows[oneRow][onePlace].nk = "@"
     let ultetes = ""
     this.rows.forEach(element => {
-      element.forEach((item:any) => {
-        ultetes+=item.nk + " "
+      element.forEach((item: any) => {
+        ultetes += item.nk + " "
       });
     });
     ultetes.trim()
-    let student = this.studentList.find((t:any)=>t.neptunKod === neptun)
+    let student = this.studentList.find((t: any) => t.neptunKod === neptun)
     console.log(student)
     this.notSittedStudents.push(student)
     this.updateSitting(ultetes)
   }
 
-  async updateSitting(ultetes:string){
+  async updateSitting(ultetes: string) {
     await this.http.get<any>(`http://localhost:5231/OraAPI/${this.oraId}`, { responseType: 'json' })
-    .subscribe(resp => {
-      //console.log(resp)
-      resp.ulesRend = ultetes
-      //console.log(JSON.stringify(resp))
-      const returnData = {
-        id : resp.id,
-        nev : resp.nev,
-        leiras : resp.leiras,
-        teremID : resp.teremID,
-        tanarID : resp.tanarID,
-        alkalmakSzama : resp.alkalmakSzama,
-        oraKezdet : resp.oraKezdet,
-        oraVeg : resp.oraVeg,
-        ulesRend : resp.ulesRend,
-      }
-      this.http.put<any>('http://localhost:5231/OraApi',returnData)
-      .subscribe((t)=>{
-        //console.log(returnData)
+      .subscribe(resp => {
+        //console.log(resp)
+        resp.ulesRend = ultetes
+        //console.log(JSON.stringify(resp))
+        const returnData = {
+          id: resp.id,
+          nev: resp.nev,
+          leiras: resp.leiras,
+          teremID: resp.teremID,
+          tanarID: resp.tanarID,
+          alkalmakSzama: resp.alkalmakSzama,
+          oraKezdet: resp.oraKezdet,
+          oraVeg: resp.oraVeg,
+          ulesRend: resp.ulesRend,
+        }
+        this.http.put<any>('http://localhost:5231/OraApi', returnData)
+          .subscribe((t) => {
+            //console.log(returnData)
+          })
       })
-    })
   }
 
 
