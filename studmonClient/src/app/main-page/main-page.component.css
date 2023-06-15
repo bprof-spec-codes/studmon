@@ -1,5 +1,7 @@
 .alert{
   border-left: 10px rgb(255, 179, 0) solid;
+  background-color: #fffcda;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 .alert-heading{
@@ -31,12 +33,12 @@
 
 #btn-delete{
   background-color: #ff4f4f;
-  margin: 0 !important;
   color: #000;
   border: none;
   transition: .3s;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #btn-delete:hover{
@@ -47,16 +49,21 @@
 
 #btn-add-student{
   background-color: #4fff78;
-  margin: 0 5px !important;
   color: #000;
   border: none;
   transition: .3s;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #btn-add-student:hover{
   background-color: #21c224;
   color: #fff;
   transition: .3s;
+}
+
+
+.bi-person-add, .bi-dash-circle{
+  margin-right: 5px !important;
 }
