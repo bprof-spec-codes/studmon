@@ -20,14 +20,16 @@
   background-color: #ffff84 ;
   color: #000;
   border: none;
-  transition: .3s;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+  transition: .3s;
 }
 
 #btn-create:hover{
   background-color: #f4f459;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
   transition: .3s;
 }
 
@@ -39,12 +41,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 #btn-delete:hover{
   background-color: #ff2121;
   color: #fff;
   transition: .3s;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 #btn-add-student{
@@ -55,12 +59,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 #btn-add-student:hover{
   background-color: #21c224;
   color: #fff;
   transition: .3s;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 

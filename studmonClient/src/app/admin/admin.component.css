@@ -45,6 +45,16 @@
   padding: 5px 20px;
 }
 
+.table {
+  border-collapse: collapse;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+}
+
+.table td, .table th {
+  padding: 10px;
+  border: 1px solid #2978a0a0;
+}
+
 /*----------------------TOOLTIP--------------------------*/
 
 .tooltip-own {
