@@ -14,9 +14,14 @@ Tanári asztal
     </div>
     <div class="col-sm-7 d-flex">
       <div class="container-fluid p-0 d-flex align-items-center w-100">
-        <div class="row">
-          <div class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-4 d-flex my-1 justify-content-center" *ngFor="let het of alkalmakSzamaTomb; index as i">
-            <button class="btn btn-warning d-flex align-items-center justify-content-center w-100" (click)="anotherWeek(i+1)">{{i+1}}</button>
+        <div class="row w-100">
+          <div class="col-xl-1 col-lg-2 col-md-2 col-sm-3 col-3 my-1 d-flex justify-content-center" *ngFor="let het of alkalmakSzamaTomb; index as i">
+            <button id="btn-create" [ngClass]="{
+              'btn-create': (i+1) != weekNumber,
+              'btn-selected': (i+1) == weekNumber
+            }" class="btn btn-warning d-flex align-items-center justify-content-center w-100"
+            [disabled]="i+1==weekNumber"
+            (click)="anotherWeek(i+1)">{{i+1}}</button>
           </div>
         </div>
       </div>

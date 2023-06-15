@@ -72,6 +72,37 @@ input:hover, select:hover, label:hover{
   text-align: right;
 }
 
+.btn-create{
+  background-color: #ffff84;
+  aspect-ratio: 1/1;
+  max-width: 40px;
+  color: #000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+  transition: .3s;
+}
+
+.btn-create:hover{
+  background-color: #f4f459;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
+  transition: .3s;
+}
+
+.btn-selected{
+  aspect-ratio: 1/1;
+  max-width: 40px;
+  color: #000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f459;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
+}
+
 
 /*.container{
     min-width: 1500px;
