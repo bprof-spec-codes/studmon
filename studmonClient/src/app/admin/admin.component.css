@@ -38,8 +38,50 @@
 }
 
 .info{
-  background-color: rgb(0, 179, 255);
+  background-color: #19192317;
+  color: white;
   border-radius: 5px;
   width: fit-content;
   padding: 5px 20px;
 }
+
+/*----------------------TOOLTIP--------------------------*/
+
+.tooltip-own {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-own .tooltiptext {
+  visibility: hidden;
+  min-width: 300px;
+  background-color: #0e79b2;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: -200px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip-own .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 70%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #0e79b2 transparent;
+}
+
+.tooltip-own:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+/*----------------------TOOLTIP END--------------------------*/
