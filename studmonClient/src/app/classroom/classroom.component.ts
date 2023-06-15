@@ -17,6 +17,7 @@ export class ClassroomComponent implements OnInit {
   classRoomId: string | undefined;
   oraId: string | undefined;
   weekNumber: number | undefined; //alkalmakSzama
+  alkalmakSzamaTomb: Array<number> = []
   class: any;
   notSittedStudents: Array<any>
   ulesRend: Array<string>
@@ -34,7 +35,15 @@ export class ClassroomComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiCall()
+  }
 
+  anotherWeek(het:number){
+    this.studentList = []
+    this.rows = []
+    this.nameList = []
+    this.notSittedStudents = []
+    this.ulesRend = []
+    this.router.navigate(["/classroom/"+this.oraId+"/"+het])
   }
 
   async apiCall() {
@@ -47,6 +56,7 @@ export class ClassroomComponent implements OnInit {
           //console.log(resp)
           this.classRoomId = resp.terem.nev
           this.class = resp
+          this.alkalmakSzamaTomb =  Array(resp.alkalmakSzama).fill(0)
           this.getChairs(resp)
           this.getStudents(resp)
           this.notSittedStudentsMethod()
