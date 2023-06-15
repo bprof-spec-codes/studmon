@@ -49,7 +49,6 @@
     <table class="table table-sm table-striped table-warning table-hover">
       <thead>
         <tr>
-          <th scope="col">Id</th>
           <th scope="col">Név</th>
           <th scope="col">Terem neve</th>
           <th scope="col">Óra ideje</th>
@@ -60,7 +59,6 @@
       <tbody>
         <ng-container  *ngFor="let item of subjects; let i = index">
           <tr>
-            <td>{{ item.id }}</td>
             <td>{{ item.nev }}</td>
             <td>{{ item.teremNev }}</td>
 
