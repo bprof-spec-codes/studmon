@@ -9,12 +9,12 @@ Tanári asztal
 <div class="container mt-4">
   <div class="row">
     <div class="col-12">
-      <h1>{{class.nev}} - {{weekNumber}}. hét</h1>
+      <h1>{{class.nev}} - <span class="h4">{{weekNumber}}. alkalom</span></h1>
     </div>
   </div>
 </div>
 <div class="container-fluid wrapper mt-3">
-  <div class="row wrapper-row" *ngFor="let oneRow of rows; index as i">
+  <div class="row wrapper-row" [ngStyle]="{ 'min-width': 'calc(155px * ' + oneRow.length + ')' }" *ngFor="let oneRow of rows; index as i">
     <div class="col colHely" *ngFor="let onePlace of oneRow; index as j">
       <div class="hely" [ngClass]="{
             'minusOne': isEqualWithRadioButton(-1,onePlace.nk),
