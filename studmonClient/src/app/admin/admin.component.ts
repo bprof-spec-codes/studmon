@@ -54,7 +54,7 @@ export class AdminComponent {
     .subscribe((resp)=>{
       resp.map((t:any)=>{
         let tanar = new Tanar;
-        tanar.neptun = t.neptun
+        tanar.neptun = t.id
         tanar.nev = t.nev
         tanar.email = t.email
         this.teachers.push(tanar)
@@ -96,12 +96,14 @@ export class AdminComponent {
       'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
     });
 
+
     this.http
-      .post('http://localhost:5231/HallgatoAPI', this.student, { headers: headers })
-      .subscribe(
-        (success) => {
-          console.log(success);
-          this.student = new studentModel();
+    .post('http://localhost:5231/HallgatoAPI', this.student, { headers: headers })
+    .subscribe(
+      (success) => {
+        console.log(success);
+        this.student = new studentModel();
+        alert("Sikeres hallgató létrehozás!")
         },
         (error) => {
           console.log(error);
@@ -130,6 +132,7 @@ export class AdminComponent {
           (success) => {
             console.log(success);
             console.log(this.terem);
+            this.terem = new TeremModel()
             alert("Sikeres terem létrehozás!")
           },
           (error) => {
@@ -139,9 +142,17 @@ export class AdminComponent {
         }
 
   public createClass() : void{
+    //this.class.tanarId = this.teachers.find((t:any)=>t.)
+    let elrendezes = this.termek.find((t:any)=>t.nev === this.class.teremID)?.elrendezes!
 
-    this.class.tanarId = 'DFG234'
-    console.log(this.class)
+      elrendezes = elrendezes.replaceAll(',','')
+      let ultetes = ""
+      for (let i = 0; i < elrendezes.length; i++) {
+        ultetes += "@ "
+      }
+
+      this.class.ulesrend = ultetes.trimEnd()
+      console.log(this.class)
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
@@ -152,6 +163,8 @@ export class AdminComponent {
         (success) => {
           console.log(success);
           console.log(this.class);
+          this.class = new OraCreate()
+          alert("Sikeres óra létrehozás!")
         },
         (error) => {
           console.log(error);
