@@ -3,8 +3,11 @@
 
 body{
   font-family: 'Montserrat', sans-serif;
-  background: rgb(255,242,117);
-  background: linear-gradient(324deg, rgba(255,242,117,1) 0%, rgba(198,224,255,1) 80%);
+  /*background: rgb(255,242,117);
+  background: linear-gradient(324deg, #fff275 0%, #c6e0ff 70%);*/
+  background: #7bb6ff;
+  background: linear-gradient(324deg, #7bb6ff 0%, #c6e0ff 70%);
+
   height: 100%;
   min-height: 100vh;
   background-repeat: no-repeat;

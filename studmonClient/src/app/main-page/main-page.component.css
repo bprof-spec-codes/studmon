@@ -1,7 +1,9 @@
 .alert{
-  border-left: 10px rgb(255, 179, 0) solid;
-  background-color: #fffcda;
+  border-left: 10px #1d3557 solid;
+  border-color:#1d3557;
+  background-color: #e1efff;
   box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+  color: #000;
 }
 
 .alert-heading{
@@ -16,9 +18,15 @@
   cursor:pointer;
 }
 
+.badge{
+  background-color: #757b8b;
+}
+
 #btn-create{
-  background-color: #ffff84 ;
-  color: #000;
+  /*background-color: #ffff84 ;
+  color: #000;*/
+  background-color: #2d548b;
+  color: #fff;
   border: none;
   display: flex;
   align-items: center;
@@ -28,13 +36,13 @@
 }
 
 #btn-create:hover{
-  background-color: #f4f459;
+  background-color: #1d3557;
   box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
   transition: .3s;
 }
 
 #btn-delete{
-  background-color: #ff4f4f;
+  background-color: #fb6376;
   color: #000;
   border: none;
   transition: .3s;
@@ -45,14 +53,14 @@
 }
 
 #btn-delete:hover{
-  background-color: #ff2121;
+  background-color: #c34f5d;
   color: #fff;
   transition: .3s;
   box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 #btn-add-student{
-  background-color: #4fff78;
+  background-color: #31e981;
   color: #000;
   border: none;
   transition: .3s;
@@ -63,8 +71,8 @@
 }
 
 #btn-add-student:hover{
-  background-color: #21c224;
-  color: #fff;
+  background-color: #26bd67;
+  color: #000;
   transition: .3s;
   box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
