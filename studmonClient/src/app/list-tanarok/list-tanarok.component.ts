@@ -20,7 +20,7 @@ export class ListTanarokComponent {
   private getAllTeacher() {
     this.http.get<any>('http://localhost:5231/TanarAPI')
     .subscribe(resp=>{
-      console.log(resp)
+      //console.log(resp)
       resp.map((x:any) => {
         let t = new Tanar()
         t.neptun = x.id
@@ -28,7 +28,7 @@ export class ListTanarokComponent {
         t.email = x.email
         this.tanarok.push(t)
       })
-      console.log(this.tanarok)
+      //console.log(this.tanarok)
     })
   }
 }

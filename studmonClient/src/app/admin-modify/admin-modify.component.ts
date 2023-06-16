@@ -48,7 +48,7 @@ export class AdminModifyComponent {
           s.teljesitmeny = x.teljesitmeny;
           this.students.push(s);
         })
-        console.log(this.students)
+        //console.log(this.students)
       })
 
     this.http
@@ -61,13 +61,13 @@ export class AdminModifyComponent {
           t.orak = x.orak;
           this.classrooms.push(t);
         })
-        console.log(this.classrooms)
+        //console.log(this.classrooms)
       })
 
     this.http
       .get<Array<Ora>>('http://localhost:5231/OraAPI')
       .subscribe(resp => {
-        console.log("RESP", resp)
+        //console.log("RESP", resp)
         resp.map((x: any) => {
           let o = new Ora();
           o.id = x.id;
@@ -80,7 +80,7 @@ export class AdminModifyComponent {
           o.selectedAlkalom = x.selectedAlkalom;
           this.subjects.push(o);
         })
-        console.log(this.subjects)
+        //console.log(this.subjects)
       })
 
 
@@ -100,7 +100,7 @@ export class AdminModifyComponent {
       .subscribe(
         (success) => {
           //this.snackBar.open("Delete successful!", "Close", { duration: 5000 })
-          console.log(success)
+          //console.log(success)
           let i
           switch (tipus) {
             case "Hallgato": {
@@ -125,7 +125,7 @@ export class AdminModifyComponent {
           });*/
         },
         (error) => {
-          console.log(error)
+          //console.log(error)
           //this.snackBar.open("Error occured, please try again.", "Close", { duration: 5000 })
         }
       )
@@ -134,7 +134,7 @@ export class AdminModifyComponent {
 
   public SelectObject(type: string) {
     this.selectedObject = type;
-    console.log(this.selectedObject)
+    //console.log(this.selectedObject)
   }
 
   public DateToString(date: Date): string {

@@ -88,13 +88,13 @@ export class ClassroomComponent implements OnInit {
     // ulesRend.map((y: any, index : any) => {
     //   this.rows[index]={...this.rows[index], nk: y}
     // })
-    console.log("ROWS", this.rows)
+    //console.log("ROWS", this.rows)
 
   }
 
   private getStudents(resp: any) {
     this.studentList = resp.hallgatokColl.map((e: any) => e.hallgato)
-    console.log("STUDENTLIST", this.studentList);
+    //console.log("STUDENTLIST", this.studentList);
   }
 
   private notSittedStudentsMethod() {
@@ -131,10 +131,10 @@ export class ClassroomComponent implements OnInit {
   }
 
   radioChange(event: any, neptun: string) {
-    console.log(event.target.value, neptun)
+    //console.log(event.target.value, neptun)
     const stud = this.studentList.find((t: any) => t.neptunKod === neptun)
     const teljesitmenyId = stud.teljesitmeny.find((t: any) => (t.oraId == this.oraId && t.weekNumber == this.weekNumber)).teljesitmenyID
-    console.log(teljesitmenyId)
+    //console.log(teljesitmenyId)
     const teljesitmeny = {
       teljesitmenyID: teljesitmenyId,
       hallgatoNeptunKod: neptun,
@@ -164,7 +164,7 @@ export class ClassroomComponent implements OnInit {
       });
     });
     ultetes.trim()
-    console.log(this.notSittedStudents)
+    //console.log(this.notSittedStudents)
     let index = this.notSittedStudents.findIndex((t: any) => t.neptunKod === event.target.value)
     this.notSittedStudents.splice(index, 1)
     this.updateSitting(ultetes)
@@ -180,7 +180,7 @@ export class ClassroomComponent implements OnInit {
     });
     ultetes.trim()
     let student = this.studentList.find((t: any) => t.neptunKod === neptun)
-    console.log(student)
+    //console.log(student)
     this.notSittedStudents.push(student)
     this.updateSitting(ultetes)
   }

@@ -29,18 +29,19 @@ export class LoginFormComponent {
       (success) => {
         localStorage.setItem('studmon-token', success.token);
         localStorage.setItem('studmon-token-expiration', success.expiration.toString());
-        console.log(success);
+        //console.log(success);
         this.api.userInfo(
           () => {
             this.router.navigate(['/mainpage']);
           },
           (error) => {
-            console.log(error);
+            //console.log(error);
           }
-        );
-      },
-      (error) => {
-        console.log(error);
+          );
+        },
+        (error) => {
+        alert("Hibás jelszó vagy felhasználónév!")
+        //console.log(error);
       }
     );
   }

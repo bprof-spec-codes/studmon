@@ -45,7 +45,7 @@ export class AdminComponent {
         let ter = new TeremModel
         ter.nev = t.nev
         ter.elrendezes = t.elrendezes
-        console.log(ter)
+        //console.log(ter)
         this.termek.push(ter)
       })}
     )
@@ -59,7 +59,7 @@ export class AdminComponent {
         tanar.email = t.email
         this.teachers.push(tanar)
       })
-      console.log(this.teachers)
+      //console.log(this.teachers)
     }
 
     )
@@ -89,7 +89,7 @@ export class AdminComponent {
 
 
   public createStudent(): void {
-    console.log(this.student);
+    //console.log(this.student);
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -101,21 +101,21 @@ export class AdminComponent {
     .post('http://localhost:5231/HallgatoAPI', this.student, { headers: headers })
     .subscribe(
       (success) => {
-        console.log(success);
+        //console.log(success);
         this.student = new studentModel();
         alert("Sikeres hallgató létrehozás!")
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
         );
       }
 
       public createTerem(): void {
-        console.log(this.terem);
+        //console.log(this.terem);
 
 
-        console.log(this.classroom)
+        //console.log(this.classroom)
 
         let layoutString = this.classroom.map(row => row.map(checkbox => (checkbox.checked ? '0' : '1')).join('')).join(',');
 
@@ -130,13 +130,13 @@ export class AdminComponent {
         .post('http://localhost:5231/TeremAPI', this.terem, { headers: headers })
         .subscribe(
           (success) => {
-            console.log(success);
-            console.log(this.terem);
+            //console.log(success);
+            //console.log(this.terem);
             this.terem = new TeremModel()
             alert("Sikeres terem létrehozás!")
           },
           (error) => {
-            console.log(error);
+            //console.log(error);
           }
           );
         }
@@ -152,7 +152,7 @@ export class AdminComponent {
       }
 
       this.class.ulesrend = ultetes.trimEnd()
-      console.log(this.class)
+      //console.log(this.class)
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('studmon-token')
@@ -161,13 +161,13 @@ export class AdminComponent {
       .post('http://localhost:5231/OraAPI', this.class, { headers: headers })
       .subscribe(
         (success) => {
-          console.log(success);
-          console.log(this.class);
+          //console.log(success);
+          //console.log(this.class);
           this.class = new OraCreate()
           alert("Sikeres óra létrehozás!")
         },
         (error) => {
-          console.log(error);
+          //console.log(error);
         }
         );
       }
@@ -187,7 +187,7 @@ export class AdminComponent {
 
     public SelectObject(type: string){
       this.selectedObject = type;
-      console.log(this.selectedObject)
+      //console.log(this.selectedObject)
     }
 
     isTeremValid(){

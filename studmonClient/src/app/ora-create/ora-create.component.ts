@@ -54,13 +54,13 @@ export class OraCreateComponent implements OnInit {
         ultetes += "@ "
       }
       this.oraModel.ulesrend = ultetes.trimEnd()
-      console.log(this.oraModel)
+      //console.log(this.oraModel)
       this.http.post<OraCreate>('http://localhost:5231/OraAPI/',this.oraModel)
       .subscribe((resp)=>{
         this.router.navigate(['/mainpage'])
       },
       (error) => {
-        console.log(error)
+        //console.log(error)
       })
     }
   }
@@ -72,7 +72,7 @@ export class OraCreateComponent implements OnInit {
         let ter = new TeremModel
         ter.nev = t.nev
         ter.elrendezes = t.elrendezes
-        console.log(ter)
+        //console.log(ter)
         this.termek.push(ter)
       })
     })

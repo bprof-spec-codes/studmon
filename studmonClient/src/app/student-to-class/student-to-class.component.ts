@@ -32,11 +32,11 @@ export class StudentToClassComponent implements OnInit {
   async getUnSubscribedStudents() {
     await this.route.params.subscribe(params => {
       this.oraId = params['id']
-      console.log(this.oraId)
+      //console.log(this.oraId)
 
       this.http.get<any>('http://localhost:5231/HallgatoAPI')
         .subscribe(resp => {
-          console.log(resp)
+          //console.log(resp)
           resp.map((t: any) => {
             let uss = new studentModel
             uss.nev = t.nev
@@ -51,8 +51,8 @@ export class StudentToClassComponent implements OnInit {
               this.subscribedStudents.push(uss)
             }
           })
-          console.log("NEM FELIRATKOZOTTAK", this.unsubscribedStudents)
-          console.log("FELIRATKOZOTTAK", this.subscribedStudents)
+          //console.log("NEM FELIRATKOZOTTAK", this.unsubscribedStudents)
+          //console.log("FELIRATKOZOTTAK", this.subscribedStudents)
         })
     })
 
@@ -68,7 +68,7 @@ export class StudentToClassComponent implements OnInit {
   }
 
   async addStudentsForm() {
-    console.log(this.addableStudents)
+    //console.log(this.addableStudents)
     await this.addableStudents.forEach(t => {
       let saveTo: any =
       {
@@ -76,7 +76,7 @@ export class StudentToClassComponent implements OnInit {
         hallgatoId: t.neptunKod
       }
 
-      console.log(JSON.stringify(saveTo))
+      //console.log(JSON.stringify(saveTo))
       this.http.post<any>('http://localhost:5231/OMToHMAPI', saveTo)
         .subscribe((resp) => {
           this.addableStudents = []
@@ -89,7 +89,7 @@ export class StudentToClassComponent implements OnInit {
 
   //Hallgató törlése az óráról
   async removeStudent(item: studentModel) {
-    console.log(item)
+    //console.log(item)
     await this.http.get<any>('http://localhost:5231/OMToHMAPI')
       .subscribe((resp) => {
         let keresettKapcsolat = resp.find((t: any) => t.hallgatoId === item.neptunKod && t.oraId === this.oraId)
@@ -103,9 +103,9 @@ export class StudentToClassComponent implements OnInit {
             this.http.get<any>(`http://localhost:5231/OraAPI/${this.oraId}`, { responseType: 'json' })
               .subscribe(resp => {
                 //debugger
-                console.log(resp.ulesRend)
+                //console.log(resp.ulesRend)
                 resp.ulesRend = resp.ulesRend.replace(item.neptunKod, '@')
-                console.log(resp.ulesRend)
+                //console.log(resp.ulesRend)
                 //console.log(JSON.stringify(resp))
                 const returnData = {
                   id: resp.id,

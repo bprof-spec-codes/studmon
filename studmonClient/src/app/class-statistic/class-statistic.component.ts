@@ -31,7 +31,7 @@ export class ClassStatisticComponent {
   private getAllClass() {
     this.http.get<any>('http://localhost:5231/OraAPI')
       .subscribe(resp => {
-        console.log(resp)
+        //console.log(resp)
         resp.map((x: any) => {
           if (x.tanarID === localStorage.getItem('neptun') || "Admin" === localStorage.getItem('user-role')) {
             let c = new classModel()
@@ -49,7 +49,7 @@ export class ClassStatisticComponent {
             this.classes.push(c)
           }
         })
-        console.log(this.classes)
+        //console.log(this.classes)
       })
   }
 
@@ -58,11 +58,11 @@ export class ClassStatisticComponent {
       .subscribe(resp => {
         this.allHallgato = new Array<studentModel>
         this.alkalmakSzama = Array(resp.alkalmakSzama).fill(0)
-        console.log("ADAT", resp)
+        //console.log("ADAT", resp)
 
         resp.hallgatokColl.map((x: any) => {
           let s = new studentModel
-          console.log('HHHH', x)
+          //console.log('HHHH', x)
           s.nev = x.hallgato.nev
           s.neptunKod = x.hallgato.neptunKod
           s.kar = x.hallgato.kar
@@ -76,10 +76,10 @@ export class ClassStatisticComponent {
             k.weekNumber = telj.weekNumber
             s.teljesitmeny.push(k)
           })
-          console.log(s)
+          //console.log(s)
           this.allHallgato.push(s)
         })
-        console.log(this.allHallgato)
+        //console.log(this.allHallgato)
       })
   }
 
