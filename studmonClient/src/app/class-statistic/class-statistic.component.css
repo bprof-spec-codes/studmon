@@ -14,3 +14,13 @@
 .table td, .table th {
   border: 1px solid #2978a0a0;
 }
+
+td.minusOne{
+  background-color: #ff9090 !important;
+}
+td.zero{
+  background-color: rgb(184, 184, 255) !important;
+}
+td.plusOne{
+  background-color: #4fff78 !important;
+}
