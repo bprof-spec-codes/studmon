@@ -17,21 +17,21 @@
   }
 
 
-.selected {
-  background-color: #4fff78;
-  margin: 0 5px !important;
-  color: #000;
-  border: none;
-  transition: .3s;
-  border: solid #21c224 1px;
-  border-left-width: 5px;
-}
+  .selected {
+    background-color: #31e981;
+    margin: 0 5px !important;
+    color: #000;
+    border: none;
+    transition: .3s;
+    border: solid #26bd67 1px;
+    border-left-width: 5px;
+  }
 
-.selected:hover {
-  background-color: #21c224;
-  color: #fff;
-  transition: .3s;
-}
+  .selected:hover {
+    background-color: #26bd67;
+    color: #fff;
+    transition: .3s;
+  }
 
 .selected:focus {
   box-shadow: none;

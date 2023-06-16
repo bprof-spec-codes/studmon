@@ -13,3 +13,31 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.table-warning{
+  --bs-table-bg: #e1efff;
+  --bs-table-striped-bg: #d3e8ff;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #d3e8ff;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #b6d9ff;
+  --bs-table-hover-color: #000;
+  border-color: #1d3557;
+}
+
+
+.table-success{
+  --bs-table-bg: #96c2ff;
+  --bs-table-striped-bg: #7eb0f6;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #7eb0f6;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #67a6fe;
+  --bs-table-hover-color: #000;
+  color: #000;
+  border-color: #1d3557;
+}
+
+.table{
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+}

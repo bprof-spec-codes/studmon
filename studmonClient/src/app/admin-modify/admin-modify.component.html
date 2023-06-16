@@ -32,12 +32,14 @@
             <td>{{ item.nev }}</td>
             <td>{{ item.kar }}</td>
             <td>{{ item.kepzesNev }}</td>
-            <td class="d-flex justify-content-center">
-              <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Hallgato',item.neptunKod)" class="btn btn-sm btn-danger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                </svg>&nbsp;Törlés</button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Hallgato',item.neptunKod)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>&nbsp;Törlés</button>
+              </div>
             </td>
         </ng-container>
       </tbody>
@@ -65,12 +67,14 @@
             <td>{{item.oraKezdet | date:"EEEE" }} | {{item.oraKezdet | date:"HH:mm"}} - {{item.oraVeg | date:"HH:mm"}}</td>
 
             <td>{{ item.alkalmakSzama }}</td>
-            <td class="d-flex justify-content-center">
-              <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Ora',item.id)" class="btn btn-sm btn-danger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-              </svg>&nbsp;Törlés</button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Ora',item.id)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                </svg>&nbsp;Törlés</button>
+              </div>
             </td>
         </ng-container>
       </tbody>
@@ -92,13 +96,15 @@
           <tr>
             <td>{{ item.nev }}</td>
             <td>{{item.elrendezes}}</td>
-            <td class="d-flex justify-content-center">
-              <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Terem',item.nev)" class="btn btn-sm btn-danger">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                </svg>&nbsp;Törlés
-              </button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Terem',item.nev)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>&nbsp;Törlés
+                </button>
+              </div>
             </td>
         </ng-container>
       </tbody>

@@ -1,14 +1,15 @@
 #btn-create{
-  background-color: #ffff84 ;
-  color: #000;
+  background-color: #2d548b ;
+  color: #fff;
   border: none;
   transition: .3s;
   display: flex;
   align-items: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
   justify-content: center;
 }
 
 #btn-create:hover{
-  background-color: #f4f459;
+  background-color: #1d3557;
   transition: .3s;
 }

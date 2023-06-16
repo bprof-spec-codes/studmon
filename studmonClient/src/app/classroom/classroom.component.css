@@ -1,5 +1,5 @@
 .colHely{
-  border-left: 1px solid #2978a0a0;
+  border-left: 1px solid #2d548b6a;
   padding: 0;
   text-align: center;
   min-height: 40px;
@@ -8,11 +8,11 @@
 .wrapper{
   display: block;
   overflow-x: auto;
-  border-bottom:  1px solid #2978a0a0;
+  border-bottom:  1px solid #2d548b6a;
 }
 
 .wrapper-row{
-  border-top:  1px solid #2978a0a0;
+  border-top:  1px solid #2d548b6a;
 }
 
 .hely{
@@ -24,17 +24,17 @@
 }
 
 .minusOne{
-  background-color: #ff9090;
+  background-color: #ff8190;
 }
 .zero{
-  background-color: rgb(184, 184, 255);
+  background-color: #e1efff;
 }
 .plusOne{
-  background-color: #4fff78;
+  background-color: #31e981;
 }
 
 .folyoso{
-  background-color: #2978a0a0;
+  background-color: #757b8b66;
   color: white;
   height: 100%;
   padding-top: 40px
@@ -49,8 +49,13 @@ input:hover, select:hover, label:hover{
 }
 
 .not-completed-radio:checked{
-  background-color: #ff2121;
-  border-color: #ff2121;
+  background-color: #b62233;
+  border-color: #b62233;
+}
+
+.half-completed-radio:checked{
+  background-color: #1d3557;
+  border-color: #1d3557;
 }
 
 .completed-radio:checked{
@@ -59,7 +64,7 @@ input:hover, select:hover, label:hover{
 }
 
 #not-sit-here-btn{
-  color: #901313;
+  color: #1d3557;
   transition: 0.5s;
 }
 
@@ -73,10 +78,10 @@ input:hover, select:hover, label:hover{
 }
 
 .btn-create{
-  background-color: #ffff84;
+  background-color: #2d548b;
   aspect-ratio: 1/1;
   max-width: 40px;
-  color: #000;
+  color: #fff;
   border: none;
   display: flex;
   align-items: center;
@@ -86,7 +91,7 @@ input:hover, select:hover, label:hover{
 }
 
 .btn-create:hover{
-  background-color: #f4f459;
+  background-color: #1d3557;
   box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
   transition: .3s;
 }
@@ -94,13 +99,14 @@ input:hover, select:hover, label:hover{
 .btn-selected{
   aspect-ratio: 1/1;
   max-width: 40px;
-  color: #000;
-  border: none;
+  color: #2d548b;
+  border: 1px solid #2d548b;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f4f459;
-  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
+  background-color: #ffffff00;
+  /*background-color: #2d548b;*/
+  box-shadow: inset 3px 3px 5px #2e333b4a;
 }
 
 

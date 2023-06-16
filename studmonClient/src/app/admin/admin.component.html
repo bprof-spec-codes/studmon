@@ -35,7 +35,7 @@
           <div class="align-items-end">
             <button color="warn"
             (click)="createStudent()"
-            [disabled]="!isHallgatoValid()"  class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+            [disabled]="!isHallgatoValid()"  class="btn w-100 mt-5" id="btn-create">Létrehoz</button>
           </div>
         </form>
       </div>
@@ -84,7 +84,7 @@
           </div>
           <div class="align-items-end">
             <button (click)="createClass()"
-            [disabled]="!isOraValid()" class="btn w-100 btn-primary mt-5">Létrehozás</button>
+            [disabled]="!isOraValid()" class="btn w-100 mt-5" id="btn-create">Létrehozás</button>
           </div>
         </form>
       </div>
@@ -144,7 +144,7 @@
         <div class="align-items-end">
           <button color="warn"
           (click)="createTerem()"
-          [disabled]="isTeremValid()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+          [disabled]="isTeremValid()" class="btn w-100 mt-5" id="btn-create">Létrehoz</button>
         </div>
       </form>
   </div>

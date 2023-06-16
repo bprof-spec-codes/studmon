@@ -5,21 +5,23 @@
 }
 
 .btn-search{
-  background-color: #4fff78;
+  background-color: #31e981;
   margin: 0 5px !important;
   color: #000;
   border: none;
   transition: .3s;
   display: flex;
   align-items: center;
-  border: solid #21c224 1px;
+  border: solid #26bd67 1px;
   border-left-width: 5px;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 .btn-search:hover{
-  background-color: #21c224;
+  background-color: #26bd67;
   color: #fff;
   transition: .3s;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
 }
 
 .btn-search:focus{
@@ -44,11 +46,11 @@
 }
 
 td.minusOne{
-  background-color: #ff9090 !important;
+  background-color: #ff8190 !important;
 }
 td.zero{
-  background-color: rgb(184, 184, 255) !important;
+  background-color: #b6d9ff !important;
 }
 td.plusOne{
-  background-color: #4fff78 !important;
+  background-color: #31e981 !important;
 }
