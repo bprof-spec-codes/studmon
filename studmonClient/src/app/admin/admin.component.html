@@ -1,5 +1,5 @@
 
-  <div class="container-md text-center my-5">
+  <div class="container-md text-center my-4">
     <button class="btn" (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'" >Hallgatók</button>
     <button class="btn" (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
     <button class="btn" (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
@@ -9,21 +9,21 @@
     <div class="row">
       <div class="col">
       <form class="d-flex flex-column">
-          <h2 class="text-center">Hallgató létrehozás</h2>
+          <h2>Hallgató létrehozás</h2>
           <hr>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="nev" class="mb-1">Név</label>
             <input [(ngModel)]="this.student.nev" name="nev" id="nev" class="form-control"
               placeholder="Kiss Ferenc">
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="neptun" class="mb-1">Neptun</label>
             <input [(ngModel)]="this.student.neptunKod"
               [maxlength]="6"
               [minlength]="6"
               pattern="[^\s]+" name="neptunKod" id="neptun" class="form-control" placeholder="ABC123">
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
               <label for="kar" class="mb-1">Kar</label>
               <input [(ngModel)]="this.student.kar" name="kar" id="kar" class="form-control"
                 placeholder="NIK">
@@ -46,29 +46,29 @@
     <div class="row">
       <div class="col">
         <form class="d-flex flex-column">
-          <h2 class="text-center">Óra létrehozás</h2>
+          <h2>Óra létrehozás</h2>
           <hr>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="nev" class="mb-1">Név</label>
             <input [(ngModel)]="this.class.nev" name="nev" id="nev" class="form-control" placeholder="SztGUI">
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="leiras" class="mb-1">Leírás</label>
             <input [(ngModel)]="this.class.leiras" name="leiras" id="leiras" type="text" class="form-control" placeholder="Vizsgás tárgy">
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="terem" class="mb-1">Terem</label>
             <select [(ngModel)]="this.class.teremID" class="form-select"  name="terem" id="terem">
               <option value="{{item.nev}}" *ngFor="let item of termek">{{item.nev}}</option>
             </select>
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="tanar" class="mb-1">Tanár</label>
             <select [(ngModel)]="this.class.tanarId" class="form-select"  name="terem" id="tanar">
               <option value="{{item.neptun}}" *ngFor="let item of teachers">{{item.nev}}</option>
             </select>
           </div>
-          <div class="form-group mb-4">
+          <div class="form-group mb-2">
             <label for="alkalmak" class="mb-1">Alkalmak száma:</label>
             <input  [(ngModel)]="this.class.alkalmakSzama" name="alkalmak" id="alkalmak" type="number" class="form-control" min="1" value="1">
           </div>
@@ -97,19 +97,19 @@
   <div class="form-container" *ngIf="selectedObject=='Terem'">
 
     <form class="d-flex flex-column">
-        <h2 class="text-center">Terem létrehozás</h2>
+        <h2>Terem létrehozás</h2>
         <hr>
-        <div class="form-group mb-4">
+        <div class="form-group mb-2">
           <label for="nev" class="mb-1">Név</label>
           <input [(ngModel)]="this.terem.nev" name="nev" id="nev" class="form-control">
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
           <label for="sorok">Sorok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg></label>
           <input type="number" class="form-control w-50" id="sorok" value="{{rowcount}}" (change)="rowcountChange($event)">
         </div>
-        <div class="form-group my-4">
+        <div class="form-group mb-4">
           <label for="oszlopok">Oszlopok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
           </svg></label>
