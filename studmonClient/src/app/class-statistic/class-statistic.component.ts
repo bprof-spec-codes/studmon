@@ -102,7 +102,7 @@ export class ClassStatisticComponent {
   }
 
   teljesitmenySzamlalo(item: studentModel): boolean {
-    let osszes = item.teljesitmeny.filter(t=> t.classId === this.selectedTargy).length
+    let osszes = item.teljesitmeny.filter(t => t.classId === this.selectedTargy).length
     let egyesek = item.teljesitmeny.filter(t => t.ertekeles === 1 && t.classId === this.selectedTargy).length
     let nullasok = item.teljesitmeny.filter(t => t.ertekeles === 0 && t.classId === this.selectedTargy).length
     if (egyesek === 0) {
@@ -111,12 +111,12 @@ export class ClassStatisticComponent {
     else if (egyesek === 1) {
       if (osszes >= 14) {
         return false
-      } else if ((nullasok / osszes * 100) >= 50) {
+      } else if (((nullasok + egyesek) / osszes * 100) >= 50) {
         return true
       }
     }
     else {
-      if ((nullasok / osszes * 100) >= 50
+      if (((nullasok + egyesek) / osszes * 100) >= 50
         || (egyesek / osszes * 100) >= 60) {
         return true
       }
