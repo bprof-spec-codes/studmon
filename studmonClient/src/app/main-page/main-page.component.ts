@@ -37,8 +37,8 @@ export class MainPageComponent implements OnInit{
     })
     this.http.get<any>('http://localhost:5231/TanarAPI', { headers: headers })
       .subscribe((resp) => {
-        console.log('RESP: ',resp)
-        console.log('LOCALSTORAGE:'+localStorage.getItem('neptun'))
+        //console.log('RESP: ',resp)
+        //console.log('LOCALSTORAGE:'+localStorage.getItem('neptun'))
         let m = resp.find((t: any) => t.id === localStorage.getItem('neptun'))
         this.me.neptun = m.id
         this.me.nev = m.nev
@@ -68,7 +68,7 @@ export class MainPageComponent implements OnInit{
         //console.log(this.myClassesList)
       },
         (error) => {
-          console.log(error)
+          //console.log(error)
         }
       )
   }

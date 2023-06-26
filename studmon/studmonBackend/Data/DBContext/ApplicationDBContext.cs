@@ -155,32 +155,6 @@ namespace studmonBackend.Data.DBContext
             {
                 new Ora()
                 {
-                    Id = "ASD123",
-                    nev = "HFT",
-                    leiras = "hft",
-                    teremID = "BA 1.45",
-                    tanarID = "XY2345",
-                    alkalmakSzama = 12,
-                    oraKezdet = DateTime.Now,
-                    oraVeg = DateTime.Now.AddHours(1),
-                    ulesRend = ""
-                },
-
-                new Ora()
-                {
-                    Id = "ASD234",
-                    nev = "Dimat1",
-                    leiras = "dimat1",
-                    teremID = "BA 1.45",
-                    tanarID = "QWE234",
-                    alkalmakSzama = 13,
-                    oraKezdet = DateTime.Now,
-                    oraVeg = DateTime.Now.AddHours(1),
-                    ulesRend = ""
-                },
-
-                new Ora()
-                {
                     Id = "ASD345",
                     nev = "Vállgazd",
                     leiras = "hft",

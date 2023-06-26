@@ -1,4 +1,116 @@
-.container{
+.colHely{
+  border-left: 1px solid #2d548b6a;
+  padding: 0;
+  text-align: center;
+  min-height: 40px;
+}
+
+.wrapper{
+  display: block;
+  overflow-x: auto;
+  border-bottom:  1px solid #2d548b6a;
+}
+
+.wrapper-row{
+  border-top:  1px solid #2d548b6a;
+}
+
+.hely{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4% 5px 10%;
+}
+
+.minusOne{
+  background-color: #ff8190;
+}
+.zero{
+  background-color: #e1efff;
+}
+.plusOne{
+  background-color: #31e981;
+}
+
+.folyoso{
+  background-color: #757b8b66;
+  color: white;
+  height: 100%;
+  padding-top: 40px
+}
+
+input:focus, select:focus{
+  box-shadow: none !important;
+}
+
+input:hover, select:hover, label:hover{
+  cursor: pointer;
+}
+
+.not-completed-radio:checked{
+  background-color: #b62233;
+  border-color: #b62233;
+}
+
+.half-completed-radio:checked{
+  background-color: #1d3557;
+  border-color: #1d3557;
+}
+
+.completed-radio:checked{
+  background-color: #157216;
+  border-color: #157216;
+}
+
+#not-sit-here-btn{
+  color: #1d3557;
+  transition: 0.5s;
+}
+
+#not-sit-here-btn:hover{
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+#right-align{
+  text-align: right;
+}
+
+.btn-create{
+  background-color: #2d548b;
+  aspect-ratio: 1/1;
+  max-width: 40px;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+  transition: .3s;
+}
+
+.btn-create:hover{
+  background-color: #1d3557;
+  box-shadow: inset 3px 3px 5px rgba(83, 74, 56, 0.284);
+  transition: .3s;
+}
+
+.btn-selected{
+  aspect-ratio: 1/1;
+  max-width: 40px;
+  color: #2d548b;
+  border: 1px solid #2d548b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff00;
+  /*background-color: #2d548b;*/
+  box-shadow: inset 3px 3px 5px #2e333b4a;
+}
+
+
+/*.container{
     min-width: 1500px;
     display: block;
   width: 100%;
@@ -10,12 +122,12 @@ app-cell{
     width: 200px;
     height: 200px;
     margin: 5px 0px 5px 0px;
-    
+
 }
-
-
 
 .emptyspace{
     background-color: white;
 
-}
+}*/
+
+

@@ -5,3 +5,23 @@
 #x{
   color: #ff2121;
 }
+
+.table {
+  border-collapse: collapse;
+  box-shadow: 3px 3px 5px rgba(83, 74, 56, 0.284);
+}
+
+.table td, .table th {
+  border: 1px solid #2978a0a0;
+}
+
+
+td.minusOne{
+  background-color: #ff8190 !important;
+}
+td.zero{
+  background-color: #b6d9ff !important;
+}
+td.plusOne{
+  background-color: #31e981 !important;
+}

@@ -1,41 +1,41 @@
 
-  <div class="button-container">
-    <button (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'" >Hallgatók</button>
-    <button (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
-    <button (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
+  <div class="container-md text-center my-4">
+    <button class="btn" (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'" >Hallgatók</button>
+    <button class="btn" (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
+    <button class="btn" (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
   </div>
-<div class="container">
+<div class="container-md mb-5">
   <div *ngIf="selectedObject=='Hallgato'"  class="container mt-4"  class="form-container">
     <div class="row">
       <div class="col">
       <form class="d-flex flex-column">
-          <h2 class="align-self-center">Hallgató létrehozás</h2>
+          <h2>Hallgató létrehozás</h2>
           <hr>
-          <div class="form-group mb-4">
-            <label class="mb-1">Név</label>
-            <input [(ngModel)]="this.student.nev" name="nev" class="form-control"
+          <div class="form-group mb-2">
+            <label for="nev" class="mb-1">Név</label>
+            <input [(ngModel)]="this.student.nev" name="nev" id="nev" class="form-control"
               placeholder="Kiss Ferenc">
           </div>
-          <div class="form-group mb-4">
-            <label class="mb-1">Neptun</label>
-            <input [(ngModel)]="this.student.neptunKod" 
+          <div class="form-group mb-2">
+            <label for="neptun" class="mb-1">Neptun</label>
+            <input [(ngModel)]="this.student.neptunKod"
               [maxlength]="6"
               [minlength]="6"
-              pattern="[^\s]+" name="neptunKod" class="form-control" placeholder="ABC123">
+              pattern="[^\s]+" name="neptunKod" id="neptun" class="form-control" placeholder="ABC123">
           </div>
-          <div class="form-group mb-4">
-              <label class="mb-1">Kar</label>
-              <input [(ngModel)]="this.student.kar" name="kar" class="form-control"
+          <div class="form-group mb-2">
+              <label for="kar" class="mb-1">Kar</label>
+              <input [(ngModel)]="this.student.kar" name="kar" id="kar" class="form-control"
                 placeholder="NIK">
             </div>
           <div class="form-group">
-            <label class="mb-1">Képzésnév</label>
-            <input [(ngModel)]="this.student.kepzesNev" name="kepzesNev" class="form-control" placeholder="BSC">
+            <label for="kepzesNev" class="mb-1">Képzésnév</label>
+            <input [(ngModel)]="this.student.kepzesNev" name="kepzesNev" id="kepzesNev" class="form-control" placeholder="BSC">
           </div>
           <div class="align-items-end">
             <button color="warn"
-            (click)="createStudent()" 
-            [disabled]="!isHallgatoValid()"  class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+            (click)="createStudent()"
+            [disabled]="!isHallgatoValid()"  class="btn w-100 mt-5" id="btn-create">Létrehoz</button>
           </div>
         </form>
       </div>
@@ -46,31 +46,31 @@
     <div class="row">
       <div class="col">
         <form class="d-flex flex-column">
-          <h2 class="align-self-center">Óra létrehozás</h2>
+          <h2>Óra létrehozás</h2>
           <hr>
-          <div class="form-group mb-4">
-            <label for="exampleInputEmail1" class="mb-1">Név</label>
-            <input [(ngModel)]="this.class.nev" name="nev" class="form-control" placeholder="SztGUI">
+          <div class="form-group mb-2">
+            <label for="nev" class="mb-1">Név</label>
+            <input [(ngModel)]="this.class.nev" name="nev" id="nev" class="form-control" placeholder="SztGUI">
           </div>
-          <div class="form-group mb-4">
-            <label for="exampleInputEmail1" class="mb-1">Leírás</label>
-            <input [(ngModel)]="this.class.leiras" name="leiras" type="text" class="form-control" placeholder="Vizsgás tárgy">
+          <div class="form-group mb-2">
+            <label for="leiras" class="mb-1">Leírás</label>
+            <input [(ngModel)]="this.class.leiras" name="leiras" id="leiras" type="text" class="form-control" placeholder="Vizsgás tárgy">
           </div>
-          <div class="form-group mb-4">
-            <label for="exampleInputEmail1" class="mb-1">Terem</label>
-            <select [(ngModel)]="this.class.teremID" class="form-select"  name="terem" id="">
+          <div class="form-group mb-2">
+            <label for="terem" class="mb-1">Terem</label>
+            <select [(ngModel)]="this.class.teremID" class="form-select"  name="terem" id="terem">
               <option value="{{item.nev}}" *ngFor="let item of termek">{{item.nev}}</option>
             </select>
           </div>
-          <div class="form-group mb-4">
-            <label for="exampleInputEmail1" class="mb-1">Tanár</label>
-            <select [(ngModel)]="this.class.tanarId" class="form-select"  name="terem" id="">
+          <div class="form-group mb-2">
+            <label for="tanar" class="mb-1">Tanár</label>
+            <select [(ngModel)]="this.class.tanarId" class="form-select"  name="terem" id="tanar">
               <option value="{{item.neptun}}" *ngFor="let item of teachers">{{item.nev}}</option>
             </select>
           </div>
-          <div class="form-group mb-4">
-            <label for="exampleInputPassword1" class="mb-1">Alkalmak száma:</label>
-            <input  [(ngModel)]="this.class.alkalmakSzama" name="alkalmak" type="number" class="form-control" min="1" value="1">
+          <div class="form-group mb-2">
+            <label for="alkalmak" class="mb-1">Alkalmak száma:</label>
+            <input  [(ngModel)]="this.class.alkalmakSzama" name="alkalmak" id="alkalmak" type="number" class="form-control" min="1" value="1">
           </div>
           <div class="row">
             <div class="col">
@@ -84,45 +84,71 @@
           </div>
           <div class="align-items-end">
             <button (click)="createClass()"
-            [disabled]="!isOraValid()" class="btn w-100 btn-primary mt-5">Létrehozás</button>
+            [disabled]="!isOraValid()" class="btn w-100 mt-5" id="btn-create">Létrehozás</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  
-  
-  
-  
+
+
+
+
   <div class="form-container" *ngIf="selectedObject=='Terem'">
-  
+
     <form class="d-flex flex-column">
-        <h2 class="align-self-center">Terem létrehozás</h2>
+        <h2>Terem létrehozás</h2>
         <hr>
-        <div class="form-group mb-4">
-          <label class="mb-1">Név</label>
-          <input [(ngModel)]="this.terem.nev" name="nev" class="form-control">
+        <div class="form-group mb-2">
+          <label for="nev" class="mb-1">Név</label>
+          <input [(ngModel)]="this.terem.nev" name="nev" id="nev" class="form-control">
         </div>
-        <h3 style="text-align: center;display: flex;">Terem elrendezés:</h3>
-        <table style="width: 60%; border: 1px solid black;">
+        <div class="form-group mb-2">
+          <label for="sorok">Sorok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></label>
+          <input type="number" class="form-control w-50" id="sorok" value="{{rowcount}}" (change)="rowcountChange($event)">
+        </div>
+        <div class="form-group mb-4">
+          <label for="oszlopok">Oszlopok száma&nbsp;<svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg);" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></label>
+          <input type="number" class="form-control w-50" id="oszlopok" value="{{coloumncount}}" (change)="columncountChange($event)">
+        </div>
+        <h3>Terem elrendezés:
+          <span class="tooltip-own">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+              <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+            </svg>
+            <span class="tooltiptext">Adja meg a sorok és oszlopok számát, majd pipálja be azokat a cellákat, amelyek a folyósóval egyeznek!</span>
+          </span>
+        </h3>
+        <table class="table">
           <tr *ngFor="let row of classroom; let rowIndex = index">
             <td style="text-align: center; height: 40px;"  *ngFor="let checkbox of row; let colIndex = index">
-              <input type="checkbox" style="transform: scale(1.5)" [(ngModel)]="checkbox.checked" [name]="'checkbox-' + rowIndex + '-' + colIndex">
+              <input type="checkbox" style="transform: scale(1.5)" [(ngModel)]="checkbox.checked" [name]="'checkbox-' + rowIndex + '-' + colIndex" id="checkbox-{{rowIndex}}-{{colIndex}}">
             </td>
             </tr>
         </table>
-  
-  
-        
-  
+        <hr>
+        <div class="container-fluid mt-3">
+          <div class="row">
+            <div class="col-12 text-center">
+              Tanári asztal
+            </div>
+          </div>
+        </div>
+
+
+
         <div class="align-items-end">
           <button color="warn"
           (click)="createTerem()"
-          [disabled]="isTeremValid()" class="btn w-100 btn-primary mt-5" >Létrehoz</button>
+          [disabled]="isTeremValid()" class="btn w-100 mt-5" id="btn-create">Létrehoz</button>
         </div>
       </form>
   </div>
-  
-  
-  
+
+
+
 </div>

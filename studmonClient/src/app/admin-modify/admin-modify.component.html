@@ -1,21 +1,29 @@
-<div class="button-container">
-    <button (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'">Hallgatók</button>
-    <button (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
-    <button (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
+<div class="container-md text-center my-4">
+    <button class="btn" (click)="SelectObject('Hallgato')" [class.selected]="selectedObject === 'Hallgato'">Hallgatók</button>
+    <button class="btn" (click)="SelectObject('Ora')" [class.selected]="selectedObject === 'Ora'">Órák</button>
+    <button class="btn" (click)="SelectObject('Terem')" [class.selected]="selectedObject === 'Terem'">Termek</button>
 </div>
-  
 
+
+<div class="container-md">
 
 <ng-container *ngIf="selectedObject=='Hallgato'">
-    <h1>Hallgatók</h1>
-    <table class="table">
+  <div class="container mb-2">
+    <div class="row">
+      <div class="col">
+        <h2>Hallgatók</h2>
+        <hr>
+      </div>
+    </div>
+  </div>
+    <table class="table table-sm table-striped table-warning table-hover">
       <thead>
         <tr>
           <th scope="col">Neptun</th>
           <th scope="col">Név</th>
           <th scope="col">Kar</th>
-          <th scope="col">Képzés</th> 
-          <th scope="col"></th> 
+          <th scope="col">Képzés</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -25,8 +33,14 @@
             <td>{{ item.nev }}</td>
             <td>{{ item.kar }}</td>
             <td>{{ item.kepzesNev }}</td>
-            <td class="narrow-row">
-              <button *ngIf="this.api.isLoggedIn()" (click)="delete('Hallgato',item.neptunKod)" class="red-button">DELETE</button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Hallgato',item.neptunKod)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>&nbsp;Törlés</button>
+              </div>
             </td>
         </ng-container>
       </tbody>
@@ -34,32 +48,41 @@
 </ng-container>
 
 <ng-container *ngIf="selectedObject=='Ora'">
-    <h1>Órák</h1>
-    <table class="table">
+  <div class="container mb-2">
+    <div class="row">
+      <div class="col">
+        <h2>Órák</h2>
+        <hr>
+      </div>
+    </div>
+  </div>
+    <table class="table table-sm table-striped table-warning table-hover">
       <thead>
         <tr>
-          <th scope="col">Id</th>
           <th scope="col">Név</th>
-          <th scope="col">Terem Név</th>
-          <th scope="col">Óra Kezdete</th> 
-          <th scope="col">Óra Vége</th> 
-          <th scope="col">Alkalmak Száma</th> 
+          <th scope="col">Terem neve</th>
+          <th scope="col">Óra ideje</th>
+          <th scope="col">Alkalmak Száma</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <ng-container  *ngFor="let item of subjects; let i = index">
           <tr>
-            <td>{{ item.id }}</td>
             <td>{{ item.nev }}</td>
             <td>{{ item.teremNev }}</td>
-            
-            <td>{{item.oraKezdet}}</td>
 
-            <td>{{ item.oraVeg }}</td>
+            <td>{{item.oraKezdet | date:"EEEE" }} | {{item.oraKezdet | date:"HH:mm"}} - {{item.oraVeg | date:"HH:mm"}}</td>
+
             <td>{{ item.alkalmakSzama }}</td>
-            <td class="narrow-row">
-              <button *ngIf="this.api.isLoggedIn()" (click)="delete('Ora',item.id)" class="red-button">DELETE</button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Ora',item.id)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                </svg>&nbsp;Törlés</button>
+              </div>
             </td>
         </ng-container>
       </tbody>
@@ -67,13 +90,20 @@
 </ng-container>
 
 <ng-container *ngIf="selectedObject=='Terem'">
-    <h1>Termek</h1>
-    <table class="table">
+  <div class="container mb-2">
+    <div class="row">
+      <div class="col">
+        <h2>Termek</h2>
+        <hr>
+      </div>
+    </div>
+  </div>
+    <table class="table table-sm table-striped table-warning table-hover">
       <thead>
         <tr>
           <th scope="col">Név</th>
-          <th scope="col">Elrendezés</th> 
-          <th scope="col"></th> 
+          <th scope="col">Elrendezés</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -81,8 +111,15 @@
           <tr>
             <td>{{ item.nev }}</td>
             <td>{{item.elrendezes}}</td>
-            <td class="narrow-row">
-              <button *ngIf="this.api.isLoggedIn()" (click)="delete('Hallgato',item.nev)" class="red-button">DELETE</button>
+            <td>
+              <div class="d-flex justify-content-center">
+                <button *ngIf="this.api.isLoggedIn()" id="btn-delete" (click)="delete('Terem',item.nev)" class="btn btn-sm btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>&nbsp;Törlés
+                </button>
+              </div>
             </td>
         </ng-container>
       </tbody>
@@ -90,3 +127,4 @@
 </ng-container>
 
 
+</div>
